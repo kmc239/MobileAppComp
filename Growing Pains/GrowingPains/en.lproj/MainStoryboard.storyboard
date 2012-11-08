@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="T9D-cc-QIH">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller - Growing Pains-->
+        <scene sceneID="Omr-Xb-HSV">
+            <objects>
+                <tableViewController id="RIx-S8-kSq" customClass="GPViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="WCZ-dT-Bst">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection id="c9b-he-o9l">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="JournalCell" rowHeight="138" id="6aL-4Y-Lgb">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="138"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="137"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="circle_images.png" translatesAutoresizingMaskIntoConstraints="NO" id="F29-0n-f3o">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="97" id="Hbn-hZ-Oia"/>
+                                                        <constraint firstAttribute="width" constant="274" id="vbC-Q8-1qM"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="F29-0n-f3o" firstAttribute="top" secondItem="6aL-4Y-Lgb" secondAttribute="top" constant="20" type="default" id="UBe-UY-FGM"/>
+                                            <constraint firstAttribute="trailing" secondItem="F29-0n-f3o" secondAttribute="trailing" constant="20" type="default" id="Y1H-QJ-4JT"/>
+                                        </constraints>
+                                    </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="AddCell" id="UfP-ol-sD5">
+                                        <rect key="frame" x="0.0" y="138" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="+ Add" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGS-iV-sd5">
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="xGS-iV-sd5" firstAttribute="centerX" secondItem="UfP-ol-sD5" secondAttribute="centerX" type="default" id="Nc7-66-gZj"/>
+                                            <constraint firstItem="xGS-iV-sd5" firstAttribute="top" secondItem="UfP-ol-sD5" secondAttribute="top" constant="11" id="VoK-xJ-Zge"/>
+                                        </constraints>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="RIx-S8-kSq" id="t4r-rE-oBf"/>
+                            <outlet property="delegate" destination="RIx-S8-kSq" id="NWO-fX-c7O"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Growing Pains" id="Ndz-4t-RGu"/>
+                    <connections>
+                        <segue destination="Cpe-Tv-fb7" kind="push" identifier="openJournal" id="GBU-nv-rCn"/>
+                        <segue destination="fZM-z3-1zu" kind="push" identifier="addJournal" id="irl-xk-rTp"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e9c-Kr-2iL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="216" y="-65"/>
+        </scene>
+        <!--Timeline View Controller - Timeline-->
+        <scene sceneID="QBE-b1-kg8">
+            <objects>
+                <tableViewController id="Cpe-Tv-fb7" customClass="GPTimelineViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="377" sectionHeaderHeight="22" sectionFooterHeight="22" id="U4A-gc-eBp">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <sections>
+                            <tableViewSection id="4gh-6e-zMz">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="424" id="788-YY-ASH">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="424"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="423"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="vertical_timeline.png" translatesAutoresizingMaskIntoConstraints="NO" id="ePV-1b-XPA">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="365" id="5Km-4i-SnR"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hr8-MP-JiW">
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <state key="normal" title="Post New">
+                                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="highlighted">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="postNew:" destination="Cpe-Tv-fb7" eventType="touchUpInside" id="40y-fz-Ayo"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="ePV-1b-XPA" firstAttribute="trailing" secondItem="788-YY-ASH" secondAttribute="trailing" type="default" id="FIa-q7-B33"/>
+                                            <constraint firstItem="ePV-1b-XPA" firstAttribute="top" secondItem="Hr8-MP-JiW" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="VPC-cc-0wt"/>
+                                            <constraint firstAttribute="trailing" secondItem="Hr8-MP-JiW" secondAttribute="trailing" constant="20" type="default" id="XOA-uB-1oV"/>
+                                            <constraint firstItem="ePV-1b-XPA" firstAttribute="leading" secondItem="788-YY-ASH" secondAttribute="leading" type="default" id="cKb-6Z-NMF"/>
+                                            <constraint firstItem="Hr8-MP-JiW" firstAttribute="leading" secondItem="788-YY-ASH" secondAttribute="leading" constant="20" type="default" id="nsX-LX-uVn"/>
+                                            <constraint firstItem="Hr8-MP-JiW" firstAttribute="top" secondItem="788-YY-ASH" secondAttribute="top" constant="7" id="x8C-rX-nzW"/>
+                                        </constraints>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="Cpe-Tv-fb7" id="h2F-CI-n2R"/>
+                            <outlet property="delegate" destination="Cpe-Tv-fb7" id="o1I-XK-V9P"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Timeline" id="6X1-3E-tRU"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AM3-I1-4Ct" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="829" y="-65"/>
+        </scene>
+        <!--Create Journal View Controller - Create Journal-->
+        <scene sceneID="7Iz-Hg-e5K">
+            <objects>
+                <viewController id="fZM-z3-1zu" customClass="GPCreateJournalViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Pwv-tz-7ME">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Who's it for?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6h7-gz-zQd">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="cbn-xP-RU6">
+                                <segments>
+                                    <segment title="Female"/>
+                                    <segment title="Male"/>
+                                </segments>
+                            </segmentedControl>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nT8-Aq-jJ2">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="fZM-z3-1zu" id="eOQ-B2-4Vb"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aPk-1U-KHa">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Create">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="createJournalButton:" destination="fZM-z3-1zu" eventType="touchUpInside" id="th5-fb-ygk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i8T-Hl-evQ">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Birthdate">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="birthdateButton:" destination="fZM-z3-1zu" eventType="touchUpInside" id="7qy-v3-7eY"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="i8T-Hl-evQ" firstAttribute="leading" secondItem="Pwv-tz-7ME" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="3mB-2j-7JS"/>
+                            <constraint firstItem="aPk-1U-KHa" firstAttribute="leading" secondItem="Pwv-tz-7ME" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="4ir-PM-cI0"/>
+                            <constraint firstItem="cbn-xP-RU6" firstAttribute="top" secondItem="Pwv-tz-7ME" secondAttribute="top" constant="139" id="59l-Ja-I8g"/>
+                            <constraint firstAttribute="trailing" secondItem="nT8-Aq-jJ2" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Ba0-E6-8Ms"/>
+                            <constraint firstItem="cbn-xP-RU6" firstAttribute="leading" secondItem="Pwv-tz-7ME" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Dvy-WI-Sd0"/>
+                            <constraint firstItem="i8T-Hl-evQ" firstAttribute="top" secondItem="Pwv-tz-7ME" secondAttribute="top" constant="219" id="JxB-wc-heU"/>
+                            <constraint firstItem="nT8-Aq-jJ2" firstAttribute="leading" secondItem="Pwv-tz-7ME" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Kb1-Xa-msN"/>
+                            <constraint firstAttribute="trailing" secondItem="i8T-Hl-evQ" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Kfd-8t-DCr"/>
+                            <constraint firstAttribute="trailing" secondItem="aPk-1U-KHa" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="PlF-at-2eg"/>
+                            <constraint firstItem="nT8-Aq-jJ2" firstAttribute="top" secondItem="Pwv-tz-7ME" secondAttribute="top" constant="76" id="QDZ-J3-sQg"/>
+                            <constraint firstAttribute="trailing" secondItem="cbn-xP-RU6" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="RRT-uv-5Bi"/>
+                            <constraint firstItem="6h7-gz-zQd" firstAttribute="top" secondItem="Pwv-tz-7ME" secondAttribute="top" constant="26" id="dMG-9x-Jcn"/>
+                            <constraint firstAttribute="bottom" secondItem="aPk-1U-KHa" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="xcF-Cr-Bzt"/>
+                            <constraint firstItem="nT8-Aq-jJ2" firstAttribute="centerX" secondItem="6h7-gz-zQd" secondAttribute="centerX" type="default" id="y09-Ub-oqy"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Create Journal" id="dXb-Uu-iPD"/>
+                    <connections>
+                        <outlet property="gender" destination="cbn-xP-RU6" id="TRm-z7-xoU"/>
+                        <outlet property="name" destination="nT8-Aq-jJ2" id="6Ti-dm-rfV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dpM-lC-mJT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="829" y="-733"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="4gG-d8-C6D">
+            <objects>
+                <navigationController id="T9D-cc-QIH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="KO7-I2-Mdj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="RIx-S8-kSq" kind="relationship" relationship="rootViewController" id="sA7-1i-rrW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="le2-QA-QjF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-310" y="-65"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="circle_images.png" width="389" height="209"/>
+        <image name="vertical_timeline.png" width="348" height="350"/>
+    </resources>
+    <classes>
+        <class className="GPCreateJournalViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GPCreateJournalViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="birthdateButton:"/>
+                <relationship kind="action" name="createJournalButton:"/>
+                <relationship kind="outlet" name="gender" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="name" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="GPTimelineViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GPTimelineViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="postNew:"/>
+            </relationships>
+        </class>
+        <class className="GPViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GPViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="_tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

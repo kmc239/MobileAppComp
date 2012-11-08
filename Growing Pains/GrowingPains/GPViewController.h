@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GPViewController : UIViewController
+@interface GPViewController : UITableViewController <UITableViewDelegate>
+
+@property (nonatomic, retain) IBOutlet UITableView *_tableView;
 
 @end

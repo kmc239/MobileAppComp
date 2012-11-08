@@ -7,13 +7,31 @@
 //
 
 #import "GPAppDelegate.h"
+#import "AFNetworking.h"
 
 @implementation GPAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    return YES;
+  
+  NSURL *url = [NSURL URLWithString:@"http://kylelovesruby.herokuapp.com/posts.json"];
+  NSURLRequest *request = [NSURLRequest requestWithURL:url];
+  AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+    NSLog(@"JSON: %@", JSON);
+    
+    if ([JSON isKindOfClass:[NSDictionary class]]) {
+      NSDictionary *dict = JSON;
+      NSLog(@"keys: %@", [dict allKeys]);
+    }
+    
+  } failure:^(NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON){
+    NSLog(@"Failed: %@",[error localizedDescription]);
+  }];
+  [operation start];
+  
+  
+  return YES;
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

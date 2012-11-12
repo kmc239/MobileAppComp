@@ -40,7 +40,7 @@
   NSLog(@"posting");
   
   
-  NSURL *url = [NSURL URLWithString:@"http://http://kylelovesheroku.herokuapp.com/"];
+  NSURL *url = [NSURL URLWithString:@"http://localhost:3000/"];
   AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
   
   // Create our JSON array using an NSDictionary

@@ -42,10 +42,10 @@
   NSLog(@"selected %@", cellType);
   
   if ([cellType isEqualToString:@"JournalCell"]) {
-    [self performSegueWithIdentifier:@"openJournal" sender:self];
+    [self performSegueWithIdentifier:@"Open Journal" sender:self];
   }
   else if ([cellType isEqualToString:@"AddCell"]) {
-    [self performSegueWithIdentifier:@"addJournal" sender:self];
+    [self performSegueWithIdentifier:@"Add Journal" sender:self];
   }
 }
 

@@ -12,6 +12,7 @@
 
 @property (nonatomic, retain) IBOutlet UITextField *name;
 @property (nonatomic, retain) IBOutlet UISegmentedControl *gender;
+@property (nonatomic, retain) IBOutlet UITextField *birthdate;
 @property (nonatomic, retain) UIActionSheet *actionSheet;
 @property (nonatomic, retain) UIDatePicker *datePicker;
 

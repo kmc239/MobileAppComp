@@ -40,8 +40,8 @@
 }
 
 - (IBAction)birthdateButton:(id)sender {
-  
-  [self showPicker];
+    
+    [self showPicker];
 }
 
 - (IBAction)createJournalButton:(id)sender {
@@ -49,52 +49,67 @@
 
 #pragma mark - TextField Delegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-  if (textField == self.name) {
-    [textField resignFirstResponder];
-  }
-  return NO;
+    if (textField == self.name) {
+        [textField resignFirstResponder];
+    }
+    return NO;
+}
+
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    
+    if (textField == self.birthdate) {
+        [self showPicker];
+        return NO;  // Hide both keyboard and blinking cursor.
+    }
+    
+    return YES;
 }
 
 #pragma mark - Picker methods
 
 - (void)showPicker {
-  
-  _actionSheet = [[UIActionSheet alloc] initWithTitle:nil
-                                             delegate:nil
-                                    cancelButtonTitle:nil
-                               destructiveButtonTitle:nil
-                                    otherButtonTitles:nil];
-  
-  [_actionSheet setActionSheetStyle:UIActionSheetStyleBlackOpaque];
-  
-  CGRect pickerFrame = CGRectMake(0, 40, 0, 0);
-  
-  UIDatePicker *datePickerView = [[UIDatePicker alloc] initWithFrame:pickerFrame];
-  [datePickerView setDatePickerMode:UIDatePickerModeDate];
-  [datePickerView setMaximumDate:[NSDate date]];
-  
-  [self.actionSheet addSubview:datePickerView];
-  
-  UISegmentedControl *closeButton = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObject:@"Close"]];
-  closeButton.momentary = YES;
-  closeButton.frame = CGRectMake(260, 7.0f, 50.0f, 30.0f);
-  closeButton.segmentedControlStyle = UISegmentedControlStyleBar;
-  closeButton.tintColor = [UIColor blackColor];
-  [closeButton addTarget:self action:@selector(dismissActionSheet:) forControlEvents:UIControlEventValueChanged];
-  [_actionSheet addSubview:closeButton];
-  
-  [_actionSheet showInView:[[UIApplication sharedApplication] keyWindow]];
-  
-  [UIView beginAnimations:nil context:nil];
-  [_actionSheet setBounds:CGRectMake(0, 0, 320, 485)];
-  [UIView commitAnimations];
-  
+    
+    _actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                               delegate:nil
+                                      cancelButtonTitle:nil
+                                 destructiveButtonTitle:nil
+                                      otherButtonTitles:nil];
+    
+    [_actionSheet setActionSheetStyle:UIActionSheetStyleBlackOpaque];
+    
+    CGRect pickerFrame = CGRectMake(0, 40, 0, 0);
+    
+    self.datePicker = [[UIDatePicker alloc] initWithFrame:pickerFrame];
+    [self.datePicker setDatePickerMode:UIDatePickerModeDate];
+    [self.datePicker setMaximumDate:[NSDate date]];
+    
+    [self.actionSheet addSubview:self.datePicker];
+    
+    UISegmentedControl *closeButton = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObject:@"Close"]];
+    closeButton.momentary = YES;
+    closeButton.frame = CGRectMake(260, 7.0f, 50.0f, 30.0f);
+    closeButton.segmentedControlStyle = UISegmentedControlStyleBar;
+    closeButton.tintColor = [UIColor blackColor];
+    [closeButton addTarget:self action:@selector(dismissActionSheet:) forControlEvents:UIControlEventValueChanged];
+    [_actionSheet addSubview:closeButton];
+    
+    [_actionSheet showInView:[[UIApplication sharedApplication] keyWindow]];
+    
+    [UIView beginAnimations:nil context:nil];
+    [_actionSheet setBounds:CGRectMake(0, 0, 320, 485)];
+    [UIView commitAnimations];
+    
 }
 
 - (void)dismissActionSheet:(id)sender{
-  // Dismiss the action sheet and set the selected provider
-  [_actionSheet dismissWithClickedButtonIndex:0 animated:YES];
- 
+    // Dismiss the action sheet and set the selected provider
+    [_actionSheet dismissWithClickedButtonIndex:0 animated:YES];
+    
+    NSDate *bday = self.datePicker.date;
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"MM/dd/YYYY"];
+    NSString *dateString = [dateFormat stringFromDate:bday];
+    [self.birthdate setText:dateString];
 }
 
 

@@ -44,9 +44,6 @@
   if ([cellType isEqualToString:@"JournalCell"]) {
     [self performSegueWithIdentifier:@"Open Journal" sender:self];
   }
-  else if ([cellType isEqualToString:@"AddCell"]) {
-    [self performSegueWithIdentifier:@"Add Journal" sender:self];
-  }
 }
 
 @end

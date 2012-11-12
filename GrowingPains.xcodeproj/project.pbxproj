@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		010B28241650D05800F65A34 /* baby-girl.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 010B28231650D05800F65A34 /* baby-girl.jpeg */; };
+		010B28271650E33300F65A34 /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 010B28261650E33300F65A34 /* calendar.png */; };
 		085285371650C5F4002044C6 /* circle_images.png in Resources */ = {isa = PBXBuildFile; fileRef = 085285351650C5F4002044C6 /* circle_images.png */; };
 		085285381650C5F4002044C6 /* vertical_timeline.png in Resources */ = {isa = PBXBuildFile; fileRef = 085285361650C5F4002044C6 /* vertical_timeline.png */; };
 		0852853C1650C616002044C6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 085285391650C616002044C6 /* Default-568h@2x.png */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		010B28231650D05800F65A34 /* baby-girl.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "baby-girl.jpeg"; sourceTree = "<group>"; };
+		010B28261650E33300F65A34 /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar.png; sourceTree = "<group>"; };
 		085285351650C5F4002044C6 /* circle_images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = circle_images.png; path = Art/circle_images.png; sourceTree = "<group>"; };
 		085285361650C5F4002044C6 /* vertical_timeline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = vertical_timeline.png; path = Art/vertical_timeline.png; sourceTree = "<group>"; };
 		085285391650C616002044C6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Art/Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 		085285341650C5DD002044C6 /* Art */ = {
 			isa = PBXGroup;
 			children = (
+				010B28261650E33300F65A34 /* calendar.png */,
 				010B28231650D05800F65A34 /* baby-girl.jpeg */,
 				085285391650C616002044C6 /* Default-568h@2x.png */,
 				0852853A1650C616002044C6 /* Default.png */,
@@ -255,6 +258,7 @@
 				0852853D1650C616002044C6 /* Default.png in Resources */,
 				0852853E1650C616002044C6 /* Default@2x.png in Resources */,
 				010B28241650D05800F65A34 /* baby-girl.jpeg in Resources */,
+				010B28271650E33300F65A34 /* calendar.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

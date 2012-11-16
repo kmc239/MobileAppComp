@@ -8,25 +8,76 @@
         <scene sceneID="Omr-Xb-HSV">
             <objects>
                 <tableViewController id="RIx-S8-kSq" customClass="GPViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="WCZ-dT-Bst">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="WCZ-dT-Bst">
                         <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <sections>
-                            <tableViewSection id="c9b-he-o9l">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="JournalCell" rowHeight="138" id="6aL-4Y-Lgb">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="138"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="137"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                        </sections>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="JournalCell" rowHeight="130" id="6aL-4Y-Lgb">
+                                <rect key="frame" x="0.0" y="22" width="320" height="130"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="129"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DXS-R7-jU4">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="48" id="blb-rf-eTT"/>
+                                                <constraint firstAttribute="height" constant="48" id="sPg-H3-pMP"/>
+                                            </constraints>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H5n-yI-6bb">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="48" id="K65-3p-kue"/>
+                                            </constraints>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gwi-TE-LqV">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="48" id="tn7-fT-kp0"/>
+                                            </constraints>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" tag="4" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cZE-WD-zgk">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="48" id="oOx-bN-ET9"/>
+                                            </constraints>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" tag="5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XiE-My-1NC">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="48" id="oNW-KG-jN9"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Kyle Clegg" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSx-Tw-kGh">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="266" id="Hsk-0u-KwT"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="26"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="XiE-My-1NC" firstAttribute="leading" secondItem="cZE-WD-zgk" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="2fn-ET-Lav"/>
+                                    <constraint firstItem="cZE-WD-zgk" firstAttribute="top" secondItem="Gwi-TE-LqV" secondAttribute="top" type="default" id="2sD-1b-VHJ"/>
+                                    <constraint firstItem="Gwi-TE-LqV" firstAttribute="leading" secondItem="H5n-yI-6bb" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="5dz-2a-KP8"/>
+                                    <constraint firstItem="cZE-WD-zgk" firstAttribute="leading" secondItem="Gwi-TE-LqV" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="7cv-NH-0w9"/>
+                                    <constraint firstItem="Gwi-TE-LqV" firstAttribute="top" secondItem="H5n-yI-6bb" secondAttribute="top" type="default" id="Cgp-Gs-i5h"/>
+                                    <constraint firstItem="cZE-WD-zgk" firstAttribute="bottom" secondItem="Gwi-TE-LqV" secondAttribute="bottom" type="default" id="Fav-kb-guG"/>
+                                    <constraint firstItem="H5n-yI-6bb" firstAttribute="leading" secondItem="DXS-R7-jU4" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="GN7-l2-Nc8"/>
+                                    <constraint firstItem="H5n-yI-6bb" firstAttribute="top" secondItem="DXS-R7-jU4" secondAttribute="top" type="default" id="MtC-Mx-jRh"/>
+                                    <constraint firstItem="bSx-Tw-kGh" firstAttribute="leading" secondItem="6aL-4Y-Lgb" secondAttribute="leading" constant="20" type="default" id="Ww1-3o-1e8"/>
+                                    <constraint firstItem="XiE-My-1NC" firstAttribute="bottom" secondItem="cZE-WD-zgk" secondAttribute="bottom" type="default" id="fkx-Rf-NST"/>
+                                    <constraint firstItem="H5n-yI-6bb" firstAttribute="bottom" secondItem="DXS-R7-jU4" secondAttribute="bottom" type="default" id="nLn-yD-yvp"/>
+                                    <constraint firstItem="bSx-Tw-kGh" firstAttribute="top" secondItem="6aL-4Y-Lgb" secondAttribute="top" constant="14" id="qio-Dy-ISb"/>
+                                    <constraint firstItem="bSx-Tw-kGh" firstAttribute="trailing" secondItem="XiE-My-1NC" secondAttribute="trailing" type="default" id="tYR-qi-6V1"/>
+                                    <constraint firstItem="Gwi-TE-LqV" firstAttribute="bottom" secondItem="H5n-yI-6bb" secondAttribute="bottom" type="default" id="vLI-F7-2mz"/>
+                                    <constraint firstItem="DXS-R7-jU4" firstAttribute="top" secondItem="6aL-4Y-Lgb" secondAttribute="top" constant="61" id="y9f-SH-0Et"/>
+                                    <constraint firstItem="XiE-My-1NC" firstAttribute="top" secondItem="cZE-WD-zgk" secondAttribute="top" type="default" id="yk0-V6-r6x"/>
+                                </constraints>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="RIx-S8-kSq" id="t4r-rE-oBf"/>
                             <outlet property="delegate" destination="RIx-S8-kSq" id="NWO-fX-c7O"/>

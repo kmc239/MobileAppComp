@@ -22,6 +22,7 @@
 		0885CF831613C71F00B357D1 /* GPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0885CF821613C71F00B357D1 /* GPAppDelegate.m */; };
 		0885CF8C1613C71F00B357D1 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0885CF8A1613C71F00B357D1 /* MainStoryboard.storyboard */; };
 		0885CF8F1613C71F00B357D1 /* GPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0885CF8E1613C71F00B357D1 /* GPViewController.m */; };
+		08A361201655F4730091B357 /* cutebaby.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 08A3611F1655F4730091B357 /* cutebaby.jpeg */; };
 		08C067FC16416D27009A7214 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 08C067EA16416D27009A7214 /* AFHTTPClient.m */; };
 		08C067FD16416D27009A7214 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 08C067EC16416D27009A7214 /* AFHTTPRequestOperation.m */; };
 		08C067FE16416D27009A7214 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 08C067EE16416D27009A7214 /* AFImageRequestOperation.m */; };
@@ -60,6 +61,7 @@
 		0885CF8B1613C71F00B357D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		0885CF8D1613C71F00B357D1 /* GPViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GPViewController.h; sourceTree = "<group>"; };
 		0885CF8E1613C71F00B357D1 /* GPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPViewController.m; sourceTree = "<group>"; };
+		08A3611F1655F4730091B357 /* cutebaby.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cutebaby.jpeg; sourceTree = "<group>"; };
 		08C067E916416D27009A7214 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		08C067EA16416D27009A7214 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		08C067EB16416D27009A7214 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 		085285341650C5DD002044C6 /* Art */ = {
 			isa = PBXGroup;
 			children = (
+				08A3611F1655F4730091B357 /* cutebaby.jpeg */,
 				010B28261650E33300F65A34 /* calendar.png */,
 				010B28231650D05800F65A34 /* baby-girl.jpeg */,
 				085285391650C616002044C6 /* Default-568h@2x.png */,
@@ -264,6 +267,7 @@
 				0852853E1650C616002044C6 /* Default@2x.png in Resources */,
 				010B28241650D05800F65A34 /* baby-girl.jpeg in Resources */,
 				010B28271650E33300F65A34 /* calendar.png in Resources */,
+				08A361201655F4730091B357 /* cutebaby.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="OrW-gv-epa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="OrW-gv-epa">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
     <scenes>
-        <!--View Controller - Growing Pains-->
+        <!--Home Screen View Controller - Growing Pains-->
         <scene sceneID="Omr-Xb-HSV">
             <objects>
-                <tableViewController id="RIx-S8-kSq" customClass="GPViewController" sceneMemberID="viewController">
+                <tableViewController id="RIx-S8-kSq" customClass="GPHomeScreenViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="WCZ-dT-Bst">
                         <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -46,7 +46,7 @@
                                                 <constraint firstAttribute="width" constant="48" id="oNW-KG-jN9"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Kyle Clegg" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSx-Tw-kGh">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="6" contentMode="left" text="Kyle Clegg" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bSx-Tw-kGh">
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="266" id="Hsk-0u-KwT"/>
                                             </constraints>
@@ -79,8 +79,8 @@
                         </prototypes>
                         <sections/>
                         <connections>
-                            <outlet property="dataSource" destination="RIx-S8-kSq" id="t4r-rE-oBf"/>
-                            <outlet property="delegate" destination="RIx-S8-kSq" id="NWO-fX-c7O"/>
+                            <outlet property="dataSource" destination="RIx-S8-kSq" id="qwu-3g-Yyp"/>
+                            <outlet property="delegate" destination="RIx-S8-kSq" id="CBE-jU-LNh"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Growing Pains" id="Ndz-4t-RGu">
@@ -92,6 +92,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics" barStyle="blackOpaque"/>
                     <connections>
+                        <outlet property="_tableView" destination="WCZ-dT-Bst" id="joz-Bn-fmS"/>
                         <segue destination="rcS-qh-puN" kind="push" identifier="Open Journal" id="LJC-cj-UBb"/>
                     </connections>
                 </tableViewController>
@@ -586,8 +587,8 @@
                 <relationship kind="outlet" name="name" candidateClass="UITextField"/>
             </relationships>
         </class>
-        <class className="GPViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GPViewController.h"/>
+        <class className="GPHomeScreenViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GPHomeScreenViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="_tableView" candidateClass="UITableView"/>
             </relationships>

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GPHomeScreenViewController : UITableViewController
+@interface GPHomeScreenViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
+
+@property (strong, nonatomic) IBOutlet UITableView *_tableView;
 
 @end

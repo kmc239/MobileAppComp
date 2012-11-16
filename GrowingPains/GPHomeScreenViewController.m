@@ -7,12 +7,15 @@
 //
 
 #import "GPHomeScreenViewController.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface GPHomeScreenViewController ()
 
 @end
 
 @implementation GPHomeScreenViewController
+
+@synthesize _tableView;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -26,6 +29,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+  
+    [self.tableView setRowHeight:130];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -40,84 +45,83 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    NSString *cellType = [tableView cellForRowAtIndexPath:indexPath].reuseIdentifier;
-    
-    NSLog(@"selected %@", cellType);
-    
-    if ([cellType isEqualToString:@"JournalCell"]) {
-        [self performSegueWithIdentifier:@"Open Journal" sender:self];
-    }
+  [tableView deselectRowAtIndexPath:indexPath animated:YES];
+  
+  NSString *cellType = [tableView cellForRowAtIndexPath:indexPath].reuseIdentifier;
+  
+  NSLog(@"selected %@", cellType);
+  
+  if ([cellType isEqualToString:@"JournalCell"]) {
+      [self performSegueWithIdentifier:@"Open Journal" sender:self];
+  }
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+  return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+  return 3;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+  
+	static NSString *CellIdentifier = @"JournalCell";
+	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+  
+  if (cell == nil) {
+    [self tableViewCellWithReuseIdentifier:CellIdentifier];
+  }
+  // Configure the cell...
+  [self configureCell:cell forIndexPath:indexPath];
+
+	return cell;
+}
+
+- (UITableViewCell *)tableViewCellWithReuseIdentifier:(NSString *)identifier {
+	
+	UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+  
+	return cell;
+}
+
+- (void)configureCell:(UITableViewCell *)cell forIndexPath:(NSIndexPath *)indexPath {
+  
+  UILabel *nameLabel = (UILabel *)[cell viewWithTag:6];
+  
+  // We may want to loop through rather than set each individually
+  UIImageView *imageView1 = (UIImageView *)[cell viewWithTag:1];
+  UIImageView *imageView2 = (UIImageView *)[cell viewWithTag:2];
+  
+  nameLabel.text = @"Eva";
+  
+  UIImage* myImage1 = [UIImage imageNamed:@"baby-girl.jpeg"];
+  [imageView1 setImage:myImage1];
+
+  UIImage* myImage2 = [UIImage imageNamed:@"cutebaby.jpeg"];
+  [imageView2 setImage:myImage2];
+  
+  // Make it a circle
+  imageView1.layer.cornerRadius = 25.0;
+  imageView1.layer.masksToBounds = YES;
+  
+  // Add a thin border
+  imageView1.layer.borderColor = [UIColor lightGrayColor].CGColor;
+  imageView1.layer.borderWidth = 1.0;
+
+  // Make it a circle
+  imageView2.layer.cornerRadius = 25.0;
+  imageView2.layer.masksToBounds = YES;
+  
+  // Add a thin border
+  imageView2.layer.borderColor = [UIColor lightGrayColor].CGColor;
+  imageView2.layer.borderWidth = 1.0;
 }
 
 @end

@@ -19,24 +19,24 @@
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+  self = [super initWithStyle:style];
+  if (self) {
+      // Custom initialization
+  }
+  return self;
 }
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-  
-    [self.tableView setRowHeight:130];
+  [super viewDidLoad];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+  [self.tableView setRowHeight:130];
+
+  // Uncomment the following line to preserve selection between presentations.
+  // self.clearsSelectionOnViewWillAppear = NO;
+
+  // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+  // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)didReceiveMemoryWarning
@@ -93,35 +93,25 @@
 
 - (void)configureCell:(UITableViewCell *)cell forIndexPath:(NSIndexPath *)indexPath {
   
-  UILabel *nameLabel = (UILabel *)[cell viewWithTag:6];
+  UILabel *journalNameLabel = (UILabel *)[cell viewWithTag:6];
   
-  // We may want to loop through rather than set each individually
-  UIImageView *imageView1 = (UIImageView *)[cell viewWithTag:1];
-  UIImageView *imageView2 = (UIImageView *)[cell viewWithTag:2];
-  
-  nameLabel.text = @"Eva";
-  
-  UIImage* myImage1 = [UIImage imageNamed:@"baby-girl.jpeg"];
-  [imageView1 setImage:myImage1];
+  // Loop through five images
+  for (int tag = 1; tag <= 5; tag++) {
+    journalNameLabel.text = @"Eva Maria Gonzalez Pereira";   // Change to dynamically load name from db
+    
+    UIImageView *imageView = (UIImageView *)[cell viewWithTag:tag];
+    UIImage *image = [UIImage imageNamed:@"cutebaby.jpeg"];   // Change to dynamically load image from db
+    [imageView setImage:image];
+    
+    // Make image circular
+    imageView.layer.cornerRadius = 24.0;
+    imageView.layer.masksToBounds = YES;
+    
+    // Add a thin border
+//    imageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+//    imageView.layer.borderWidth = 0.5;
+  }
 
-  UIImage* myImage2 = [UIImage imageNamed:@"cutebaby.jpeg"];
-  [imageView2 setImage:myImage2];
-  
-  // Make it a circle
-  imageView1.layer.cornerRadius = 25.0;
-  imageView1.layer.masksToBounds = YES;
-  
-  // Add a thin border
-  imageView1.layer.borderColor = [UIColor lightGrayColor].CGColor;
-  imageView1.layer.borderWidth = 1.0;
-
-  // Make it a circle
-  imageView2.layer.cornerRadius = 25.0;
-  imageView2.layer.masksToBounds = YES;
-  
-  // Add a thin border
-  imageView2.layer.borderColor = [UIColor lightGrayColor].CGColor;
-  imageView2.layer.borderWidth = 1.0;
 }
 
 @end

@@ -45,6 +45,14 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)fetchedData:(NSData *)responseData {
+  // Parse out the json data
+  NSError* error;
+  NSArray* journals = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:&error];
+  
+  NSLog(@"Journals: %@", journals);
+}
+
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -91,9 +99,18 @@
 	return cell;
 }
 
+#define bgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+#define journalsURL [NSURL URLWithString:@"https://lola9.herokuapp.com/journals.josn"]
+
 - (void)configureCell:(UITableViewCell *)cell forIndexPath:(NSIndexPath *)indexPath {
   
   UILabel *journalNameLabel = (UILabel *)[cell viewWithTag:6];
+  
+  dispatch_async(bgQueue, ^{
+    NSData *data = [NSData dataWithContentsOfURL:journalsURL];
+    [self performSelectorOnMainThread:@selector(fetchedData:)
+                           withObject:data waitUntilDone:YES];
+  });
   
   // Loop through five images
   for (int tag = 1; tag <= 5; tag++) {

@@ -26,6 +26,7 @@
 		08848EBA165B1A2800F0EE69 /* GPUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 08848EB9165B1A2800F0EE69 /* GPUser.m */; };
 		08848EC0165B639C00F0EE69 /* GPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08848EBF165B639B00F0EE69 /* GPLoginViewController.m */; };
 		08848EC3165B669100F0EE69 /* GPHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 08848EC2165B669100F0EE69 /* GPHelpers.m */; };
+		08848EC7165B74F500F0EE69 /* GPSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08848EC6165B74F500F0EE69 /* GPSignUpViewController.m */; };
 		0885CF731613C71F00B357D1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0885CF721613C71F00B357D1 /* UIKit.framework */; };
 		0885CF751613C71F00B357D1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0885CF741613C71F00B357D1 /* Foundation.framework */; };
 		0885CF771613C71F00B357D1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0885CF761613C71F00B357D1 /* CoreGraphics.framework */; };
@@ -106,10 +107,12 @@
 		08848EB8165B1A2800F0EE69 /* GPUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUser.h; sourceTree = "<group>"; };
 		08848EB9165B1A2800F0EE69 /* GPUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUser.m; sourceTree = "<group>"; };
 		08848EBB165B5FAF00F0EE69 /* GPModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPModels.h; sourceTree = "<group>"; };
-		08848EBE165B639B00F0EE69 /* GPLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPLoginViewController.h; sourceTree = "<group>"; };
-		08848EBF165B639B00F0EE69 /* GPLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPLoginViewController.m; sourceTree = "<group>"; };
+		08848EBE165B639B00F0EE69 /* GPLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPLoginViewController.h; path = GrowingPains/GPLoginViewController.h; sourceTree = "<group>"; };
+		08848EBF165B639B00F0EE69 /* GPLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPLoginViewController.m; path = GrowingPains/GPLoginViewController.m; sourceTree = "<group>"; };
 		08848EC1165B669100F0EE69 /* GPHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPHelpers.h; path = ../GPHelpers.h; sourceTree = "<group>"; };
 		08848EC2165B669100F0EE69 /* GPHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPHelpers.m; path = ../GPHelpers.m; sourceTree = "<group>"; };
+		08848EC5165B74F500F0EE69 /* GPSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSignUpViewController.h; sourceTree = "<group>"; };
+		08848EC6165B74F500F0EE69 /* GPSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSignUpViewController.m; sourceTree = "<group>"; };
 		0885CF6E1613C71F00B357D1 /* GrowingPains.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrowingPains.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0885CF721613C71F00B357D1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		0885CF741613C71F00B357D1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -122,16 +125,16 @@
 		0885CF821613C71F00B357D1 /* GPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPAppDelegate.m; sourceTree = "<group>"; };
 		0885CF8B1613C71F00B357D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		08A3611F1655F4730091B357 /* cutebaby.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cutebaby.jpeg; sourceTree = "<group>"; };
-		08D126A21638F54D00AD9977 /* GPTimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPTimelineViewController.h; sourceTree = "<group>"; };
-		08D126A31638F54D00AD9977 /* GPTimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPTimelineViewController.m; sourceTree = "<group>"; };
-		08D126AB1638FCC000AD9977 /* GPCreateJournalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPCreateJournalViewController.h; sourceTree = "<group>"; };
-		08D126AC1638FCC000AD9977 /* GPCreateJournalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPCreateJournalViewController.m; sourceTree = "<group>"; };
-		34486A401654B8D00059CA8C /* GPHomeScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPHomeScreenViewController.h; sourceTree = "<group>"; };
-		34486A411654B8D00059CA8C /* GPHomeScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPHomeScreenViewController.m; sourceTree = "<group>"; };
-		3450DF1916576A41005F0A61 /* GPCreateEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPCreateEntryViewController.h; sourceTree = "<group>"; };
-		3450DF1A16576A41005F0A61 /* GPCreateEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPCreateEntryViewController.m; sourceTree = "<group>"; };
-		3450DF3116587128005F0A61 /* GPImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPImagePickerController.h; sourceTree = "<group>"; };
-		3450DF3216587128005F0A61 /* GPImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPImagePickerController.m; sourceTree = "<group>"; };
+		08D126A21638F54D00AD9977 /* GPTimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPTimelineViewController.h; path = GrowingPains/GPTimelineViewController.h; sourceTree = "<group>"; };
+		08D126A31638F54D00AD9977 /* GPTimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPTimelineViewController.m; path = GrowingPains/GPTimelineViewController.m; sourceTree = "<group>"; };
+		08D126AB1638FCC000AD9977 /* GPCreateJournalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPCreateJournalViewController.h; path = GrowingPains/GPCreateJournalViewController.h; sourceTree = "<group>"; };
+		08D126AC1638FCC000AD9977 /* GPCreateJournalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPCreateJournalViewController.m; path = GrowingPains/GPCreateJournalViewController.m; sourceTree = "<group>"; };
+		34486A401654B8D00059CA8C /* GPHomeScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPHomeScreenViewController.h; path = GrowingPains/GPHomeScreenViewController.h; sourceTree = "<group>"; };
+		34486A411654B8D00059CA8C /* GPHomeScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPHomeScreenViewController.m; path = GrowingPains/GPHomeScreenViewController.m; sourceTree = "<group>"; };
+		3450DF1916576A41005F0A61 /* GPCreateEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPCreateEntryViewController.h; path = GrowingPains/GPCreateEntryViewController.h; sourceTree = "<group>"; };
+		3450DF1A16576A41005F0A61 /* GPCreateEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPCreateEntryViewController.m; path = GrowingPains/GPCreateEntryViewController.m; sourceTree = "<group>"; };
+		3450DF3116587128005F0A61 /* GPImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPImagePickerController.h; path = GrowingPains/GPImagePickerController.h; sourceTree = "<group>"; };
+		3450DF3216587128005F0A61 /* GPImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPImagePickerController.m; path = GrowingPains/GPImagePickerController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,6 +200,20 @@
 		08848EC4165B66D100F0EE69 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				08848EBE165B639B00F0EE69 /* GPLoginViewController.h */,
+				08848EBF165B639B00F0EE69 /* GPLoginViewController.m */,
+				08848EC5165B74F500F0EE69 /* GPSignUpViewController.h */,
+				08848EC6165B74F500F0EE69 /* GPSignUpViewController.m */,
+				34486A401654B8D00059CA8C /* GPHomeScreenViewController.h */,
+				34486A411654B8D00059CA8C /* GPHomeScreenViewController.m */,
+				08D126AB1638FCC000AD9977 /* GPCreateJournalViewController.h */,
+				08D126AC1638FCC000AD9977 /* GPCreateJournalViewController.m */,
+				08D126A21638F54D00AD9977 /* GPTimelineViewController.h */,
+				08D126A31638F54D00AD9977 /* GPTimelineViewController.m */,
+				3450DF1916576A41005F0A61 /* GPCreateEntryViewController.h */,
+				3450DF1A16576A41005F0A61 /* GPCreateEntryViewController.m */,
+				3450DF3116587128005F0A61 /* GPImagePickerController.h */,
+				3450DF3216587128005F0A61 /* GPImagePickerController.m */,
 			);
 			name = Controllers;
 			path = ..;
@@ -242,23 +259,11 @@
 			children = (
 				0885CF811613C71F00B357D1 /* GPAppDelegate.h */,
 				0885CF821613C71F00B357D1 /* GPAppDelegate.m */,
+				0885CF8A1613C71F00B357D1 /* MainStoryboard.storyboard */,
 				08848EC1165B669100F0EE69 /* GPHelpers.h */,
 				08848EC2165B669100F0EE69 /* GPHelpers.m */,
 				08848EB7165B139E00F0EE69 /* Models */,
 				08848EC4165B66D100F0EE69 /* Controllers */,
-				0885CF8A1613C71F00B357D1 /* MainStoryboard.storyboard */,
-				08848EBE165B639B00F0EE69 /* GPLoginViewController.h */,
-				08848EBF165B639B00F0EE69 /* GPLoginViewController.m */,
-				34486A401654B8D00059CA8C /* GPHomeScreenViewController.h */,
-				34486A411654B8D00059CA8C /* GPHomeScreenViewController.m */,
-				08D126AB1638FCC000AD9977 /* GPCreateJournalViewController.h */,
-				08D126AC1638FCC000AD9977 /* GPCreateJournalViewController.m */,
-				08D126A21638F54D00AD9977 /* GPTimelineViewController.h */,
-				08D126A31638F54D00AD9977 /* GPTimelineViewController.m */,
-				3450DF1916576A41005F0A61 /* GPCreateEntryViewController.h */,
-				3450DF1A16576A41005F0A61 /* GPCreateEntryViewController.m */,
-				3450DF3116587128005F0A61 /* GPImagePickerController.h */,
-				3450DF3216587128005F0A61 /* GPImagePickerController.m */,
 				085285341650C5DD002044C6 /* Art */,
 				0885CF791613C71F00B357D1 /* Supporting Files */,
 			);
@@ -405,6 +410,7 @@
 				08848EBA165B1A2800F0EE69 /* GPUser.m in Sources */,
 				08848EC0165B639C00F0EE69 /* GPLoginViewController.m in Sources */,
 				08848EC3165B669100F0EE69 /* GPHelpers.m in Sources */,
+				08848EC7165B74F500F0EE69 /* GPSignUpViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

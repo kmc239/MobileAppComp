@@ -17,7 +17,7 @@
   RKLogConfigureByName("RestKit/Network*", RKLogLevelTrace);
 //  RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
   
-  NSURL *myURL = [NSURL URLWithString:NSLocalizedString(@"SERVER_URL", nil)];
+  NSURL *myURL = [NSURL URLWithString:NSLocalizedString(@"TESTING_URL", nil)];
   NSLog(@"the url is %@", myURL);
   
   // Initialize The RestKit objectManager

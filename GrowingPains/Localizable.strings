@@ -7,3 +7,4 @@
 */
 
 "SERVER_URL" = "http://gp99.herokuapp.com";
+"TESTING_URL" = "http://localhost:3000";

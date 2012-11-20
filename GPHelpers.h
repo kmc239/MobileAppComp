@@ -11,5 +11,7 @@
 @interface GPHelpers : NSObject
 
 + (void) showAlertWithMessage:(NSString *)message andHeading:(NSString *)heading;
++ (BOOL) isValidName:(NSString *)name;
++ (BOOL) isValidEmail:(NSString* )emailAddress;
 
 @end

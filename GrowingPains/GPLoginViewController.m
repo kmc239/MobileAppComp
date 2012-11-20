@@ -85,18 +85,15 @@
   
 	int test = [error code];
 	if (test == RKRequestBaseURLOfflineError) {
-    [GPHelpers showAlertWithMessage:NSLocalizedString(@"RESTKIT CONNECTION ERROR", nil) andHeading:NSLocalizedString(@"RESTKIT CONNECTION HEADING", nil)];
+    [GPHelpers showAlertWithMessage:NSLocalizedString(@"RK_CONNECTION_ERROR", nil) andHeading:NSLocalizedString(@"RK_CONNECTION_ERROR_HEADING", nil)];
 		return;
 	}
 }
 
-/**
- * Sent to the delegate when a request has timed out. This is sent when a
- * backgrounded request expired before completion.
- */
+// Sent to the delegate when a request has timed out
 - (void)requestDidTimeout:(RKRequest*)request {
   
-  [GPHelpers showAlertWithMessage:NSLocalizedString(@"RESTKIT LOAD ERROR", nil) andHeading:NSLocalizedString(@"OPERATION FAILED", nil)];
+  [GPHelpers showAlertWithMessage:NSLocalizedString(@"RK_REQUEST_TIMEOUT", nil) andHeading:NSLocalizedString(@"RK_OPERATION_FAILED", nil)];
 }
 
 
@@ -105,9 +102,8 @@
   
   if ([[objects objectAtIndex:0] isKindOfClass:[GPUser class]]) {
     
-    NSLog(@"it's a gpuser");
     GPUser *gpuser = [objects objectAtIndex:0];
-    NSLog(@"user's name is %@", gpuser.name);
+    NSLog(@"The user's name is %@", gpuser.name);
   }
   
 }

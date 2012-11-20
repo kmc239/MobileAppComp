@@ -308,7 +308,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="Yt2-LM-FTO">
-                        <barButtonItem key="rightBarButtonItem" title="Skip" id="q5S-s7-2B7">
+                        <barButtonItem key="rightBarButtonItem" title="Tour" id="q5S-s7-2B7">
                             <connections>
                                 <segue destination="RIx-S8-kSq" kind="push" identifier="Login" id="RV9-Fh-eS4"/>
                             </connections>

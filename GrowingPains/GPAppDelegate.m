@@ -17,14 +17,14 @@
   RKLogConfigureByName("RestKit/Network*", RKLogLevelTrace);
 //  RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
   
-  NSURL *myURL = [NSURL URLWithString:NSLocalizedString(@"TESTING_URL", nil)];
-  NSLog(@"the url is %@", myURL);
+  NSURL *myURL = [NSURL URLWithString:NSLocalizedString(@"SERVER_URL", nil)];
   
   // Initialize The RestKit objectManager
 	RKObjectManager *objectManager = [RKObjectManager objectManagerWithBaseURL:myURL];
 	
   [objectManager setSerializationMIMEType:RKMIMETypeJSON];
   [objectManager setAcceptMIMEType:RKMIMETypeJSON];
+  [objectManager.client setTimeoutInterval:20.0]; // 20 seconds
   RKClient *client = objectManager.client;
   
   // Disable cert validation for now.

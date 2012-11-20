@@ -43,12 +43,25 @@
 
 - (IBAction)signUpPressed:(id)sender {
 
-  NSLog(@"signing up");
-  GPUser *newUser = [[GPUser alloc] init];
-  newUser.name = _firstName.text;
-  newUser.email = _email.text;
-  
-  [[RKObjectManager sharedManager] postObject:newUser delegate:self];
+  // Form validation
+  if (![GPHelpers isValidName:_firstName.text]) {
+    [GPHelpers showAlertWithMessage:NSLocalizedString(@"INVALID_NAME", nil)
+                         andHeading:NSLocalizedString(@"ACCOUNT_NOT_CREATED_HEADING", nil)];
+  }
+  else if (![GPHelpers isValidEmail:_email.text]) {
+    [GPHelpers showAlertWithMessage:NSLocalizedString(@"INVALID_EMAIL", nil)
+                         andHeading:NSLocalizedString(@"ACCOUNT_NOT_CREATED_HEADING", nil)];
+  }
+  else {
+    
+    // If all the required constraints are met, create the new user
+    GPUser *newUser = [[GPUser alloc] init];
+    newUser.name = _firstName.text;
+    newUser.email = _email.text;
+    
+    NSLog(@"signing up new user");
+    [[RKObjectManager sharedManager] postObject:newUser delegate:self];
+  }
 }
 
 #pragma mark - TextField Delegate
@@ -65,7 +78,6 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
   if (alertView.tag == CREATED_TAG) {
     [self.navigationController popViewControllerAnimated:YES];
-    NSLog(@"alertview del");
   }
 }
 
@@ -75,10 +87,10 @@
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
   if ([request isPOST]) {
     if ([response statusCode] == 201) {
-      UIAlertView *successAlert = [[UIAlertView alloc]initWithTitle:@"Account Created"
-                                                            message:@"Your account has been successfully created"
+      UIAlertView *successAlert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"ACCOUNT_CREATED_HEADING", nil)
+                                                            message:NSLocalizedString(@"ACCOUNT_CREATED_MESSAGE", nil)
                                                            delegate:self
-                                                  cancelButtonTitle:NSLocalizedString(@"OK", nil)
+                                                  cancelButtonTitle:NSLocalizedString(@"CANCEL_BUTTON_TITLE", nil)
                                                   otherButtonTitles:nil];
       [successAlert setTag:CREATED_TAG];
       [successAlert show];
@@ -93,7 +105,7 @@
 - (void)request:(RKRequest*)request didFailLoadWithError:(NSError*)error {
 	int test = [error code];
 	if (test == RKRequestBaseURLOfflineError) {
-    [GPHelpers showAlertWithMessage:NSLocalizedString(@"RESTKIT CONNECTION ERROR", nil) andHeading:NSLocalizedString(@"RESTKIT CONNECTION HEADING", nil)];
+    [GPHelpers showAlertWithMessage:NSLocalizedString(@"RK_CONNECTION_ERROR", nil) andHeading:NSLocalizedString(@"RK_CONNECTION_ERROR_HEADING", nil)];
 		return;
 	}
 }
@@ -103,7 +115,7 @@
  * backgrounded request expired before completion.
  */
 - (void)requestDidTimeout:(RKRequest*)request {
-  [GPHelpers showAlertWithMessage:NSLocalizedString(@"RESTKIT LOAD ERROR", nil) andHeading:NSLocalizedString(@"OPERATION FAILED", nil)];
+  [GPHelpers showAlertWithMessage:NSLocalizedString(@"RK_REQUEST_TIMEOUT", nil) andHeading:NSLocalizedString(@"OPERATION FAILED", nil)];
 }
 
 #pragma mark - RestKit objectLoader

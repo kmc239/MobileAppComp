@@ -8,12 +8,40 @@
 
 #import "GPAppDelegate.h"
 #import <RestKit/RestKit.h>
+#import "GPModels.h"
 
 @implementation GPAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  // Override point for customization after application launch.  
+  RKLogConfigureByName("RestKit/Network*", RKLogLevelTrace);
+//  RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
+  
+  NSURL *myURL = [NSURL URLWithString:NSLocalizedString(@"SERVER_URL", nil)];
+  NSLog(@"the url is %@", myURL);
+  
+  // Initialize The RestKit objectManager
+	RKObjectManager *objectManager = [RKObjectManager objectManagerWithBaseURL:myURL];
+	
+  [objectManager setSerializationMIMEType:RKMIMETypeJSON];
+  [objectManager setAcceptMIMEType:RKMIMETypeJSON];
+  RKClient *client = objectManager.client;
+  
+  // Disable cert validation for now.
+  client.disableCertificateValidation = YES;
+  
+  // Object Mappings
+  RKObjectMappingProvider *provider = objectManager.mappingProvider;
+  
+  // Define object mappings
+  RKObjectMapping *userMapping = [GPUser mapping];
+  
+  // Register mappings
+  [provider registerMapping:userMapping withRootKeyPath:@"user"];
+  
+  // Setup routing for POSTs
+  [objectManager.router routeClass:[GPUser class] toResourcePath:@"/users"];
+  
   return YES;
 }
 							

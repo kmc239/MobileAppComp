@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  GrowingPains
+
+  Created by Kyle Clegg on 11/19/12.
+  Copyright (c) 2012 Kyle Clegg. All rights reserved.
+*/
+
+"SERVER_URL" = "http://gp99.herokuapp.com";

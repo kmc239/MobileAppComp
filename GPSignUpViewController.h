@@ -11,10 +11,8 @@
 
 @interface GPSignUpViewController : UIViewController <UITextFieldDelegate, RKObjectLoaderDelegate, RKRequestDelegate, UIAlertViewDelegate>
 
-@property (strong, nonatomic) IBOutlet UITextField *_firstName;
-@property (strong, nonatomic) IBOutlet UITextField *_lastName;
+@property (strong, nonatomic) IBOutlet UITextField *_name;
 @property (strong, nonatomic) IBOutlet UITextField *_email;
-@property (strong, nonatomic) IBOutlet UITextField *_userName;
 @property (strong, nonatomic) IBOutlet UITextField *_password;
 @property (strong, nonatomic) IBOutlet UITextField *_confirmPassword;
 

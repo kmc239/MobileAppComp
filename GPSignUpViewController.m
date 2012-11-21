@@ -18,7 +18,7 @@
 
 @implementation GPSignUpViewController
 
-@synthesize _firstName, _lastName, _email, _userName, _password, _confirmPassword;
+@synthesize _name, _email, _password, _confirmPassword;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -44,7 +44,7 @@
 - (IBAction)signUpPressed:(id)sender {
 
   // Form validation
-  if (![GPHelpers isValidName:_firstName.text]) {
+  if (![GPHelpers isValidName:_name.text]) {
     [GPHelpers showAlertWithMessage:NSLocalizedString(@"INVALID_NAME", nil)
                          andHeading:NSLocalizedString(@"ACCOUNT_NOT_CREATED_HEADING", nil)];
   }
@@ -52,14 +52,28 @@
     [GPHelpers showAlertWithMessage:NSLocalizedString(@"INVALID_EMAIL", nil)
                          andHeading:NSLocalizedString(@"ACCOUNT_NOT_CREATED_HEADING", nil)];
   }
+  else if (![GPHelpers isValidPassword:_password.text]) {
+    [GPHelpers showAlertWithMessage:NSLocalizedString(@"INVALID_PASSWORD", nil)
+                         andHeading:NSLocalizedString(@"ACCOUNT_NOT_CREATED_HEADING", nil)];
+  }
+  else if (![_password.text isEqualToString: _confirmPassword.text]) {
+    [GPHelpers showAlertWithMessage:NSLocalizedString(@"INVALID_CONFIRM_PASSWORD", nil)
+                         andHeading:NSLocalizedString(@"ACCOUNT_NOT_CREATED_HEADING", nil)];
+  }
   else {
     
     // If all the required constraints are met, create the new user
     GPUser *newUser = [[GPUser alloc] init];
-    newUser.name = _firstName.text;
+    newUser.name = _name.text;
     newUser.email = _email.text;
+    newUser.password = _password.text;
     
     NSLog(@"signing up new user");
+
+    // Save Singleton Object
+    GPUserSingleton *sharedUser = [GPUserSingleton sharedGPUserSingleton];
+    [sharedUser setUser:newUser];
+    
     [[RKObjectManager sharedManager] postObject:newUser delegate:self];
   }
 }

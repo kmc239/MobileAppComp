@@ -113,4 +113,10 @@
   NSLog(@"objectLoader failed with error: %@", error);
 }
 
+#pragma mark - Actions
+
+- (IBAction)loginPressed:(id)sender {
+  GPUserSingleton *sharedUser = [GPUserSingleton sharedGPUserSingleton];
+  NSLog(@"shared user's name is %@", sharedUser.name);
+}
 @end

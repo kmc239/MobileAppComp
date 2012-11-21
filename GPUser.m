@@ -16,6 +16,7 @@ static RKObjectMapping *mapping;
 @synthesize email = _email;
 @synthesize userId = _userId;
 @synthesize name = _name;
+@synthesize password = _password;
 @synthesize updatedDate = _updatedDate;
 
 + (void) initialize {
@@ -30,6 +31,7 @@ static RKObjectMapping *mapping;
     [mapping mapKeyPath:@"email" toAttribute:@"email"];
     [mapping mapKeyPath:@"id" toAttribute:@"userId"];
     [mapping mapKeyPath:@"name" toAttribute:@"name"];
+    [mapping mapKeyPath:@"password" toAttribute:@"password"];
     [mapping mapKeyPath:@"updated_at" toAttribute:@"updatedDate"];
   }
 }

@@ -111,29 +111,25 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L0z-ha-gPf">
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gEd-TT-3Ov">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="219" id="dWW-I2-l6i"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                         <connections>
                                             <outlet property="delegate" destination="jtU-ZB-TTb" id="7Ju-VU-BUg"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oCs-FC-J1W">
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="jtU-ZB-TTb" id="DYR-Mf-Cql"/>
-                                        </connections>
-                                    </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dPa-5K-NaG">
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                         <connections>
                                             <outlet property="delegate" destination="jtU-ZB-TTb" id="B4q-iS-uWd"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sgc-wf-A1o">
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                         <connections>
                                             <outlet property="delegate" destination="jtU-ZB-TTb" id="nvV-Lf-5Q8"/>
                                         </connections>
@@ -151,7 +147,7 @@
                                             <action selector="signUpPressed:" destination="jtU-ZB-TTb" eventType="touchUpInside" id="Oaz-lR-pA8"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Eex-7I-Ogl">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Eex-7I-Ogl">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="219" id="JEz-ad-ePq"/>
                                         </constraints>
@@ -161,37 +157,23 @@
                                             <outlet property="delegate" destination="jtU-ZB-TTb" id="l7x-bJ-m6G"/>
                                         </connections>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H1m-b9-YhR">
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="jtU-ZB-TTb" id="TGW-Vb-INE"/>
-                                        </connections>
-                                    </textField>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Sgc-wf-A1o" firstAttribute="trailing" secondItem="dPa-5K-NaG" secondAttribute="trailing" type="default" id="6En-xp-YID"/>
-                                    <constraint firstItem="gEd-TT-3Ov" firstAttribute="trailing" secondItem="oCs-FC-J1W" secondAttribute="trailing" type="default" id="6Va-jD-0dP"/>
-                                    <constraint firstItem="dPa-5K-NaG" firstAttribute="top" secondItem="oCs-FC-J1W" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="7iu-HH-IUn"/>
-                                    <constraint firstItem="CmR-wm-QCg" firstAttribute="leading" secondItem="Sgc-wf-A1o" secondAttribute="leading" type="default" id="DS4-E3-67w"/>
-                                    <constraint firstItem="H1m-b9-YhR" firstAttribute="leading" secondItem="gEd-TT-3Ov" secondAttribute="leading" type="default" id="FIC-Tc-WOw"/>
-                                    <constraint firstItem="dPa-5K-NaG" firstAttribute="trailing" secondItem="oCs-FC-J1W" secondAttribute="trailing" type="default" id="KwI-B7-fRT"/>
-                                    <constraint firstItem="H1m-b9-YhR" firstAttribute="trailing" secondItem="Eex-7I-Ogl" secondAttribute="trailing" type="default" id="LRd-IN-GUQ"/>
-                                    <constraint firstItem="gEd-TT-3Ov" firstAttribute="top" secondItem="H1m-b9-YhR" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="MSa-Jf-4ok"/>
-                                    <constraint firstAttribute="bottom" secondItem="CmR-wm-QCg" secondAttribute="bottom" constant="154" id="MaH-Es-np8"/>
-                                    <constraint firstItem="H1m-b9-YhR" firstAttribute="top" secondItem="Eex-7I-Ogl" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="N7X-2P-d6v"/>
-                                    <constraint firstItem="Sgc-wf-A1o" firstAttribute="top" secondItem="dPa-5K-NaG" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="UuU-DJ-bSS"/>
-                                    <constraint firstItem="Sgc-wf-A1o" firstAttribute="trailing" secondItem="CmR-wm-QCg" secondAttribute="trailing" type="default" id="gxJ-4g-lMa"/>
+                                    <constraint firstItem="Eex-7I-Ogl" firstAttribute="trailing" secondItem="CmR-wm-QCg" secondAttribute="trailing" type="default" id="Fr4-1L-5II"/>
+                                    <constraint firstItem="Sgc-wf-A1o" firstAttribute="centerX" secondItem="L0z-ha-gPf" secondAttribute="centerX" type="default" id="Kjn-Pp-TTs"/>
+                                    <constraint firstItem="dPa-5K-NaG" firstAttribute="leading" secondItem="Sgc-wf-A1o" secondAttribute="leading" type="default" id="Sq8-bY-i9W"/>
+                                    <constraint firstAttribute="trailing" secondItem="gEd-TT-3Ov" secondAttribute="trailing" constant="30" id="TC3-Mh-wkK"/>
+                                    <constraint firstAttribute="bottom" secondItem="CmR-wm-QCg" secondAttribute="bottom" constant="230" id="Z0D-fI-Cds"/>
+                                    <constraint firstItem="dPa-5K-NaG" firstAttribute="trailing" secondItem="Sgc-wf-A1o" secondAttribute="trailing" type="default" id="abq-GI-hKd"/>
+                                    <constraint firstItem="Eex-7I-Ogl" firstAttribute="leading" secondItem="CmR-wm-QCg" secondAttribute="leading" type="default" id="dmx-Ei-nJy"/>
                                     <constraint firstItem="Eex-7I-Ogl" firstAttribute="leading" secondItem="L0z-ha-gPf" secondAttribute="leading" constant="30" id="haA-cw-FgK"/>
-                                    <constraint firstItem="oCs-FC-J1W" firstAttribute="top" secondItem="gEd-TT-3Ov" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="hyf-4d-ki0"/>
-                                    <constraint firstItem="Eex-7I-Ogl" firstAttribute="leading" secondItem="H1m-b9-YhR" secondAttribute="leading" type="default" id="l9F-Pq-xrd"/>
-                                    <constraint firstItem="gEd-TT-3Ov" firstAttribute="leading" secondItem="oCs-FC-J1W" secondAttribute="leading" type="default" id="lWS-aA-bmu"/>
-                                    <constraint firstAttribute="trailing" secondItem="Eex-7I-Ogl" secondAttribute="trailing" constant="31" id="ne3-MP-xFu"/>
-                                    <constraint firstItem="gEd-TT-3Ov" firstAttribute="trailing" secondItem="H1m-b9-YhR" secondAttribute="trailing" type="default" id="pKa-tk-5EB"/>
-                                    <constraint firstItem="CmR-wm-QCg" firstAttribute="top" secondItem="Sgc-wf-A1o" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="rbI-pO-Xqj"/>
+                                    <constraint firstItem="Sgc-wf-A1o" firstAttribute="top" secondItem="dPa-5K-NaG" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="i3d-5a-k8H"/>
+                                    <constraint firstItem="gEd-TT-3Ov" firstAttribute="top" secondItem="Eex-7I-Ogl" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="ktS-NJ-cam"/>
+                                    <constraint firstItem="gEd-TT-3Ov" firstAttribute="trailing" secondItem="dPa-5K-NaG" secondAttribute="trailing" type="default" id="m0i-Vi-1lc"/>
+                                    <constraint firstItem="dPa-5K-NaG" firstAttribute="top" secondItem="gEd-TT-3Ov" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="rLO-v2-XH5"/>
+                                    <constraint firstItem="dPa-5K-NaG" firstAttribute="leading" secondItem="gEd-TT-3Ov" secondAttribute="leading" type="default" id="sQP-Tr-ihS"/>
                                     <constraint firstItem="Eex-7I-Ogl" firstAttribute="top" secondItem="L0z-ha-gPf" secondAttribute="top" constant="29" id="uNL-Bd-cl9"/>
-                                    <constraint firstItem="oCs-FC-J1W" firstAttribute="leading" secondItem="dPa-5K-NaG" secondAttribute="leading" type="default" id="xzA-9D-Oav"/>
-                                    <constraint firstItem="dPa-5K-NaG" firstAttribute="leading" secondItem="Sgc-wf-A1o" secondAttribute="leading" type="default" id="ybb-Xe-nZy"/>
+                                    <constraint firstItem="CmR-wm-QCg" firstAttribute="top" secondItem="Sgc-wf-A1o" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="v0v-6l-F1a"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -207,10 +189,8 @@
                     <connections>
                         <outlet property="_confirmPassword" destination="Sgc-wf-A1o" id="ucU-PK-14b"/>
                         <outlet property="_email" destination="gEd-TT-3Ov" id="956-j5-b05"/>
-                        <outlet property="_firstName" destination="Eex-7I-Ogl" id="4yT-lL-eGr"/>
-                        <outlet property="_lastName" destination="H1m-b9-YhR" id="out-in-dg8"/>
+                        <outlet property="_name" destination="Eex-7I-Ogl" id="GpD-NS-qMf"/>
                         <outlet property="_password" destination="dPa-5K-NaG" id="Ggl-BT-Aqw"/>
-                        <outlet property="_userName" destination="oCs-FC-J1W" id="urf-5e-wb9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XKA-Yk-b1V" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -264,12 +244,15 @@
                                         <state key="highlighted">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="loginPressed:" destination="xGK-Z5-2dP" eventType="touchUpInside" id="dA4-uX-cvw"/>
+                                        </connections>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Y7-MF-xQ5">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Y7-MF-xQ5">
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jgI-Wb-Srf">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jgI-Wb-Srf">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="219" id="TDb-Oh-y8n"/>
                                         </constraints>
@@ -308,7 +291,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="Yt2-LM-FTO">
-                        <barButtonItem key="rightBarButtonItem" title="Tour" id="q5S-s7-2B7">
+                        <barButtonItem key="rightBarButtonItem" title="Skip" id="q5S-s7-2B7">
                             <connections>
                                 <segue destination="RIx-S8-kSq" kind="push" identifier="Login" id="RV9-Fh-eS4"/>
                             </connections>
@@ -656,6 +639,9 @@
         </class>
         <class className="GPLoginViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GPLoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="loginPressed:"/>
+            </relationships>
         </class>
         <class className="GPSignUpViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GPSignUpViewController.h"/>
@@ -663,10 +649,8 @@
                 <relationship kind="action" name="signUpPressed:"/>
                 <relationship kind="outlet" name="_confirmPassword" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="_email" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="_firstName" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="_lastName" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="_name" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="_password" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="_userName" candidateClass="UITextField"/>
             </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">

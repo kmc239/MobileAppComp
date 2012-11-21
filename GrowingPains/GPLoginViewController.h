@@ -11,4 +11,6 @@
 
 @interface GPLoginViewController : UIViewController <RKRequestDelegate, RKObjectLoaderDelegate>
 
+- (IBAction)loginPressed:(id)sender;
+
 @end

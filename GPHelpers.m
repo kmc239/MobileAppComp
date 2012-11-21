@@ -36,4 +36,11 @@
   return [emailTest evaluateWithObject:emailAddress];
 }
 
++ (BOOL) isValidPassword:(NSString *)password {
+	if ([password length] >= 6) {
+		return YES;
+	}
+	return NO;
+}
+
 @end

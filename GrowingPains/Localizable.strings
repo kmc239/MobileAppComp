@@ -28,3 +28,5 @@
 // Form Validation
 "INVALID_NAME" = "Please enter you name";
 "INVALID_EMAIL" = "Please enter a valid email";
+"INVALID_PASSWORD" = "Please enter a valid password - passwords must be at least 6 characters in length";
+"INVALID_CONFIRM_PASSWORD" = "Your passwords do not match";

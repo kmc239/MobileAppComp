@@ -15,6 +15,7 @@
 @property (nonatomic, retain) NSString *email;
 @property NSInteger userId;
 @property (nonatomic, retain) NSString *name;
+@property (nonatomic, retain) NSString *password;
 @property (nonatomic, retain) NSDate *updatedDate;
 
 + (RKObjectMapping *)mapping;

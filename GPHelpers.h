@@ -13,5 +13,6 @@
 + (void) showAlertWithMessage:(NSString *)message andHeading:(NSString *)heading;
 + (BOOL) isValidName:(NSString *)name;
 + (BOOL) isValidEmail:(NSString* )emailAddress;
++ (BOOL) isValidPassword:(NSString *)password;
 
 @end

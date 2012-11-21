@@ -27,6 +27,8 @@
 		08848EC0165B639C00F0EE69 /* GPLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08848EBF165B639B00F0EE69 /* GPLoginViewController.m */; };
 		08848EC3165B669100F0EE69 /* GPHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 08848EC2165B669100F0EE69 /* GPHelpers.m */; };
 		08848EC7165B74F500F0EE69 /* GPSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08848EC6165B74F500F0EE69 /* GPSignUpViewController.m */; };
+		08848ECA165C401A00F0EE69 /* GPUserSingleton.m in Sources */ = {isa = PBXBuildFile; fileRef = 08848EC9165C401A00F0EE69 /* GPUserSingleton.m */; };
+		08848ED0165C43CA00F0EE69 /* GPConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 08848ECF165C43CA00F0EE69 /* GPConstants.m */; };
 		0885CF731613C71F00B357D1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0885CF721613C71F00B357D1 /* UIKit.framework */; };
 		0885CF751613C71F00B357D1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0885CF741613C71F00B357D1 /* Foundation.framework */; };
 		0885CF771613C71F00B357D1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0885CF761613C71F00B357D1 /* CoreGraphics.framework */; };
@@ -113,6 +115,11 @@
 		08848EC2165B669100F0EE69 /* GPHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPHelpers.m; path = ../GPHelpers.m; sourceTree = "<group>"; };
 		08848EC5165B74F500F0EE69 /* GPSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPSignUpViewController.h; sourceTree = "<group>"; };
 		08848EC6165B74F500F0EE69 /* GPSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPSignUpViewController.m; sourceTree = "<group>"; };
+		08848EC8165C401A00F0EE69 /* GPUserSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUserSingleton.h; sourceTree = "<group>"; };
+		08848EC9165C401A00F0EE69 /* GPUserSingleton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUserSingleton.m; sourceTree = "<group>"; };
+		08848ECB165C413F00F0EE69 /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
+		08848ECE165C43CA00F0EE69 /* GPConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPConstants.h; sourceTree = "<group>"; };
+		08848ECF165C43CA00F0EE69 /* GPConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPConstants.m; sourceTree = "<group>"; };
 		0885CF6E1613C71F00B357D1 /* GrowingPains.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrowingPains.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0885CF721613C71F00B357D1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		0885CF741613C71F00B357D1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -189,9 +196,11 @@
 		08848EB7165B139E00F0EE69 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				08848EBB165B5FAF00F0EE69 /* GPModels.h */,
+				08848EC8165C401A00F0EE69 /* GPUserSingleton.h */,
+				08848EC9165C401A00F0EE69 /* GPUserSingleton.m */,
 				08848EB8165B1A2800F0EE69 /* GPUser.h */,
 				08848EB9165B1A2800F0EE69 /* GPUser.m */,
-				08848EBB165B5FAF00F0EE69 /* GPModels.h */,
 			);
 			name = Models;
 			path = ..;
@@ -262,6 +271,9 @@
 				0885CF8A1613C71F00B357D1 /* MainStoryboard.storyboard */,
 				08848EC1165B669100F0EE69 /* GPHelpers.h */,
 				08848EC2165B669100F0EE69 /* GPHelpers.m */,
+				08848ECB165C413F00F0EE69 /* SynthesizeSingleton.h */,
+				08848ECE165C43CA00F0EE69 /* GPConstants.h */,
+				08848ECF165C43CA00F0EE69 /* GPConstants.m */,
 				08848EB7165B139E00F0EE69 /* Models */,
 				08848EC4165B66D100F0EE69 /* Controllers */,
 				085285341650C5DD002044C6 /* Art */,
@@ -411,6 +423,8 @@
 				08848EC0165B639C00F0EE69 /* GPLoginViewController.m in Sources */,
 				08848EC3165B669100F0EE69 /* GPHelpers.m in Sources */,
 				08848EC7165B74F500F0EE69 /* GPSignUpViewController.m in Sources */,
+				08848ECA165C401A00F0EE69 /* GPUserSingleton.m in Sources */,
+				08848ED0165C43CA00F0EE69 /* GPConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

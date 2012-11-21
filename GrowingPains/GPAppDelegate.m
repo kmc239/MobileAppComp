@@ -10,6 +10,12 @@
 #import <RestKit/RestKit.h>
 #import "GPModels.h"
 
+// Used to check if running on simulator or device
+#ifdef __APPLE__
+  #include "TargetConditionals.h"
+#endif
+
+
 @implementation GPAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -17,7 +23,12 @@
   RKLogConfigureByName("RestKit/Network*", RKLogLevelTrace);
 //  RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
   
+  // If on simulator use local web server
+  #if TARGET_IPHONE_SIMULATOR
+  NSURL *myURL = [NSURL URLWithString:NSLocalizedString(@"TESTING_URL", nil)];
+  #elif TARGET_OS_IPHONE
   NSURL *myURL = [NSURL URLWithString:NSLocalizedString(@"SERVER_URL", nil)];
+  #endif
   
   // Initialize The RestKit objectManager
 	RKObjectManager *objectManager = [RKObjectManager objectManagerWithBaseURL:myURL];

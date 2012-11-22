@@ -35,24 +35,4 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-- (IBAction)takePicture:(UIButton *)sender
-{
-//  UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
-//  ipc.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-//  
-//  if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
-//  {
-//    ipc.sourceType = UIImagePickerControllerSourceTypeCamera;
-//  }
-//  else
-//  {
-//    NSLog(@"Camera is not currently available.");
-//  }
-//  
-//  [self.navigationController presentViewController:ipc animated:YES completion:^{
-//    NSLog(@"Modal view should have loaded.");
-//  }];
-}
-
 @end

@@ -46,12 +46,15 @@
   
   // Define object mappings
   RKObjectMapping *userMapping = [GPUser mapping];
+  RKObjectMapping *journalMapping = [GPJournal mapping];
   
   // Register mappings
   [provider registerMapping:userMapping withRootKeyPath:@"user"];
+  [provider registerMapping:journalMapping withRootKeyPath:@"journal"];
   
-  // Setup routing for POSTs
+  // Setup routing for posting, putting, and deleting objects from server
   [objectManager.router routeClass:[GPUser class] toResourcePath:@"/users"];
+  [objectManager.router routeClass:[GPJournal class] toResourcePath:@"/journals"];
   
   return YES;
 }

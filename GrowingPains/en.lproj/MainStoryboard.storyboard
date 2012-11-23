@@ -86,7 +86,7 @@
                     <navigationItem key="navigationItem" title="Growing Pains" id="Ndz-4t-RGu">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="lhG-tf-5q6">
                             <connections>
-                                <segue destination="fZM-z3-1zu" kind="push" identifier="Add New" id="4ib-X3-kYZ"/>
+                                <segue destination="fZM-z3-1zu" kind="push" identifier="Add Journal" id="4ib-X3-kYZ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

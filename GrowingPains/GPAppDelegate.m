@@ -21,7 +21,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   RKLogConfigureByName("RestKit/Network*", RKLogLevelTrace);
-//  RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
+  RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
   
   // If on simulator use local web server
   #if TARGET_IPHONE_SIMULATOR
@@ -41,16 +41,21 @@
   // Disable cert validation for now.
   client.disableCertificateValidation = YES;
   
-  // Object Mappings
+  // Setup provider for object mappings
   RKObjectMappingProvider *provider = objectManager.mappingProvider;
   
   // Define object mappings
   RKObjectMapping *userMapping = [GPUser mapping];
   RKObjectMapping *journalMapping = [GPJournal mapping];
+  RKObjectMapping *journalsMapping = [GPJournals mapping];
+  
+  // Setup nested JSON mappings
+  [journalsMapping mapKeyPath:@"journal" toRelationship:@"journal" withMapping:journalMapping];
   
   // Register mappings
   [provider registerMapping:userMapping withRootKeyPath:@"user"];
   [provider registerMapping:journalMapping withRootKeyPath:@"journal"];
+  [provider registerMapping:journalsMapping withRootKeyPath:@"journals"];
   
   // Setup routing for posting, putting, and deleting objects from server
   [objectManager.router routeClass:[GPUser class] toResourcePath:@"/users"];

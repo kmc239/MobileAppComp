@@ -16,6 +16,7 @@
 		0852853E1650C616002044C6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0852853B1650C616002044C6 /* Default@2x.png */; };
 		087EC509165F8620009E58B0 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 087EC4FE165F856C009E58B0 /* libRestKit.a */; };
 		087EC50C165F8AEE009E58B0 /* GPJournal.m in Sources */ = {isa = PBXBuildFile; fileRef = 087EC50B165F8AEE009E58B0 /* GPJournal.m */; };
+		087EC51C165F99AD009E58B0 /* GPJournals.m in Sources */ = {isa = PBXBuildFile; fileRef = 087EC51B165F99AD009E58B0 /* GPJournals.m */; };
 		08848EAD165AEEB000F0EE69 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08848EA6165AEEAF00F0EE69 /* CFNetwork.framework */; };
 		08848EAE165AEEB000F0EE69 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08848EA7165AEEAF00F0EE69 /* CoreData.framework */; };
 		08848EAF165AEEB000F0EE69 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 08848EA8165AEEAF00F0EE69 /* libxml2.dylib */; };
@@ -101,6 +102,8 @@
 		087EC4F2165F856C009E58B0 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
 		087EC50A165F8AEE009E58B0 /* GPJournal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPJournal.h; sourceTree = "<group>"; };
 		087EC50B165F8AEE009E58B0 /* GPJournal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPJournal.m; sourceTree = "<group>"; };
+		087EC51A165F99AD009E58B0 /* GPJournals.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPJournals.h; sourceTree = "<group>"; };
+		087EC51B165F99AD009E58B0 /* GPJournals.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPJournals.m; sourceTree = "<group>"; };
 		08848EA6165AEEAF00F0EE69 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		08848EA7165AEEAF00F0EE69 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		08848EA8165AEEAF00F0EE69 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
@@ -206,6 +209,8 @@
 				08848EB9165B1A2800F0EE69 /* GPUser.m */,
 				087EC50A165F8AEE009E58B0 /* GPJournal.h */,
 				087EC50B165F8AEE009E58B0 /* GPJournal.m */,
+				087EC51A165F99AD009E58B0 /* GPJournals.h */,
+				087EC51B165F99AD009E58B0 /* GPJournals.m */,
 			);
 			name = Models;
 			path = ..;
@@ -431,6 +436,7 @@
 				08848ECA165C401A00F0EE69 /* GPUserSingleton.m in Sources */,
 				08848ED0165C43CA00F0EE69 /* GPConstants.m in Sources */,
 				087EC50C165F8AEE009E58B0 /* GPJournal.m in Sources */,
+				087EC51C165F99AD009E58B0 /* GPJournals.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

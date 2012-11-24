@@ -11,7 +11,7 @@
 
 @interface GPJournals : NSObject
 
-@property (nonatomic, retain) NSArray *journals;
+@property (nonatomic, retain) NSArray *journal;
 
 + (RKObjectMapping *)mapping;
 

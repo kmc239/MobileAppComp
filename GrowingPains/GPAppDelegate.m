@@ -46,16 +46,16 @@
   
   // Define object mappings
   RKObjectMapping *userMapping = [GPUser mapping];
-  RKObjectMapping *journalMapping = [GPJournal mapping];
   RKObjectMapping *journalsMapping = [GPJournals mapping];
+  RKObjectMapping *journalMapping = [GPJournal mapping];
   
-  // Setup nested JSON mappings
+  // Set up nested mappings
   [journalsMapping mapKeyPath:@"journal" toRelationship:@"journal" withMapping:journalMapping];
   
   // Register mappings
   [provider registerMapping:userMapping withRootKeyPath:@"user"];
-  [provider registerMapping:journalMapping withRootKeyPath:@"journal"];
   [provider registerMapping:journalsMapping withRootKeyPath:@"journals"];
+  [provider registerMapping:journalMapping withRootKeyPath:@"journal"];
   
   // Setup routing for posting, putting, and deleting objects from server
   [objectManager.router routeClass:[GPUser class] toResourcePath:@"/users"];

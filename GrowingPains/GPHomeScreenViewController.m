@@ -47,14 +47,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-//- (void)fetchedData:(NSData *)responseData {
-//  // Parse out the json data
-//  NSError* error;
-//  NSArray* journals = [NSJSONSerialization JSONObjectWithData:responseData options:kNilOptions error:&error];
-//  
-//  NSLog(@"Journals: %@", journals);
-//}
-
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -77,7 +69,14 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  return 3;
+  
+  // If there is no sharedUser or no journals for the given user, return 0 and set a loading/add journals message
+  if ([GPUserSingleton sharedGPUserSingleton] == nil || [GPUserSingleton sharedGPUserSingleton].journals == nil) {
+    return 0;
+  }
+  else {
+    return [GPUserSingleton sharedGPUserSingleton].journals.count;
+  }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -101,22 +100,20 @@
 	return cell;
 }
 
-//#define bgQueue dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-//#define journalsURL [NSURL URLWithString:@"https://lola9.herokuapp.com/journals.josn"]
-
 - (void)configureCell:(UITableViewCell *)cell forIndexPath:(NSIndexPath *)indexPath {
   
-  UILabel *journalNameLabel = (UILabel *)[cell viewWithTag:6];
+  // If there is no sharedUser or no journals for the given user, return
+  if ([GPUserSingleton sharedGPUserSingleton] == nil || [GPUserSingleton sharedGPUserSingleton].journals == nil) {
+    return;
+  }
+
+  GPJournal *currentJournal = [[GPUserSingleton sharedGPUserSingleton].journals objectAtIndex:indexPath.row];
   
-//  dispatch_async(bgQueue, ^{
-//    NSData *data = [NSData dataWithContentsOfURL:journalsURL];
-//    [self performSelectorOnMainThread:@selector(fetchedData:)
-//                           withObject:data waitUntilDone:YES];
-//  });
+  UILabel *journalNameLabel = (UILabel *)[cell viewWithTag:6];
+  journalNameLabel.text = currentJournal.name;
   
   // Loop through five images
   for (int tag = 1; tag <= 5; tag++) {
-    journalNameLabel.text = @"Eva Maria Gonzalez Pereira";   // Change to dynamically load name from db
     
     UIImageView *imageView = (UIImageView *)[cell viewWithTag:tag];
     UIImage *image = [UIImage imageNamed:@"cutebaby.jpeg"];   // Change to dynamically load image from db
@@ -151,7 +148,6 @@
   else if ([request isPOST]) {
     
     NSLog(@"POST finished with status code: %i", [response statusCode]);
-    
 		
   }
   else if ([request isDELETE]) {
@@ -182,20 +178,20 @@
 #pragma mark - RestKit objectLoader
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
   
-  NSLog(@"DID LOAD %i OBJECTS", objects.count);
+  NSLog(@"here");
   
   if ([[objects objectAtIndex:0] isKindOfClass:[GPJournals class]]) {
     
-    NSLog(@"it's a gpjournals");
+    GPJournals *userJournals = [objects objectAtIndex:0];
+    NSLog(@"User has %i journals", userJournals.journal.count);
     
-//    GPJournals *userJournals = [objects objectAtIndex:0];
-//    NSLog(@"User has %i journals", userJournals.journals.count);
-    
-//    // Save Singleton Object
-//    GPUserSingleton *sharedUser = [GPUserSingleton sharedGPUserSingleton];
-//    [sharedUser setUser:loggedInUser];
+    // Save Singleton Object
+    GPUserSingleton *sharedUser = [GPUserSingleton sharedGPUserSingleton];
+    [sharedUser setUserJournals:userJournals.journal];
   }
   
+  // Force the tableview to reload, now with new journal information
+  [self.tableView reloadData];
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error {

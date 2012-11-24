@@ -21,5 +21,6 @@
 
 + (GPUserSingleton *)sharedGPUserSingleton;
 - (void)setUser:(GPUser *)user;
+- (void)setUserJournals:(NSArray *)journals;
 
 @end

@@ -12,7 +12,7 @@
 
 static RKObjectMapping *mapping;
 
-@synthesize journals = _journals;
+@synthesize journal = _journal;
 
 + (void) initialize {
   

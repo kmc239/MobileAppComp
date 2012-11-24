@@ -19,7 +19,8 @@
 @property (nonatomic, retain) NSArray *posts;
 @property (nonatomic, assign) BOOL userIsSet;
 
-+ (GPUserSingleton*)sharedGPUserSingleton;
++ (GPUserSingleton *)sharedGPUserSingleton;
 - (void)setUser:(GPUser *)user;
+- (void)setUserJournals:(NSArray *)journals;
 
 @end

@@ -86,7 +86,7 @@
                     <navigationItem key="navigationItem" title="Growing Pains" id="Ndz-4t-RGu">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="lhG-tf-5q6">
                             <connections>
-                                <segue destination="fZM-z3-1zu" kind="push" identifier="Add New" id="4ib-X3-kYZ"/>
+                                <segue destination="fZM-z3-1zu" kind="push" identifier="Add Journal" id="4ib-X3-kYZ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -345,7 +345,6 @@
                                 </state>
                                 <connections>
                                     <action selector="createJournalButton:" destination="fZM-z3-1zu" eventType="touchUpInside" id="th5-fb-ygk"/>
-                                    <segue destination="rcS-qh-puN" kind="push" identifier="Open Journal" id="Gc7-yf-TCg"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Birthdate" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6Z9-h9-s7u">
@@ -663,8 +662,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Gc7-yf-TCg"/>
-        <segue reference="4Ec-VY-tZd"/>
         <segue reference="RoU-rl-I9D"/>
+        <segue reference="4Ec-VY-tZd"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -28,10 +28,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(GPUserSingleton);
   
   GPUserSingleton *userSingleton = [self sharedGPUserSingleton];
   
-//  kGPUserDefaultsJournals
-//  kGPUserDefaultsPosts
-
-  
   // Check if the user is set (also an NSUserDefaults value)
   NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
   userSingleton.userIsSet = [defaults boolForKey:kGPUserDefaultsUserIsSet];
@@ -50,6 +46,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(GPUserSingleton);
   
   // Setting save to YES by default. This will save the user to NSUserDefaults
   // We can pull this out and put save in as a parameter if we want.
+  // E.G. for a keep me logged in button
   BOOL save = YES;
   
   self.email = user.email;
@@ -73,6 +70,17 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(GPUserSingleton);
     [defaults removeObjectForKey:kGPUserDefaultsUserId];
     [defaults removeObjectForKey:kGPUserDefaultsUserIsSet];
   }
+  [defaults synchronize];
+}
+
+- (void)setUserJournals:(NSArray *)journals {
+    
+  self.journals = journals;
+  
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  
+  // Save journal
+  [defaults setObject:journals forKey:kGPUserDefaultsJournals];
   [defaults synchronize];
 }
 

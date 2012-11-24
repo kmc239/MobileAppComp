@@ -8,6 +8,7 @@
 
 #import "GPLoginViewController.h"
 #import "GPModels.h"
+#import "GPUserSingleton.h"
 #import "GPHelpers.h"
 
 @interface GPLoginViewController ()
@@ -102,8 +103,12 @@
   
   if ([[objects objectAtIndex:0] isKindOfClass:[GPUser class]]) {
     
-    GPUser *gpuser = [objects objectAtIndex:0];
-    NSLog(@"The user's name is %@", gpuser.name);
+    GPUser *loggedInUser = [objects objectAtIndex:0];
+    NSLog(@"The user's name is %@", loggedInUser.name);
+    
+    // Save Singleton Object
+    GPUserSingleton *sharedUser = [GPUserSingleton sharedGPUserSingleton];
+    [sharedUser setUser:loggedInUser];
   }
   
 }

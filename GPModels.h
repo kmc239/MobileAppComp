@@ -8,4 +8,5 @@
 
 #import <Foundation/Foundation.h>
 #import "GPUser.h"
-#import "GPUserSingleton.h"
+#import "GPJournal.h"
+#import "GPJournals.h"

@@ -7,6 +7,7 @@
 //
 
 #import "GPSignUpViewController.h"
+#import "GPUserSingleton.h"
 #import "GPModels.h"
 #import "GPHelpers.h"
 
@@ -110,7 +111,7 @@
       [successAlert show];
     }
     else {
-      [GPHelpers showAlertWithMessage:[NSString stringWithFormat:@"Unexpected Response %i", [response statusCode]] andHeading:@"Account Not Created"];
+      [GPHelpers showAlertWithMessage:[NSString stringWithFormat:@"Unexpected Response %i", [response statusCode]] andHeading:NSLocalizedString(@"ACCOUNT_NOT_CREATED_HEADING", nil)];
     }
   }
 }
@@ -124,10 +125,7 @@
 	}
 }
 
-/**
- * Sent to the delegate when a request has timed out. This is sent when a
- * backgrounded request expired before completion.
- */
+// Sent to the delegate when a request has timed out
 - (void)requestDidTimeout:(RKRequest*)request {
   [GPHelpers showAlertWithMessage:NSLocalizedString(@"RK_REQUEST_TIMEOUT", nil) andHeading:NSLocalizedString(@"OPERATION FAILED", nil)];
 }

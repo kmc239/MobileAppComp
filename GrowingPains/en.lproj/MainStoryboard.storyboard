@@ -413,72 +413,89 @@
         <scene sceneID="GS4-v8-7hA">
             <objects>
                 <viewController title="Create Entry" id="HCE-vT-Llb" customClass="GPCreateEntryViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="vzL-f1-Cdk">
+                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="CLF-1A-MsC">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xf4-y6-rdc">
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
-                                <state key="normal" title="Create Entry">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="So2-zS-nJj" kind="push" identifier="Save Post" id="Rub-2P-7R1"/>
-                                </connections>
-                            </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Include details about this journal entry here." translatesAutoresizingMaskIntoConstraints="NO" id="12A-lH-Dim">
-                                <color key="backgroundColor" red="0.78194754460000004" green="0.78194754460000004" blue="0.78194754460000004" alpha="1" colorSpace="calibratedRGB"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vzL-f1-Cdk">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xf4-y6-rdc">
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                        <state key="normal" title="Create Entry">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="highlighted">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="So2-zS-nJj" kind="push" identifier="Save Post" id="Rub-2P-7R1"/>
+                                        </connections>
+                                    </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Include details about this journal entry here." translatesAutoresizingMaskIntoConstraints="NO" id="12A-lH-Dim">
+                                        <color key="backgroundColor" red="0.78194754460000004" green="0.78194754460000004" blue="0.78194754460000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="52" id="45N-ff-H78"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="HCE-vT-Llb" id="Xuf-xH-XyD"/>
+                                        </connections>
+                                    </textView>
+                                    <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q5U-Es-mrG"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Geocaching" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1B-6P-nuN">
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tDt-aA-VRy">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="320" id="PWZ-zR-qgL"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                        <state key="normal" backgroundImage="TakePhoto.png">
+                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showCameraUI:" destination="HCE-vT-Llb" eventType="touchUpInside" id="CCh-It-oeB"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="52" id="45N-ff-H78"/>
+                                    <constraint firstAttribute="bottom" secondItem="q5U-Es-mrG" secondAttribute="bottom" constant="134" id="4LD-5P-klz"/>
+                                    <constraint firstItem="a1B-6P-nuN" firstAttribute="leading" secondItem="vzL-f1-Cdk" secondAttribute="leading" constant="72" id="7GC-PE-SyD"/>
+                                    <constraint firstItem="xf4-y6-rdc" firstAttribute="top" secondItem="12A-lH-Dim" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="8EH-cc-N5j"/>
+                                    <constraint firstItem="tDt-aA-VRy" firstAttribute="trailing" secondItem="vzL-f1-Cdk" secondAttribute="trailing" type="default" id="AHs-HK-z67"/>
+                                    <constraint firstAttribute="bottom" secondItem="xf4-y6-rdc" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="CfZ-Rs-41O"/>
+                                    <constraint firstItem="q5U-Es-mrG" firstAttribute="leading" secondItem="a1B-6P-nuN" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="G2v-VB-s1y"/>
+                                    <constraint firstItem="tDt-aA-VRy" firstAttribute="top" secondItem="vzL-f1-Cdk" secondAttribute="top" type="default" id="HGM-dM-UWD"/>
+                                    <constraint firstItem="xf4-y6-rdc" firstAttribute="leading" secondItem="vzL-f1-Cdk" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="LAe-fY-kDU"/>
+                                    <constraint firstAttribute="trailing" secondItem="xf4-y6-rdc" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="LXs-7r-8ow"/>
+                                    <constraint firstItem="12A-lH-Dim" firstAttribute="leading" secondItem="vzL-f1-Cdk" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Xfn-jW-PBZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="12A-lH-Dim" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="be5-Mq-EZd"/>
+                                    <constraint firstItem="tDt-aA-VRy" firstAttribute="leading" secondItem="vzL-f1-Cdk" secondAttribute="leading" type="default" id="gCr-jh-BQ6"/>
+                                    <constraint firstAttribute="bottom" secondItem="a1B-6P-nuN" secondAttribute="bottom" constant="136" id="mQa-1f-LoY"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <switch opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q5U-Es-mrG"/>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Geocaching" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1B-6P-nuN">
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tDt-aA-VRy">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="320" id="PWZ-zR-qgL"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                                <state key="normal" backgroundImage="TakePhoto.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="showCameraUI:" destination="HCE-vT-Llb" eventType="touchUpInside" id="CCh-It-oeB"/>
-                                </connections>
-                            </button>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="q5U-Es-mrG" secondAttribute="bottom" constant="134" id="4LD-5P-klz"/>
-                            <constraint firstItem="a1B-6P-nuN" firstAttribute="leading" secondItem="vzL-f1-Cdk" secondAttribute="leading" constant="72" id="7GC-PE-SyD"/>
-                            <constraint firstItem="xf4-y6-rdc" firstAttribute="top" secondItem="12A-lH-Dim" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="8EH-cc-N5j"/>
-                            <constraint firstItem="tDt-aA-VRy" firstAttribute="trailing" secondItem="vzL-f1-Cdk" secondAttribute="trailing" type="default" id="AHs-HK-z67"/>
-                            <constraint firstAttribute="bottom" secondItem="xf4-y6-rdc" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="CfZ-Rs-41O"/>
-                            <constraint firstItem="q5U-Es-mrG" firstAttribute="leading" secondItem="a1B-6P-nuN" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="G2v-VB-s1y"/>
-                            <constraint firstItem="tDt-aA-VRy" firstAttribute="top" secondItem="vzL-f1-Cdk" secondAttribute="top" type="default" id="HGM-dM-UWD"/>
-                            <constraint firstItem="xf4-y6-rdc" firstAttribute="leading" secondItem="vzL-f1-Cdk" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="LAe-fY-kDU"/>
-                            <constraint firstAttribute="trailing" secondItem="xf4-y6-rdc" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="LXs-7r-8ow"/>
-                            <constraint firstItem="12A-lH-Dim" firstAttribute="leading" secondItem="vzL-f1-Cdk" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Xfn-jW-PBZ"/>
-                            <constraint firstAttribute="trailing" secondItem="12A-lH-Dim" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="be5-Mq-EZd"/>
-                            <constraint firstItem="a1B-6P-nuN" firstAttribute="centerY" secondItem="q5U-Es-mrG" secondAttribute="centerY" type="default" id="g4C-eD-Ynv"/>
-                            <constraint firstItem="tDt-aA-VRy" firstAttribute="leading" secondItem="vzL-f1-Cdk" secondAttribute="leading" type="default" id="gCr-jh-BQ6"/>
+                            <constraint firstItem="vzL-f1-Cdk" firstAttribute="trailing" secondItem="CLF-1A-MsC" secondAttribute="trailing" type="default" id="1A8-zU-Rye"/>
+                            <constraint firstItem="vzL-f1-Cdk" firstAttribute="bottom" secondItem="CLF-1A-MsC" secondAttribute="bottom" type="default" id="Dl2-k2-WY2"/>
+                            <constraint firstItem="vzL-f1-Cdk" firstAttribute="centerX" secondItem="CLF-1A-MsC" secondAttribute="centerX" type="default" id="HWH-YE-Z0t"/>
+                            <constraint firstItem="vzL-f1-Cdk" firstAttribute="leading" secondItem="CLF-1A-MsC" secondAttribute="leading" type="default" id="UBx-yZ-Pon"/>
+                            <constraint firstItem="vzL-f1-Cdk" firstAttribute="centerY" secondItem="CLF-1A-MsC" secondAttribute="centerY" type="default" id="XYs-Do-jdi"/>
+                            <constraint firstItem="vzL-f1-Cdk" firstAttribute="top" secondItem="CLF-1A-MsC" secondAttribute="top" type="default" id="jvP-4G-Zw0"/>
                         </constraints>
-                    </view>
+                    </scrollView>
                     <navigationItem key="navigationItem" id="Di6-Jt-JUe"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="scrollView" destination="CLF-1A-MsC" id="DGE-4M-a4y"/>
                         <outlet property="takePictureButton" destination="tDt-aA-VRy" id="dWw-j0-wu2"/>
+                        <outlet property="textView" destination="12A-lH-Dim" id="wtC-tb-YP4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UFM-dY-mei" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -621,7 +638,9 @@
         <class className="GPCreateEntryViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GPCreateEntryViewController.h"/>
             <relationships>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="takePictureButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="textView" candidateClass="UITextView"/>
             </relationships>
         </class>
         <class className="GPCreateJournalViewController" superclassName="UIViewController">

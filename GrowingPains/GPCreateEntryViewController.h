@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GPCreateEntryViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface GPCreateEntryViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextViewDelegate>
 
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIButton *takePictureButton;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
+@property (strong, nonatomic) UIBarButtonItem *dismissKeyboardButton;
 
 @end

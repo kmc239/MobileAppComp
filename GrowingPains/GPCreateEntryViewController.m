@@ -85,11 +85,6 @@
     self.navigationItem.rightBarButtonItem = self.dismissKeyboardButton;
 }
 
-//- (void)textViewDidEndEditing:(UITextView *)textView
-//{
-//    self.navigationItem.rightBarButtonItem = nil;
-//}
-
 - (void)dismissKeyboard:(id)sender
 {
     [self.textView resignFirstResponder];

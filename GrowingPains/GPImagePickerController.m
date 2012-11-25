@@ -7,6 +7,7 @@
 //
 
 #import "GPImagePickerController.h"
+#import <MobileCoreServices/UTCoreTypes.h>
 
 @interface GPImagePickerController ()
 
@@ -27,13 +28,24 @@
 {
     [super viewDidLoad];
     
+    // Check camera availability
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
     {
-      self.sourceType = UIImagePickerControllerSourceTypeCamera;
+        // Set source type
+        self.sourceType = UIImagePickerControllerSourceTypeCamera;
+        
+        // Only capture still images
+        self.mediaTypes = [[NSArray alloc] initWithObjects: (NSString *) kUTTypeImage, nil];
+        
+        // Allow editting
+        self.allowsEditing = YES;
+        
+        // Set the delegate
+        self.delegate = (id <UINavigationControllerDelegate, UIImagePickerControllerDelegate>) self.parentViewController;
     }
     else
     {
-      NSLog(@"Camera is not currently available.");
+        NSLog(@"Camera is not available.");
     }
 }
 

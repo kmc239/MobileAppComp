@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GPCreateEntryViewController : UIViewController
+@interface GPCreateEntryViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+
+@property (weak, nonatomic) IBOutlet UIButton *takePictureButton;
 
 @end

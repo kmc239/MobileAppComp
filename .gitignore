@@ -16,3 +16,6 @@ profile
 *.moved-aside
 DerivedData
 .idea/
+
+# Ignore .orig files resulting from resolved conflicts/merges
+*.orig

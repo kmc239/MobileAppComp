@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="OrW-gv-epa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="11G63" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="OrW-gv-epa">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
     </dependencies>
     <scenes>
         <!--Home Screen View Controller - Growing Pains-->
@@ -414,7 +414,7 @@
             <objects>
                 <viewController title="Create Entry" id="HCE-vT-Llb" customClass="GPCreateEntryViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vzL-f1-Cdk">
-                        <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xf4-y6-rdc">
@@ -446,37 +446,40 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tDt-aA-VRy">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="247" id="FNt-Vx-y0G"/>
-                                    <constraint firstAttribute="width" constant="248" id="uQj-ea-jgn"/>
+                                    <constraint firstAttribute="height" constant="320" id="PWZ-zR-qgL"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
-                                <state key="normal" backgroundImage="baby-girl.jpeg">
+                                <state key="normal" backgroundImage="TakePhoto.png">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="takePicture:" destination="HCE-vT-Llb" eventType="touchUpInside" id="mku-8g-kEW"/>
-                                    <segue destination="zK0-O4-DGK" kind="modal" modalTransitionStyle="flipHorizontal" id="6ru-ZN-ACT"/>
+                                    <action selector="showCameraUI:" destination="HCE-vT-Llb" eventType="touchUpInside" id="CCh-It-oeB"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="tDt-aA-VRy" firstAttribute="top" secondItem="vzL-f1-Cdk" secondAttribute="top" constant="20" symbolic="YES" type="default" id="0e0-rO-lLm"/>
                             <constraint firstAttribute="bottom" secondItem="q5U-Es-mrG" secondAttribute="bottom" constant="134" id="4LD-5P-klz"/>
                             <constraint firstItem="a1B-6P-nuN" firstAttribute="leading" secondItem="vzL-f1-Cdk" secondAttribute="leading" constant="72" id="7GC-PE-SyD"/>
                             <constraint firstItem="xf4-y6-rdc" firstAttribute="top" secondItem="12A-lH-Dim" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="8EH-cc-N5j"/>
+                            <constraint firstItem="tDt-aA-VRy" firstAttribute="trailing" secondItem="vzL-f1-Cdk" secondAttribute="trailing" type="default" id="AHs-HK-z67"/>
                             <constraint firstAttribute="bottom" secondItem="xf4-y6-rdc" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="CfZ-Rs-41O"/>
                             <constraint firstItem="q5U-Es-mrG" firstAttribute="leading" secondItem="a1B-6P-nuN" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="G2v-VB-s1y"/>
+                            <constraint firstItem="tDt-aA-VRy" firstAttribute="top" secondItem="vzL-f1-Cdk" secondAttribute="top" type="default" id="HGM-dM-UWD"/>
                             <constraint firstItem="xf4-y6-rdc" firstAttribute="leading" secondItem="vzL-f1-Cdk" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="LAe-fY-kDU"/>
                             <constraint firstAttribute="trailing" secondItem="xf4-y6-rdc" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="LXs-7r-8ow"/>
                             <constraint firstItem="12A-lH-Dim" firstAttribute="leading" secondItem="vzL-f1-Cdk" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Xfn-jW-PBZ"/>
                             <constraint firstAttribute="trailing" secondItem="12A-lH-Dim" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="be5-Mq-EZd"/>
-                            <constraint firstItem="tDt-aA-VRy" firstAttribute="centerX" secondItem="12A-lH-Dim" secondAttribute="centerX" type="default" id="eoK-8D-01L"/>
                             <constraint firstItem="a1B-6P-nuN" firstAttribute="centerY" secondItem="q5U-Es-mrG" secondAttribute="centerY" type="default" id="g4C-eD-Ynv"/>
+                            <constraint firstItem="tDt-aA-VRy" firstAttribute="leading" secondItem="vzL-f1-Cdk" secondAttribute="leading" type="default" id="gCr-jh-BQ6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Di6-Jt-JUe"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="takePictureButton" destination="tDt-aA-VRy" id="dWw-j0-wu2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UFM-dY-mei" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -610,12 +613,16 @@
         </scene>
     </scenes>
     <resources>
+        <image name="TakePhoto.png" width="1333" height="1333"/>
         <image name="baby-girl.jpeg" width="400" height="300"/>
         <image name="calendar.png" width="385" height="303"/>
     </resources>
     <classes>
         <class className="GPCreateEntryViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GPCreateEntryViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="takePictureButton" candidateClass="UIButton"/>
+            </relationships>
         </class>
         <class className="GPCreateJournalViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GPCreateJournalViewController.h"/>
@@ -662,7 +669,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="RoU-rl-I9D"/>
-        <segue reference="4Ec-VY-tZd"/>
+        <segue reference="Pdr-T7-3jd"/>
+        <segue reference="Rub-2P-7R1"/>
     </inferredMetricsTieBreakers>
 </document>

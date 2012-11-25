@@ -44,6 +44,7 @@
 		34486A421654B8D00059CA8C /* GPHomeScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34486A411654B8D00059CA8C /* GPHomeScreenViewController.m */; };
 		3450DF1B16576A41005F0A61 /* GPCreateEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3450DF1A16576A41005F0A61 /* GPCreateEntryViewController.m */; };
 		3450DF3316587128005F0A61 /* GPImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3450DF3216587128005F0A61 /* GPImagePickerController.m */; };
+		3450DF8B1661DA8F005F0A61 /* TakePhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 3450DF8A1661DA8F005F0A61 /* TakePhoto.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +149,7 @@
 		3450DF1A16576A41005F0A61 /* GPCreateEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPCreateEntryViewController.m; path = GrowingPains/GPCreateEntryViewController.m; sourceTree = "<group>"; };
 		3450DF3116587128005F0A61 /* GPImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPImagePickerController.h; path = GrowingPains/GPImagePickerController.h; sourceTree = "<group>"; };
 		3450DF3216587128005F0A61 /* GPImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPImagePickerController.m; path = GrowingPains/GPImagePickerController.m; sourceTree = "<group>"; };
+		3450DF8A1661DA8F005F0A61 /* TakePhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TakePhoto.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 		085285341650C5DD002044C6 /* Art */ = {
 			isa = PBXGroup;
 			children = (
+				3450DF8A1661DA8F005F0A61 /* TakePhoto.png */,
 				08A3611F1655F4730091B357 /* cutebaby.jpeg */,
 				010B28261650E33300F65A34 /* calendar.png */,
 				010B28231650D05800F65A34 /* baby-girl.jpeg */,
@@ -412,6 +415,7 @@
 				010B28271650E33300F65A34 /* calendar.png in Resources */,
 				08A361201655F4730091B357 /* cutebaby.jpeg in Resources */,
 				08848EB6165B132100F0EE69 /* Localizable.strings in Resources */,
+				3450DF8B1661DA8F005F0A61 /* TakePhoto.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

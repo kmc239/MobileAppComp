@@ -33,7 +33,7 @@
 {
   [super viewDidLoad];
 
-  [self.tableView setRowHeight:130];
+  [self.tableView setRowHeight:134];
 
   // Load journals
   NSLog(@"\n\nGETTING JOURNALS\n\n");
@@ -111,21 +111,28 @@
   
   UILabel *journalNameLabel = (UILabel *)[cell viewWithTag:6];
   journalNameLabel.text = currentJournal.name;
-  
-  // Loop through five images
-  for (int tag = 1; tag <= 5; tag++) {
+//  UILabel *ageLabel = (UILabel *)[cell viewWithTag:7];
+//  ageLabel.text = [NSDate date] - currentJournal.birthDate;
     
-    UIImageView *imageView = (UIImageView *)[cell viewWithTag:tag];
-    UIImage *image = [UIImage imageNamed:@"cutebaby.jpeg"];   // Change to dynamically load image from db
-    [imageView setImage:image];
+  // Add custom psuedo accessory detail
+  UIImageView *arrowImageView = (UIImageView *)[cell viewWithTag:5];
+  UIImage *arrowImage = [UIImage imageNamed:@"arrowImage.png"];
+  [arrowImageView setImage:arrowImage];
+  
+  // Loop through journal images and display them
+  for (int tag = 1; tag <= 4; tag++) {
+    
+    UIImageView *previewImageView = (UIImageView *)[cell viewWithTag:tag];
+    UIImage *previewImage = [UIImage imageNamed:@"cutebaby.jpeg"];   // Dynamically load most recent images from db
+    [previewImageView setImage:previewImage];
     
     // Make image circular
-    imageView.layer.cornerRadius = 24.0;
-    imageView.layer.masksToBounds = YES;
+    previewImageView.layer.cornerRadius = 30.0;
+    previewImageView.layer.masksToBounds = YES;
     
     // Add a thin border
-//    imageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
-//    imageView.layer.borderWidth = 0.5;
+//    previewImageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+//    previewImageView.layer.borderWidth = 0.5;
   }
 }
 

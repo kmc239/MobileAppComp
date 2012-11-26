@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <RestKit/RestKit.h>
 
-@interface GPHomeScreenViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource>
+@interface GPHomeScreenViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, RKRequestDelegate, RKObjectLoaderDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *_tableView;
 

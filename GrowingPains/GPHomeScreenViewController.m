@@ -8,6 +8,9 @@
 
 #import "GPHomeScreenViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "GPHelpers.h"
+#import "GPModels.h"
+#import "GPUserSingleton.h"
 
 @interface GPHomeScreenViewController ()
 
@@ -32,11 +35,10 @@
 
   [self.tableView setRowHeight:130];
 
-  // Uncomment the following line to preserve selection between presentations.
-  // self.clearsSelectionOnViewWillAppear = NO;
-
-  // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-  // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+  // Load journals
+  NSLog(@"\n\nGETTING JOURNALS\n\n");
+  NSString *getJournalsURL = [NSString stringWithFormat:@"/users/%i/journals.json", [GPUserSingleton sharedGPUserSingleton].userId];
+  [[RKObjectManager sharedManager] loadObjectsAtResourcePath:getJournalsURL delegate:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,7 +69,14 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  return 3;
+  
+  // If there is no sharedUser or no journals for the given user, return 0 and set a loading/add journals message
+  if ([GPUserSingleton sharedGPUserSingleton] == nil || [GPUserSingleton sharedGPUserSingleton].journals == nil) {
+    return 0;
+  }
+  else {
+    return [GPUserSingleton sharedGPUserSingleton].journals.count;
+  }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -93,11 +102,18 @@
 
 - (void)configureCell:(UITableViewCell *)cell forIndexPath:(NSIndexPath *)indexPath {
   
+  // If there is no sharedUser or no journals for the given user, return
+  if ([GPUserSingleton sharedGPUserSingleton] == nil || [GPUserSingleton sharedGPUserSingleton].journals == nil) {
+    return;
+  }
+
+  GPJournal *currentJournal = [[GPUserSingleton sharedGPUserSingleton].journals objectAtIndex:indexPath.row];
+  
   UILabel *journalNameLabel = (UILabel *)[cell viewWithTag:6];
+  journalNameLabel.text = currentJournal.name;
   
   // Loop through five images
   for (int tag = 1; tag <= 5; tag++) {
-    journalNameLabel.text = @"Eva Maria Gonzalez Pereira";   // Change to dynamically load name from db
     
     UIImageView *imageView = (UIImageView *)[cell viewWithTag:tag];
     UIImage *image = [UIImage imageNamed:@"cutebaby.jpeg"];   // Change to dynamically load image from db
@@ -111,7 +127,77 @@
 //    imageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
 //    imageView.layer.borderWidth = 0.5;
   }
-
 }
+
+#pragma mark - RestKit Calls
+
+// Sent when a request has finished loading
+- (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
+  if ([request isGET]) {
+    
+    if ([response isOK]) {
+      
+      if ([response isOK]) {
+        
+        NSString* responseString = [response bodyAsString];
+        NSLog(@"Response is OK:\n\n%@", responseString);
+        
+      }
+    }
+  }
+  else if ([request isPOST]) {
+    
+    NSLog(@"POST finished with status code: %i", [response statusCode]);
+		
+  }
+  else if ([request isDELETE]) {
+    
+    if ([response isNotFound]) {
+      NSLog(@"The resource path '%@' was not found.", [request resourcePath]);
+    }
+	}
+}
+
+// Sent when a request has failed due to an error
+- (void)request:(RKRequest*)request didFailLoadWithError:(NSError*)error {
+  
+	int test = [error code];
+	if (test == RKRequestBaseURLOfflineError) {
+    [GPHelpers showAlertWithMessage:NSLocalizedString(@"RK_CONNECTION_ERROR", nil) andHeading:NSLocalizedString(@"RK_CONNECTION_ERROR_HEADING", nil)];
+		return;
+	}
+}
+
+// Sent to the delegate when a request has timed out
+- (void)requestDidTimeout:(RKRequest*)request {
+  
+  [GPHelpers showAlertWithMessage:NSLocalizedString(@"RK_REQUEST_TIMEOUT", nil) andHeading:NSLocalizedString(@"RK_OPERATION_FAILED", nil)];
+}
+
+
+#pragma mark - RestKit objectLoader
+- (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
+  
+  NSLog(@"here");
+  
+  if ([[objects objectAtIndex:0] isKindOfClass:[GPJournals class]]) {
+    
+    GPJournals *userJournals = [objects objectAtIndex:0];
+    NSLog(@"User has %i journals", userJournals.journal.count);
+    
+    // Save Singleton Object
+    GPUserSingleton *sharedUser = [GPUserSingleton sharedGPUserSingleton];
+    [sharedUser setUserJournals:userJournals.journal];
+  }
+  
+  // Force the tableview to reload, now with new journal information
+  [self.tableView reloadData];
+}
+
+- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error {
+  
+  NSLog(@"objectLoader failed with error: %@", error);
+}
+
 
 @end

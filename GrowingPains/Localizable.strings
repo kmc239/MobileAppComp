@@ -1,0 +1,38 @@
+/* 
+  Localizable.strings
+  GrowingPains
+
+  Collection of static strings used throughout the app.
+  Allows for a single point of control in maintaining strings.
+ 
+  Created by Kyle Clegg on 11/19/12.
+  Copyright (c) 2012 Kyle Clegg. All rights reserved.
+*/
+
+// RestKit
+"SERVER_URL" = "http://gp99.herokuapp.com";
+"TESTING_URL" = "http://localhost:3000";
+"RK_CONNECTION_ERROR" = "Could not connect to the server, please try again later";
+"RK_CONNECTION_ERROR_HEADING" = "Connection Error";
+"RK_REQUEST_TIMEOUT" = "Request timed out, please try again later";
+"RK_OPERATION_FAILED" = "Operation Failed";
+
+// General
+"CANCEL_BUTTON_TITLE" = "OK";
+
+// Sign Up
+"ACCOUNT_CREATED_HEADING" = "Account Created";
+"ACCOUNT_CREATED_MESSAGE" = "Your account has been successfully created";
+"ACCOUNT_NOT_CREATED_HEADING" = "Account Not Created";
+
+// Form Validation
+"INVALID_BIRTHDATE" = "Please enter a birthdate";
+"INVALID_NAME" = "Please enter you name";
+"INVALID_EMAIL" = "Please enter a valid email";
+"INVALID_PASSWORD" = "Please enter a valid password - passwords must be at least 6 characters in length";
+"INVALID_CONFIRM_PASSWORD" = "Your passwords do not match";
+
+// Create Journal
+"JOURNAL_CREATED_HEADING" = "Journal Created";
+"JOURNAL_CREATED_MESSAGE" = "Your journal has been successfully created";
+"JOURNAL_NOT_CREATED_HEADING" = "Journal Not Created";

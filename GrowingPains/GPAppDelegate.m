@@ -7,29 +7,59 @@
 //
 
 #import "GPAppDelegate.h"
-#import "AFNetworking.h"
+#import <RestKit/RestKit.h>
+#import "GPModels.h"
+
+// Used to check if running on simulator or device
+#ifdef __APPLE__
+  #include "TargetConditionals.h"
+#endif
+
 
 @implementation GPAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+  RKLogConfigureByName("RestKit/Network*", RKLogLevelTrace);
+  RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
   
-  NSURL *url = [NSURL URLWithString:@"http://kylelovesruby.herokuapp.com/posts.json"];
-  NSURLRequest *request = [NSURLRequest requestWithURL:url];
-  AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-    NSLog(@"JSON: %@", JSON);
-    
-    if ([JSON isKindOfClass:[NSDictionary class]]) {
-      NSDictionary *dict = JSON;
-      NSLog(@"keys: %@", [dict allKeys]);
-    }
-    
-  } failure:^(NSURLRequest *request , NSURLResponse *response , NSError *error , id JSON){
-    NSLog(@"Failed: %@",[error localizedDescription]);
-  }];
-  [operation start];
+  // If on simulator use local web server
+  #if TARGET_IPHONE_SIMULATOR
+  NSURL *myURL = [NSURL URLWithString:NSLocalizedString(@"TESTING_URL", nil)];
+  #elif TARGET_OS_IPHONE
+  NSURL *myURL = [NSURL URLWithString:NSLocalizedString(@"SERVER_URL", nil)];
+  #endif
   
+  // Initialize The RestKit objectManager
+	RKObjectManager *objectManager = [RKObjectManager objectManagerWithBaseURL:myURL];
+	
+  [objectManager setSerializationMIMEType:RKMIMETypeJSON];
+  [objectManager setAcceptMIMEType:RKMIMETypeJSON];
+  [objectManager.client setTimeoutInterval:20.0]; // 20 seconds
+  RKClient *client = objectManager.client;
+  
+  // Disable cert validation for now.
+  client.disableCertificateValidation = YES;
+  
+  // Setup provider for object mappings
+  RKObjectMappingProvider *provider = objectManager.mappingProvider;
+  
+  // Define object mappings
+  RKObjectMapping *userMapping = [GPUser mapping];
+  RKObjectMapping *journalsMapping = [GPJournals mapping];
+  RKObjectMapping *journalMapping = [GPJournal mapping];
+  
+  // Set up nested mappings
+  [journalsMapping mapKeyPath:@"journal" toRelationship:@"journal" withMapping:journalMapping];
+  
+  // Register mappings
+  [provider registerMapping:userMapping withRootKeyPath:@"user"];
+  [provider registerMapping:journalsMapping withRootKeyPath:@"journals"];
+  [provider registerMapping:journalMapping withRootKeyPath:@"journal"];
+  
+  // Setup routing for posting, putting, and deleting objects from server
+  [objectManager.router routeClass:[GPUser class] toResourcePath:@"/users"];
+  [objectManager.router routeClass:[GPJournal class] toResourcePath:@"/journals"];
   
   return YES;
 }

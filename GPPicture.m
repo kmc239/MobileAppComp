@@ -13,7 +13,7 @@
 static RKObjectMapping *mapping;
 
 @synthesize pictureUrl = _pictureUrl;
-@synthesize thumb = _thumb;
+@synthesize thumbnail = _thumbnail;
 
 + (void)initialize
 {

@@ -11,6 +11,6 @@
 
 @interface GPHomeScreenViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, RKRequestDelegate, RKObjectLoaderDelegate>
 
-@property (strong, nonatomic) IBOutlet UITableView *_tableView;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end

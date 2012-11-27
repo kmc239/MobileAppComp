@@ -62,7 +62,7 @@
       if ([response isOK]) {
         
         NSString* responseString = [response bodyAsString];
-        NSLog(@"Response is OK:\n\n%@", responseString);
+//        NSLog(@"Response is OK:\n\n%@", responseString);
         
       }
     }

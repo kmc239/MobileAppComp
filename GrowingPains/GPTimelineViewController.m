@@ -11,6 +11,7 @@
 #import "GPUserSingleton.h"
 #import "GPHelpers.h"
 #import "GPEntries.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface GPTimelineViewController ()
 
@@ -23,8 +24,9 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-
   DLog(@"Current Journal ID: %i", self.currentJournalId);
+  
+  [self.tableView setRowHeight:150];
   
   // Load entries
   NSLog(@"\n\nGETTING ENTRIES\n\n");
@@ -42,15 +44,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   
-  [tableView deselectRowAtIndexPath:indexPath animated:YES];
-  
   NSString *cellType = [tableView cellForRowAtIndexPath:indexPath].reuseIdentifier;
-  
-  NSLog(@"selected %@", cellType);
+  DLog(@"selected %@", cellType);
   
   if ([cellType isEqualToString:@"EntryCell"]) {
     [self performSegueWithIdentifier:@"View Entry" sender:self];
   }
+  
+  // Must do this last so that prepareForSegue:sender: can access indexPath
+  [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - Table view data source
@@ -98,6 +100,39 @@
     return;
   }
   
+  GPEntry *currentEntry = [[GPUserSingleton sharedGPUserSingleton].entries objectAtIndex:indexPath.row];
+  
+  // Update the date
+  UILabel *dateLabel = (UILabel *)[cell viewWithTag:1];
+  NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+  [formatter setDateFormat:@"MMM d"];
+  dateLabel.text = [formatter stringFromDate:currentEntry.createdDate];
+  
+  // Update the time
+//  UILabel *timeLabel = (UILabel *)[cell viewWithTag:2];
+  
+  // Load the picture
+  UIImageView *pictureImageView = (UIImageView *)[cell viewWithTag:3];
+  GPPicture *picture = currentEntry.picture;
+  GPThumbnail *thumbnail = picture.thumbnail;
+  NSString *baseUrl = [[RKClient sharedClient] baseURL].absoluteString;
+  NSURL *imageURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@", baseUrl, thumbnail.thumbnailUrl]];
+  NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+  UIImage *image = [UIImage imageWithData:imageData];
+  pictureImageView.image = image;
+  
+  // Make picture circular
+  pictureImageView.layer.cornerRadius = 40.0;
+  pictureImageView.layer.masksToBounds = YES;
+  
+  // Add a thin border
+//    previewImageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+//    previewImageView.layer.borderWidth = 0.5;
+  
+  // Update the description
+  UITextView *description = (UITextView *)[cell viewWithTag:4];
+  description.text = currentEntry.description;
+  
 }
 
 
@@ -112,7 +147,7 @@
       if ([response isOK]) {
         
         NSString* responseString = [response bodyAsString];
-        NSLog(@"Response is OK:\n\n%@", responseString);
+//        NSLog(@"Response is OK:\n\n%@", responseString);
         
       }
     }
@@ -149,13 +184,10 @@
 
 #pragma mark - RestKit objectLoader
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
-  
-  NSLog(@"here");
-  
   if ([[objects objectAtIndex:0] isKindOfClass:[GPEntries class]]) {
     
     GPEntries *userEntries = [objects objectAtIndex:0];
-    NSLog(@"User has %i entries", userEntries.entry.count);
+    DLog(@"User has %i entries", userEntries.entry.count);
     
     // Save Singleton Object
     GPUserSingleton *sharedUser = [GPUserSingleton sharedGPUserSingleton];

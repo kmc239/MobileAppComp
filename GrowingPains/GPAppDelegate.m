@@ -20,8 +20,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  RKLogConfigureByName("RestKit/Network*", RKLogLevelTrace);
-  RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
+//  RKLogConfigureByName("RestKit/Network*", RKLogLevelTrace);
+//  RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
   
   // If on simulator use local web server
   #if TARGET_IPHONE_SIMULATOR
@@ -57,7 +57,7 @@
   [journalsMapping mapKeyPath:@"journal" toRelationship:@"journal" withMapping:journalMapping];
   [entriesMapping mapKeyPath:@"entry" toRelationship:@"entry" withMapping:entryMapping];
   [entryMapping mapKeyPath:@"picture" toRelationship:@"picture" withMapping:pictureMapping];
-  [pictureMapping mapKeyPath:@"thumb" toRelationship:@"thumb" withMapping:thumbnailMapping];
+  [pictureMapping mapKeyPath:@"thumb" toRelationship:@"thumbnail" withMapping:thumbnailMapping];
   
   // Register mappings
   [provider registerMapping:userMapping withRootKeyPath:@"user"];

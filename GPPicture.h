@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <RestKit/RestKit.h>
+#import "GPThumbnail.h"
 
 @interface GPPicture : NSObject
 
 @property (nonatomic, strong) NSString *pictureUrl;
-@property (nonatomic, strong) NSDictionary *thumb;
+@property (nonatomic, strong) GPThumbnail *thumbnail;
 
 + (RKObjectMapping *)mapping;
 

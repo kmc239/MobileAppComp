@@ -11,16 +11,17 @@
 
 @interface GPUserSingleton : NSObject
 
-@property (nonatomic, retain) NSString *email;
+@property (nonatomic, strong) NSString *email;
 @property NSInteger userId;
-@property (nonatomic, retain) NSString *name;
-@property (nonatomic, retain) NSString *password;
-@property (nonatomic, retain) NSArray *journals;
-@property (nonatomic, retain) NSArray *posts;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *password;
+@property (nonatomic, strong) NSArray *journals;
+@property (nonatomic, strong) NSArray *entries;
 @property (nonatomic, assign) BOOL userIsSet;
 
 + (GPUserSingleton *)sharedGPUserSingleton;
 - (void)setUser:(GPUser *)user;
 - (void)setUserJournals:(NSArray *)journals;
+- (void)setUserEntries:(NSArray *)entries;
 
 @end

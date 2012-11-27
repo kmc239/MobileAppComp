@@ -19,7 +19,7 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(GPUserSingleton);
 @synthesize name = _name;
 @synthesize password = _password;
 @synthesize journals = _journals;
-@synthesize posts = _posts;
+@synthesize entries = _entries;
 @synthesize userIsSet = _userIsSet;
 
 + (void)initialize {
@@ -83,5 +83,17 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(GPUserSingleton);
   [defaults setObject:journals forKey:kGPUserDefaultsJournals];
   [defaults synchronize];
 }
+
+- (void)setUserEntries:(NSArray *)entries {
+  
+  self.entries = entries;
+  
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  
+  // Save entry
+  [defaults setObject:entries forKey:kGPUserDefaultsEntries];
+  [defaults synchronize];
+}
+
 
 @end

@@ -42,6 +42,10 @@
 		08D126A41638F54D00AD9977 /* GPTimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D126A31638F54D00AD9977 /* GPTimelineViewController.m */; };
 		08D126AD1638FCC000AD9977 /* GPCreateJournalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D126AC1638FCC000AD9977 /* GPCreateJournalViewController.m */; };
 		341669FC1664453D0045484F /* GPJournalTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 341669FB1664453D0045484F /* GPJournalTabBarController.m */; };
+		34166A23166496C80045484F /* GPEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 34166A22166496C80045484F /* GPEntry.m */; };
+		34166A26166496D60045484F /* GPEntries.m in Sources */ = {isa = PBXBuildFile; fileRef = 34166A25166496D60045484F /* GPEntries.m */; };
+		34166A2916649FEF0045484F /* GPPicture.m in Sources */ = {isa = PBXBuildFile; fileRef = 34166A2816649FEF0045484F /* GPPicture.m */; };
+		34166A2C1664AD8F0045484F /* GPThumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = 34166A2B1664AD8E0045484F /* GPThumbnail.m */; };
 		34486A421654B8D00059CA8C /* GPHomeScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34486A411654B8D00059CA8C /* GPHomeScreenViewController.m */; };
 		3450DF1B16576A41005F0A61 /* GPCreateEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3450DF1A16576A41005F0A61 /* GPCreateEntryViewController.m */; };
 		3450DF3316587128005F0A61 /* GPImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3450DF3216587128005F0A61 /* GPImagePickerController.m */; };
@@ -146,6 +150,14 @@
 		08D126AC1638FCC000AD9977 /* GPCreateJournalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPCreateJournalViewController.m; path = GrowingPains/GPCreateJournalViewController.m; sourceTree = "<group>"; };
 		341669FA1664453D0045484F /* GPJournalTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPJournalTabBarController.h; sourceTree = "<group>"; };
 		341669FB1664453D0045484F /* GPJournalTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPJournalTabBarController.m; sourceTree = "<group>"; };
+		34166A21166496C80045484F /* GPEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPEntry.h; sourceTree = "<group>"; };
+		34166A22166496C80045484F /* GPEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPEntry.m; sourceTree = "<group>"; };
+		34166A24166496D60045484F /* GPEntries.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPEntries.h; sourceTree = "<group>"; };
+		34166A25166496D60045484F /* GPEntries.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPEntries.m; sourceTree = "<group>"; };
+		34166A2716649FEF0045484F /* GPPicture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPPicture.h; sourceTree = "<group>"; };
+		34166A2816649FEF0045484F /* GPPicture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPPicture.m; sourceTree = "<group>"; };
+		34166A2A1664AD8E0045484F /* GPThumbnail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPThumbnail.h; sourceTree = "<group>"; };
+		34166A2B1664AD8E0045484F /* GPThumbnail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPThumbnail.m; sourceTree = "<group>"; };
 		34486A401654B8D00059CA8C /* GPHomeScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPHomeScreenViewController.h; path = GrowingPains/GPHomeScreenViewController.h; sourceTree = "<group>"; };
 		34486A411654B8D00059CA8C /* GPHomeScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPHomeScreenViewController.m; path = GrowingPains/GPHomeScreenViewController.m; sourceTree = "<group>"; };
 		3450DF1916576A41005F0A61 /* GPCreateEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPCreateEntryViewController.h; path = GrowingPains/GPCreateEntryViewController.h; sourceTree = "<group>"; };
@@ -217,6 +229,14 @@
 				087EC50B165F8AEE009E58B0 /* GPJournal.m */,
 				087EC51A165F99AD009E58B0 /* GPJournals.h */,
 				087EC51B165F99AD009E58B0 /* GPJournals.m */,
+				34166A21166496C80045484F /* GPEntry.h */,
+				34166A22166496C80045484F /* GPEntry.m */,
+				34166A24166496D60045484F /* GPEntries.h */,
+				34166A25166496D60045484F /* GPEntries.m */,
+				34166A2716649FEF0045484F /* GPPicture.h */,
+				34166A2816649FEF0045484F /* GPPicture.m */,
+				34166A2A1664AD8E0045484F /* GPThumbnail.h */,
+				34166A2B1664AD8E0045484F /* GPThumbnail.m */,
 			);
 			name = Models;
 			path = ..;
@@ -447,6 +467,10 @@
 				087EC50C165F8AEE009E58B0 /* GPJournal.m in Sources */,
 				087EC51C165F99AD009E58B0 /* GPJournals.m in Sources */,
 				341669FC1664453D0045484F /* GPJournalTabBarController.m in Sources */,
+				34166A23166496C80045484F /* GPEntry.m in Sources */,
+				34166A26166496D60045484F /* GPEntries.m in Sources */,
+				34166A2916649FEF0045484F /* GPPicture.m in Sources */,
+				34166A2C1664AD8F0045484F /* GPThumbnail.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

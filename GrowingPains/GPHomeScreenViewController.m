@@ -21,15 +21,6 @@
 
 @synthesize _tableView;
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-  self = [super initWithStyle:style];
-  if (self) {
-      // Custom initialization
-  }
-  return self;
-}
-
 - (void)viewDidLoad
 {
   [super viewDidLoad];
@@ -44,17 +35,17 @@
 
 - (void)didReceiveMemoryWarning
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+  [super didReceiveMemoryWarning];
+  // Dispose of any resources that can be recreated.
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"Open Journal"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        GPJournalTabBarController *journalController = segue.destinationViewController;
-        GPJournal *currentJournal = [[GPUserSingleton sharedGPUserSingleton].journals objectAtIndex:indexPath.row];
-        journalController.currentJournalId = currentJournal.journalId;
-    }
+  if ([segue.identifier isEqualToString:@"Open Journal"]) {
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    GPJournalTabBarController *journalController = segue.destinationViewController;
+    GPJournal *currentJournal = [[GPUserSingleton sharedGPUserSingleton].journals objectAtIndex:indexPath.row];
+    journalController.currentJournalId = currentJournal.journalId;
+  }
 }
 
 #pragma mark - Table view delegate
@@ -68,7 +59,7 @@
   NSLog(@"selected %@", cellType);
   
   if ([cellType isEqualToString:@"JournalCell"]) {
-      [self performSegueWithIdentifier:@"Open Journal" sender:self];
+    [self performSegueWithIdentifier:@"Open Journal" sender:self];
   }
 }
 

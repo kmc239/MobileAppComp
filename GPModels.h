@@ -10,3 +10,7 @@
 #import "GPUser.h"
 #import "GPJournal.h"
 #import "GPJournals.h"
+#import "GPEntry.h"
+#import "GPEntries.h"
+#import "GPPicture.h"
+#import "GPThumbnail.h"

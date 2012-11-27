@@ -12,6 +12,8 @@ build/
 *.xcworkspace
 !default.xcworkspace
 xcuserdata
+GrowingPains.xcodeproj/xcuserdata/*
+GrowingPains.xcodeproj/project.xcworkspace/xcuserdata/*
 profile
 *.moved-aside
 DerivedData

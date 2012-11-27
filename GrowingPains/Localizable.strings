@@ -16,9 +16,14 @@
 "RK_CONNECTION_ERROR_HEADING" = "Connection Error";
 "RK_REQUEST_TIMEOUT" = "Request timed out, please try again later";
 "RK_OPERATION_FAILED" = "Operation Failed";
+"UNEXPECTED_RESPONSE" = "Unexpected server response, please try again later";
 
 // General
 "CANCEL_BUTTON_TITLE" = "OK";
+
+// Login
+"LOGIN_UNSUCCESSFUL" = "Login Unsuccessful";
+"LOGIN_INVALID_CREDS" = "Invalid email or password";
 
 // Sign Up
 "ACCOUNT_CREATED_HEADING" = "Account Created";

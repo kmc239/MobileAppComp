@@ -28,6 +28,7 @@
   [self.tableView setRowHeight:134];
 
   // Load journals
+  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
   NSLog(@"\n\nGETTING JOURNALS\n\n");
   NSString *getJournalsURL = [NSString stringWithFormat:@"/users/%i/journals.json", [GPUserSingleton sharedGPUserSingleton].userId];
   [[RKObjectManager sharedManager] loadObjectsAtResourcePath:getJournalsURL delegate:self];
@@ -51,7 +52,8 @@
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
   
   NSString *cellIdentifier = [tableView cellForRowAtIndexPath:indexPath].reuseIdentifier;
   DLog(@"selected %@", cellIdentifier);
@@ -66,11 +68,13 @@
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
   return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
   
   // If there is no sharedUser or no journals for the given user, return 0 and set a loading/add journals message
   if ([GPUserSingleton sharedGPUserSingleton] == nil || [GPUserSingleton sharedGPUserSingleton].journals == nil) {
@@ -81,7 +85,8 @@
   }
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
   
 	static NSString *CellIdentifier = @"JournalCell";
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -96,14 +101,16 @@
 	return cell;
 }
 
-- (UITableViewCell *)tableViewCellWithReuseIdentifier:(NSString *)identifier {
+- (UITableViewCell *)tableViewCellWithReuseIdentifier:(NSString *)identifier
+{
 	
 	UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
   
 	return cell;
 }
 
-- (void)configureCell:(UITableViewCell *)cell forIndexPath:(NSIndexPath *)indexPath {
+- (void)configureCell:(UITableViewCell *)cell forIndexPath:(NSIndexPath *)indexPath
+{
   
   // If there is no sharedUser or no journals for the given user, return
   if ([GPUserSingleton sharedGPUserSingleton] == nil || [GPUserSingleton sharedGPUserSingleton].journals == nil) {
@@ -142,7 +149,9 @@
 #pragma mark - RestKit Calls
 
 // Sent when a request has finished loading
-- (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
+- (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response
+{
+  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
   if ([request isGET]) {
     
     if ([response isOK]) {
@@ -169,8 +178,9 @@
 }
 
 // Sent when a request has failed due to an error
-- (void)request:(RKRequest*)request didFailLoadWithError:(NSError*)error {
-  
+- (void)request:(RKRequest*)request didFailLoadWithError:(NSError*)error
+{
+  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 	int test = [error code];
 	if (test == RKRequestBaseURLOfflineError) {
     [GPHelpers showAlertWithMessage:NSLocalizedString(@"RK_CONNECTION_ERROR", nil) andHeading:NSLocalizedString(@"RK_CONNECTION_ERROR_HEADING", nil)];
@@ -179,14 +189,17 @@
 }
 
 // Sent to the delegate when a request has timed out
-- (void)requestDidTimeout:(RKRequest*)request {
-  
+- (void)requestDidTimeout:(RKRequest*)request
+{
+  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
   [GPHelpers showAlertWithMessage:NSLocalizedString(@"RK_REQUEST_TIMEOUT", nil) andHeading:NSLocalizedString(@"RK_OPERATION_FAILED", nil)];
 }
 
 
 #pragma mark - RestKit objectLoader
-- (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
+- (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects
+{
+  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
   if ([[objects objectAtIndex:0] isKindOfClass:[GPJournals class]]) {
     
     GPJournals *userJournals = [objects objectAtIndex:0];
@@ -201,8 +214,9 @@
   [self.tableView reloadData];
 }
 
-- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error {
-  
+- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
+{
+  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
   NSLog(@"objectLoader failed with error: %@", error);
 }
 

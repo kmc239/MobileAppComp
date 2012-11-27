@@ -9,7 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <RestKit/RestKit.h>
 
-@interface GPLoginViewController : UIViewController <RKRequestDelegate, RKObjectLoaderDelegate>
+@interface GPLoginViewController : UIViewController <RKRequestDelegate, RKObjectLoaderDelegate, UITextFieldDelegate>
+
+@property (strong, nonatomic) IBOutlet UIScrollView *_scrollView;
+@property (strong, nonatomic) IBOutlet UITextField *_email;
+@property (strong, nonatomic) IBOutlet UITextField *_password;
 
 - (IBAction)loginPressed:(id)sender;
 

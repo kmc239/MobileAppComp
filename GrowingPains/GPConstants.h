@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define kKeyBoardFieldOffset 60
+
 extern NSString * const kGPUserDefaultsUserEmail;
 extern NSString * const kGPUserDefaultsUserName;
 extern NSString * const kGPUserDefaultsUserId;

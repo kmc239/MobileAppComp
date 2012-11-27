@@ -11,6 +11,7 @@
 #import "GPHelpers.h"
 #import "GPModels.h"
 #import "GPUserSingleton.h"
+#import "GPJournalTabBarController.h"
 
 @interface GPHomeScreenViewController ()
 
@@ -45,6 +46,15 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"Open Journal"]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        GPJournalTabBarController *journalController = segue.destinationViewController;
+        GPJournal *currentJournal = [[GPUserSingleton sharedGPUserSingleton].journals objectAtIndex:indexPath.row];
+        journalController.currentJournalId = currentJournal.journalId;
+    }
 }
 
 #pragma mark - Table view delegate

@@ -14,6 +14,8 @@
 
 @implementation GPTimelineViewController
 
+@synthesize currentJournalId = _currentJournalId;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -26,18 +28,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+
+    DLog(@"Current Journal ID: %i", self.currentJournalId);
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    DLog(@"Current Journal ID: %i", self.currentJournalId);
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (IBAction)postNew:(id)sender
-{
-  NSLog(@"posting");
 }
 
 @end

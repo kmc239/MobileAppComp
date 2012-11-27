@@ -81,33 +81,34 @@
     //    // Save Singleton Object
     //    GPUserSingleton *sharedUser = [GPUserSingleton sharedGPUserSingleton];
     //    [sharedUser setUser:newUser];
-    
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [[RKObjectManager sharedManager] postObject:newJournal delegate:self];
   }
   
 }
 
 #pragma mark - TextField Delegate
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
   if (textField == self.name) {
     [textField resignFirstResponder];
   }
   return NO;
 }
 
--(BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-  
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
   if (textField == self.birthdate) {
     [self showPicker];
     return NO;  // Hide both keyboard and blinking cursor.
   }
-  
   return YES;
 }
 
 #pragma mark - Picker methods
 
-- (void)showPicker {
+- (void)showPicker
+{
   
   _actionSheet = [[UIActionSheet alloc] initWithTitle:nil
                                              delegate:nil
@@ -154,7 +155,8 @@
 
 #pragma mark - AlertView Delegate
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
   if (alertView.tag == CREATED_TAG) {
     [self.navigationController popViewControllerAnimated:YES];
   }
@@ -163,7 +165,9 @@
 #pragma mark - RestKit Calls
 
 // Sent when a request has finished loading
-- (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
+- (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response
+{
+  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
   if ([request isPOST]) {
     if ([response statusCode] == 201) {
       UIAlertView *successAlert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"JOURNAL_CREATED_HEADING", nil)
@@ -181,7 +185,9 @@
 }
 
 // Sent when a request has failed due to an error
-- (void)request:(RKRequest*)request didFailLoadWithError:(NSError*)error {
+- (void)request:(RKRequest*)request didFailLoadWithError:(NSError*)error
+{
+  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 	int test = [error code];
 	if (test == RKRequestBaseURLOfflineError) {
     [GPHelpers showAlertWithMessage:NSLocalizedString(@"RK_CONNECTION_ERROR", nil) andHeading:NSLocalizedString(@"RK_CONNECTION_ERROR_HEADING", nil)];
@@ -190,22 +196,24 @@
 }
 
 // Sent to the delegate when a request has timed out
-- (void)requestDidTimeout:(RKRequest*)request {
+- (void)requestDidTimeout:(RKRequest*)request
+{
+  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
   [GPHelpers showAlertWithMessage:NSLocalizedString(@"RK_REQUEST_TIMEOUT", nil) andHeading:NSLocalizedString(@"OPERATION FAILED", nil)];
 }
 
 #pragma mark - RestKit objectLoader
 
-- (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
-  
+- (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects
+{
+  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
   NSLog(@"objectLoader loaded an object");
-  
 }
 
-- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error {
-  
+- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
+{
+  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
   NSLog(@"objectLoader failed with error: %@", error);
-  
 }
 
 @end

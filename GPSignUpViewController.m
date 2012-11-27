@@ -42,7 +42,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)signUpPressed:(id)sender {
+- (IBAction)signUpPressed:(id)sender
+{
 
   // Form validation
   if (![GPHelpers isValidName:_name.text]) {
@@ -75,6 +76,7 @@
     GPUserSingleton *sharedUser = [GPUserSingleton sharedGPUserSingleton];
     [sharedUser setUser:newUser];
     
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [[RKObjectManager sharedManager] postObject:newUser delegate:self];
   }
 }
@@ -90,7 +92,8 @@
 
 #pragma mark - AlertView Delegate
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
   if (alertView.tag == CREATED_TAG) {
     [self.navigationController popViewControllerAnimated:YES];
   }
@@ -99,7 +102,9 @@
 #pragma mark - RestKit Calls
 
 // Sent when a request has finished loading
-- (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
+- (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response
+{
+  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
   if ([request isPOST]) {
     if ([response statusCode] == 201) {
       UIAlertView *successAlert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"ACCOUNT_CREATED_HEADING", nil)
@@ -117,7 +122,9 @@
 }
 
 // Sent when a request has failed due to an error
-- (void)request:(RKRequest*)request didFailLoadWithError:(NSError*)error {
+- (void)request:(RKRequest*)request didFailLoadWithError:(NSError*)error
+{
+  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 	int test = [error code];
 	if (test == RKRequestBaseURLOfflineError) {
     [GPHelpers showAlertWithMessage:NSLocalizedString(@"RK_CONNECTION_ERROR", nil) andHeading:NSLocalizedString(@"RK_CONNECTION_ERROR_HEADING", nil)];
@@ -126,22 +133,24 @@
 }
 
 // Sent to the delegate when a request has timed out
-- (void)requestDidTimeout:(RKRequest*)request {
+- (void)requestDidTimeout:(RKRequest*)request
+{
+  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
   [GPHelpers showAlertWithMessage:NSLocalizedString(@"RK_REQUEST_TIMEOUT", nil) andHeading:NSLocalizedString(@"OPERATION FAILED", nil)];
 }
 
 #pragma mark - RestKit objectLoader
 
-- (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
-  
+- (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects
+{
+  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
   NSLog(@"objectLoader loaded an object");
-  
 }
 
-- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error {
-  
+- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
+{
+  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
   NSLog(@"objectLoader failed with error: %@", error);
-  
 }
 
 @end

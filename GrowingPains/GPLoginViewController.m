@@ -13,6 +13,7 @@
 #import "GPUserSingleton.h"
 #import "GPHelpers.h"
 #import "GPConstants.h"
+#import "DejalActivityView.h"
 
 @interface GPLoginViewController ()
 
@@ -44,13 +45,17 @@
 }
 
 #pragma mark - Segue
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
   
   if ([[segue identifier] isEqualToString:@"Login"]) {
     NSLog(@"time to login");
     
     // If "skipped", load the first user - this can be used as a demo
     if ([[sender title] isEqualToString:@"Skip"]) {
+      
+      [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+      
       NSString *getUserURL = [NSString stringWithFormat:@"/users/1.json"];
       NSLog(@"the get user url is %@", getUserURL);
       [[RKObjectManager sharedManager] loadObjectsAtResourcePath:getUserURL delegate:self];
@@ -60,16 +65,19 @@
 
 #pragma mark - TextFieldDelegate
 // Called when textField start editting.
-- (void)textFieldDidBeginEditing:(UITextField *)textField {
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
 	[_scrollView setContentOffset:CGPointMake(0,textField.center.y - (kKeyBoardFieldOffset/2)) animated:YES];
 }
 
-- (void)textFieldDidEndEditing:(UITextField *)textField {
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
 	[_scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
   [textField resignFirstResponder];
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
   [textField resignFirstResponder];
   return YES;
 }
@@ -77,7 +85,11 @@
 #pragma mark - RestKit Calls
 
 // Sent when a request has finished loading
-- (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
+- (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response
+{
+  
+  [DejalBezelActivityView removeViewAnimated:YES];
+  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 
   if ([request isPOST]) {
     
@@ -128,7 +140,11 @@
 }
 
 // Sent when a request has failed due to an error
-- (void)request:(RKRequest*)request didFailLoadWithError:(NSError*)error {
+- (void)request:(RKRequest*)request didFailLoadWithError:(NSError*)error
+{
+  
+  [DejalBezelActivityView removeViewAnimated:YES];
+  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
   
 	int test = [error code];
 	if (test == RKRequestBaseURLOfflineError) {
@@ -140,12 +156,19 @@
 // Sent to the delegate when a request has timed out
 - (void)requestDidTimeout:(RKRequest*)request {
   
+  [DejalBezelActivityView removeViewAnimated:YES];
+  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+  
   [GPHelpers showAlertWithMessage:NSLocalizedString(@"RK_REQUEST_TIMEOUT", nil) andHeading:NSLocalizedString(@"RK_OPERATION_FAILED", nil)];
 }
 
 
 #pragma mark - RestKit objectLoader
-- (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
+- (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects
+{
+  
+  [DejalBezelActivityView removeViewAnimated:YES];
+  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
   
   if ([[objects objectAtIndex:0] isKindOfClass:[GPUser class]]) {
     
@@ -158,14 +181,18 @@
   }
 }
 
-- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error {
+- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
+{
   
+  [DejalBezelActivityView removeViewAnimated:YES];
+  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
   NSLog(@"objectLoader failed with error: %@", error);
 }
 
 #pragma mark - Actions
 
-- (IBAction)loginPressed:(id)sender {
+- (IBAction)loginPressed:(id)sender
+{
   
   if (![GPHelpers isValidEmail:_email.text]) {
     [GPHelpers showAlertWithMessage:NSLocalizedString(@"INVALID_EMAIL", nil)
@@ -190,6 +217,8 @@
     DLog(@"json: %@", json);
     
     if (!error){
+      [DejalBezelActivityView activityViewForView:self.view withLabel:@"Logging in..."];
+      [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
       [[RKClient sharedClient] post:@"/sessions" params:[RKRequestSerialization serializationWithData:[json dataUsingEncoding:NSUTF8StringEncoding] MIMEType:RKMIMETypeJSON] delegate:self];
     }
   }

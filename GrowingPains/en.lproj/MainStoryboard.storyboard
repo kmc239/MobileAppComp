@@ -218,21 +218,6 @@
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9M5-Zj-gQx">
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="baby-girl.jpeg" translatesAutoresizingMaskIntoConstraints="NO" id="rFX-Rd-NBV">
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="159" id="Dd3-mI-dBb"/>
-                                        </constraints>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qUL-pH-oaT">
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Login with Facebook">
-                                            <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="highlighted">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFV-Ml-obX">
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Sign Up">
@@ -243,7 +228,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <segue destination="jtU-ZB-TTb" kind="push" id="Izg-kt-qob"/>
+                                            <segue destination="jtU-ZB-TTb" kind="push" identifier="Sign Up" id="Izg-kt-qob"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mvi-RO-qnE">
@@ -261,36 +246,48 @@
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Y7-MF-xQ5">
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="xGK-Z5-2dP" id="DaE-yI-suN"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jgI-Wb-Srf">
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="219" id="TDb-Oh-y8n"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="xGK-Z5-2dP" id="trN-br-VAX"/>
+                                        </connections>
                                     </textField>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Growing Pains" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="74K-NU-vkG">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="54" id="bhI-sW-NGh"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="38"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="74K-NU-vkG" firstAttribute="leading" secondItem="9M5-Zj-gQx" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="0dt-q0-mZ7"/>
                                     <constraint firstItem="1Y7-MF-xQ5" firstAttribute="top" secondItem="jgI-Wb-Srf" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="1na-rv-9x3"/>
-                                    <constraint firstItem="mvi-RO-qnE" firstAttribute="trailing" secondItem="qUL-pH-oaT" secondAttribute="trailing" type="default" id="4Ug-MW-h67"/>
-                                    <constraint firstItem="1Y7-MF-xQ5" firstAttribute="centerX" secondItem="9M5-Zj-gQx" secondAttribute="centerX" type="default" id="78e-wy-ncR"/>
+                                    <constraint firstAttribute="bottom" secondItem="RFV-Ml-obX" secondAttribute="bottom" constant="200" id="4I8-2H-mdt"/>
+                                    <constraint firstItem="mvi-RO-qnE" firstAttribute="leading" secondItem="RFV-Ml-obX" secondAttribute="leading" type="default" id="5f0-EH-UJs"/>
                                     <constraint firstItem="1Y7-MF-xQ5" firstAttribute="leading" secondItem="jgI-Wb-Srf" secondAttribute="leading" type="default" id="9Yc-sf-gYh"/>
                                     <constraint firstItem="1Y7-MF-xQ5" firstAttribute="trailing" secondItem="jgI-Wb-Srf" secondAttribute="trailing" type="default" id="G5f-RS-sjF"/>
-                                    <constraint firstItem="RFV-Ml-obX" firstAttribute="trailing" secondItem="qUL-pH-oaT" secondAttribute="trailing" type="default" id="IZ3-74-wFq"/>
-                                    <constraint firstAttribute="trailing" secondItem="jgI-Wb-Srf" secondAttribute="trailing" constant="30" id="L8n-Gn-uKx"/>
-                                    <constraint firstItem="rFX-Rd-NBV" firstAttribute="top" secondItem="9M5-Zj-gQx" secondAttribute="top" constant="18" id="QfN-j8-crL"/>
+                                    <constraint firstItem="1Y7-MF-xQ5" firstAttribute="centerX" secondItem="9M5-Zj-gQx" secondAttribute="centerX" type="default" id="UPS-XV-Wrk"/>
                                     <constraint firstItem="mvi-RO-qnE" firstAttribute="top" secondItem="1Y7-MF-xQ5" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Wf4-TU-L8o"/>
-                                    <constraint firstItem="jgI-Wb-Srf" firstAttribute="centerX" secondItem="rFX-Rd-NBV" secondAttribute="centerX" type="default" id="YsT-XP-96G"/>
+                                    <constraint firstItem="jgI-Wb-Srf" firstAttribute="trailing" secondItem="74K-NU-vkG" secondAttribute="trailing" type="default" id="ZD8-a3-asi"/>
                                     <constraint firstItem="mvi-RO-qnE" firstAttribute="trailing" secondItem="1Y7-MF-xQ5" secondAttribute="trailing" type="default" id="ecU-ZU-RU0"/>
-                                    <constraint firstItem="mvi-RO-qnE" firstAttribute="leading" secondItem="qUL-pH-oaT" secondAttribute="leading" type="default" id="efT-wT-dfZ"/>
-                                    <constraint firstItem="RFV-Ml-obX" firstAttribute="leading" secondItem="qUL-pH-oaT" secondAttribute="leading" type="default" id="f1M-kw-rE4"/>
-                                    <constraint firstItem="RFV-Ml-obX" firstAttribute="top" secondItem="qUL-pH-oaT" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="gUb-He-0wS"/>
-                                    <constraint firstAttribute="bottom" secondItem="RFV-Ml-obX" secondAttribute="bottom" type="user" id="iLg-FP-but"/>
+                                    <constraint firstItem="jgI-Wb-Srf" firstAttribute="top" secondItem="9M5-Zj-gQx" secondAttribute="top" constant="134" id="gMf-e8-IDN"/>
+                                    <constraint firstAttribute="trailing" secondItem="74K-NU-vkG" secondAttribute="trailing" constant="12" id="ozL-WP-YBm"/>
                                     <constraint firstItem="1Y7-MF-xQ5" firstAttribute="leading" secondItem="mvi-RO-qnE" secondAttribute="leading" type="default" id="qO9-yV-H1h"/>
-                                    <constraint firstItem="qUL-pH-oaT" firstAttribute="top" secondItem="mvi-RO-qnE" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="w81-xY-pog"/>
-                                    <constraint firstItem="jgI-Wb-Srf" firstAttribute="top" secondItem="rFX-Rd-NBV" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="xGX-Fo-jhJ"/>
+                                    <constraint firstItem="RFV-Ml-obX" firstAttribute="top" secondItem="mvi-RO-qnE" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="qwe-aW-cUO"/>
+                                    <constraint firstItem="RFV-Ml-obX" firstAttribute="trailing" secondItem="mvi-RO-qnE" secondAttribute="trailing" type="default" id="v8v-pk-MEB"/>
+                                    <constraint firstItem="74K-NU-vkG" firstAttribute="top" secondItem="9M5-Zj-gQx" secondAttribute="top" constant="20" symbolic="YES" type="default" id="zlc-Fk-8gY"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="xGK-Z5-2dP" id="Rpw-d0-EPH"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -308,6 +305,11 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="_email" destination="jgI-Wb-Srf" id="OHq-mj-GYa"/>
+                        <outlet property="_password" destination="1Y7-MF-xQ5" id="lEj-U9-fIy"/>
+                        <outlet property="_scrollView" destination="9M5-Zj-gQx" id="IKc-tV-ZSD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JZO-SH-oHM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -6,16 +6,21 @@
 //  Copyright (c) 2012 Kyle Clegg. All rights reserved.
 //
 
+#import <RestKit/RKRequestSerialization.h>
+#import <RestKit/RKJSONParserJSONKit.h>
 #import "GPLoginViewController.h"
 #import "GPModels.h"
 #import "GPUserSingleton.h"
 #import "GPHelpers.h"
+#import "GPConstants.h"
 
 @interface GPLoginViewController ()
 
 @end
 
 @implementation GPLoginViewController
+
+@synthesize _scrollView, _email, _password;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -44,41 +49,82 @@
   if ([[segue identifier] isEqualToString:@"Login"]) {
     NSLog(@"time to login");
     
-    //GetSummary
-    NSString *getUserURL = [NSString stringWithFormat:@"/users/1.json"];
-    NSLog(@"the get user url is %@", getUserURL);
-    [[RKObjectManager sharedManager] loadObjectsAtResourcePath:getUserURL delegate:self];
+    // If "skipped", load the first user - this can be used as a demo
+    if ([[sender title] isEqualToString:@"Skip"]) {
+      NSString *getUserURL = [NSString stringWithFormat:@"/users/1.json"];
+      NSLog(@"the get user url is %@", getUserURL);
+      [[RKObjectManager sharedManager] loadObjectsAtResourcePath:getUserURL delegate:self];
+    }
   }
+}
+
+#pragma mark - TextFieldDelegate
+// Called when textField start editting.
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+	[_scrollView setContentOffset:CGPointMake(0,textField.center.y - (kKeyBoardFieldOffset/2)) animated:YES];
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+	[_scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
+  [textField resignFirstResponder];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+  [textField resignFirstResponder];
+  return YES;
 }
 
 #pragma mark - RestKit Calls
 
 // Sent when a request has finished loading
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response {
-  if ([request isGET]) {
-    
-    if ([response isOK]) {
-      
-      if ([response isOK]) {
-        
-//        NSString* responseString = [response bodyAsString];
-//        NSLog(@"Response is OK:\n\n%@", responseString);
-        
-      }
-    }
-  }
-  else if ([request isPOST]) {
+
+  if ([request isPOST]) {
     
     NSLog(@"POST finished with status code: %i", [response statusCode]);
-    
-		
-  }
-  else if ([request isDELETE]) {
-    
-    if ([response isNotFound]) {
-      NSLog(@"The resource path '%@' was not found.", [request resourcePath]);
+    if ([response statusCode] == 200) {
+      DLog(@"the user id is %@",  response.bodyAsString);
+      GPUserSingleton *sharedUser = [GPUserSingleton sharedGPUserSingleton];
+      sharedUser.userId = [response.bodyAsString doubleValue];
+      
+      NSString *userJSON = response.bodyAsString;
+      
+      // If User JSON string is not null then we will use RK's JSON parser to parse into a user object
+      // We only need to do this here because of the custom login API, which returns a valid user object
+      if (userJSON != nil) {
+        
+        RKJSONParserJSONKit *parser = [[RKJSONParserJSONKit alloc] init];
+        NSError *error = nil;
+        GPUser *targetUser = [[GPUser alloc] init];
+        
+        NSDictionary *objectAsDictionary;
+        RKObjectMapper* mapper;
+        objectAsDictionary = [parser objectFromString:userJSON error:&error];
+        mapper = [RKObjectMapper mapperWithObject:objectAsDictionary
+                                  mappingProvider:[RKObjectManager sharedManager].mappingProvider];
+        mapper.targetObject = targetUser;
+        
+        RKObjectMappingResult* result = [mapper performMapping];
+        DLog(@"the result: %@", [result asObject]);
+        targetUser = [result asObject];
+        
+        DLog(@"user's name is %@ and id is %i", targetUser.name, targetUser.userId);
+        
+        GPUserSingleton *sharedUser = [GPUserSingleton sharedGPUserSingleton];
+        [sharedUser setUser:targetUser];
+        
+        [self performSegueWithIdentifier:@"Login" sender:self];
+      }
     }
-	}
+    else if ([response statusCode] == 403) {
+      [GPHelpers showAlertWithMessage:NSLocalizedString(@"LOGIN_INVALID_CREDS", nil)
+                           andHeading:NSLocalizedString(@"LOGIN_UNSUCCESSFUL", nil)];
+    }
+    else {
+      [GPHelpers showAlertWithMessage:NSLocalizedString(@"UNEXPECTED_RESPONSE", nil)
+                           andHeading:NSLocalizedString(@"LOGIN_UNSUCCESSFUL", nil)];
+    }
+  }
 }
 
 // Sent when a request has failed due to an error
@@ -110,7 +156,6 @@
     GPUserSingleton *sharedUser = [GPUserSingleton sharedGPUserSingleton];
     [sharedUser setUser:loggedInUser];
   }
-  
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error {
@@ -121,7 +166,32 @@
 #pragma mark - Actions
 
 - (IBAction)loginPressed:(id)sender {
-  GPUserSingleton *sharedUser = [GPUserSingleton sharedGPUserSingleton];
-  NSLog(@"shared user's name is %@", sharedUser.name);
+  
+  if (![GPHelpers isValidEmail:_email.text]) {
+    [GPHelpers showAlertWithMessage:NSLocalizedString(@"INVALID_EMAIL", nil)
+                         andHeading:NSLocalizedString(@"LOGIN_UNSUCCESSFUL", nil)];
+  }
+  else {
+  
+    // Create our JSON array using an NSDictionary
+    // Because it's a small POST where the server a custom array we'll just do it here
+    // Server expects the following: {"email":"kyle@kyleclegg.com", "password":"password"}
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+
+    // Email and password params, put into params dictionary
+    [params setObject:_email.text forKey:@"email"];
+    [params setObject:_password.text forKey:@"password"];
+    
+    // Parse password dictionary to JSON string
+    id<RKParser> parser = [[RKParserRegistry sharedRegistry] parserForMIMEType:RKMIMETypeJSON];
+    NSError *error = nil;
+    NSString *json = [parser stringFromObject:params error:&error];
+    
+    DLog(@"json: %@", json);
+    
+    if (!error){
+      [[RKClient sharedClient] post:@"/sessions" params:[RKRequestSerialization serializationWithData:[json dataUsingEncoding:NSUTF8StringEncoding] MIMEType:RKMIMETypeJSON] delegate:self];
+    }
+  }
 }
 @end

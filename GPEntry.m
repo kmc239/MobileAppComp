@@ -28,7 +28,7 @@ static RKObjectMapping *mapping;
     {
         mapping = [RKObjectMapping mappingForClass:[self class]];
         
-        [mapping mapKeyPath:@"created_at" toAttribute:@"crearedDate"];
+        [mapping mapKeyPath:@"created_at" toAttribute:@"createdDate"];
         [mapping mapKeyPath:@"description" toAttribute:@"description"];
         [mapping mapKeyPath:@"id" toAttribute:@"entryId"];
         [mapping mapKeyPath:@"journal_id" toAttribute:@"journalId"];

@@ -14,7 +14,7 @@
 @property (nonatomic, strong) NSDate *createdDate;
 @property (nonatomic, strong) NSString *description;
 @property NSInteger entryId;
-@property NSInteger *journalId;
+@property NSInteger journalId;
 @property (nonatomic, strong) NSDictionary *picture;
 @property (nonatomic, strong) NSDate *updatedDate;
 

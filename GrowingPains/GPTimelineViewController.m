@@ -49,7 +49,7 @@
   NSLog(@"selected %@", cellType);
   
   if ([cellType isEqualToString:@"EntryCell"]) {
-    [self performSegueWithIdentifier:@"Open Entry" sender:self];
+    [self performSegueWithIdentifier:@"View Entry" sender:self];
   }
 }
 
@@ -61,18 +61,18 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
   
-  // If there is no sharedUser or no journals for the given user, return 0 and set a loading/add journals message
-  if ([GPUserSingleton sharedGPUserSingleton] == nil || [GPUserSingleton sharedGPUserSingleton].journals == nil) {
+  // If there is no sharedUser or no entries for the given user, return 0 and set a loading/add entries message
+  if ([GPUserSingleton sharedGPUserSingleton] == nil || [GPUserSingleton sharedGPUserSingleton].entries == nil) {
     return 0;
   }
   else {
-    return [GPUserSingleton sharedGPUserSingleton].journals.count;
+    return [GPUserSingleton sharedGPUserSingleton].entries.count;
   }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
   
-	static NSString *CellIdentifier = @"JournalCell";
+	static NSString *CellIdentifier = @"EntryCell";
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
   
   if (cell == nil) {
@@ -93,8 +93,8 @@
 
 - (void)configureCell:(UITableViewCell *)cell forIndexPath:(NSIndexPath *)indexPath {
   
-  // If there is no sharedUser or no journals for the given user, return
-  if ([GPUserSingleton sharedGPUserSingleton] == nil || [GPUserSingleton sharedGPUserSingleton].journals == nil) {
+  // If there is no sharedUser or no entries for the given user, return
+  if ([GPUserSingleton sharedGPUserSingleton] == nil || [GPUserSingleton sharedGPUserSingleton].entries == nil) {
     return;
   }
   

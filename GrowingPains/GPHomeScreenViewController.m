@@ -40,7 +40,7 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-  if ([segue.identifier isEqualToString:@"Open Journal"]) {
+  if ([segue.identifier isEqualToString:@"View Journal"]) {
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     GPJournalTabBarController *journalController = segue.destinationViewController;
     GPJournal *currentJournal = [[GPUserSingleton sharedGPUserSingleton].journals objectAtIndex:indexPath.row];
@@ -59,7 +59,7 @@
   NSLog(@"selected %@", cellType);
   
   if ([cellType isEqualToString:@"JournalCell"]) {
-    [self performSegueWithIdentifier:@"Open Journal" sender:self];
+    [self performSegueWithIdentifier:@"View Journal" sender:self];
   }
 }
 

@@ -19,16 +19,7 @@
 
 @implementation GPHomeScreenViewController
 
-@synthesize _tableView;
-
-- (id)initWithStyle:(UITableViewStyle)style
-{
-  self = [super initWithStyle:style];
-  if (self) {
-      // Custom initialization
-  }
-  return self;
-}
+@synthesize tableView = _tableView;
 
 - (void)viewDidLoad
 {
@@ -44,32 +35,33 @@
 
 - (void)didReceiveMemoryWarning
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+  [super didReceiveMemoryWarning];
+  // Dispose of any resources that can be recreated.
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"Open Journal"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        GPJournalTabBarController *journalController = segue.destinationViewController;
-        GPJournal *currentJournal = [[GPUserSingleton sharedGPUserSingleton].journals objectAtIndex:indexPath.row];
-        journalController.currentJournalId = currentJournal.journalId;
-    }
+  if ([segue.identifier isEqualToString:@"View Journal"]) {
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    GPJournalTabBarController *journalController = segue.destinationViewController;
+    GPJournal *currentJournal = [[GPUserSingleton sharedGPUserSingleton].journals objectAtIndex:indexPath.row];
+    journalController.currentJournalId = currentJournal.journalId;
+    DLog(@"currentJournalId: %i", currentJournal.journalId);
+  }
 }
 
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-  [tableView deselectRowAtIndexPath:indexPath animated:YES];
   
-  NSString *cellType = [tableView cellForRowAtIndexPath:indexPath].reuseIdentifier;
+  NSString *cellIdentifier = [tableView cellForRowAtIndexPath:indexPath].reuseIdentifier;
+  DLog(@"selected %@", cellIdentifier);
   
-  NSLog(@"selected %@", cellType);
-  
-  if ([cellType isEqualToString:@"JournalCell"]) {
-      [self performSegueWithIdentifier:@"Open Journal" sender:self];
+  if ([cellIdentifier isEqualToString:@"JournalCell"]) {
+    [self performSegueWithIdentifier:@"View Journal" sender:self];
   }
+  
+  // Must do this last so that prepareForSegue:sender: can access indexPath
+  [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 #pragma mark - Table view data source
@@ -97,6 +89,7 @@
   if (cell == nil) {
     [self tableViewCellWithReuseIdentifier:CellIdentifier];
   }
+  
   // Configure the cell...
   [self configureCell:cell forIndexPath:indexPath];
 
@@ -134,7 +127,7 @@
     
     UIImageView *previewImageView = (UIImageView *)[cell viewWithTag:tag];
     UIImage *previewImage = [UIImage imageNamed:@"cutebaby.jpeg"];   // Dynamically load most recent images from db
-    [previewImageView setImage:previewImage];
+    previewImageView.image = previewImage;
     
     // Make image circular
     previewImageView.layer.cornerRadius = 30.0;
@@ -157,7 +150,7 @@
       if ([response isOK]) {
         
         NSString* responseString = [response bodyAsString];
-        NSLog(@"Response is OK:\n\n%@", responseString);
+//        NSLog(@"Response is OK:\n\n%@", responseString);
         
       }
     }
@@ -194,13 +187,10 @@
 
 #pragma mark - RestKit objectLoader
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects {
-  
-  NSLog(@"here");
-  
   if ([[objects objectAtIndex:0] isKindOfClass:[GPJournals class]]) {
     
     GPJournals *userJournals = [objects objectAtIndex:0];
-    NSLog(@"User has %i journals", userJournals.journal.count);
+    DLog(@"User has %i journals", userJournals.journal.count);
     
     // Save Singleton Object
     GPUserSingleton *sharedUser = [GPUserSingleton sharedGPUserSingleton];

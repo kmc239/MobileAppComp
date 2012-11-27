@@ -1,17 +1,17 @@
 //
-//  GPJournals.h
+//  GPThumbnail.h
 //  GrowingPains
 //
-//  Created by Kyle Clegg on 11/23/12.
+//  Created by Taylor McGann on 11/27/12.
 //  Copyright (c) 2012 Kyle Clegg. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <RestKit/RestKit.h>
 
-@interface GPJournals : NSObject
+@interface GPThumbnail : NSObject
 
-@property (nonatomic, strong) NSArray *journal;
+@property (nonatomic, strong) NSString *thumbnailUrl;
 
 + (RKObjectMapping *)mapping;
 

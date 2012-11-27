@@ -1,21 +1,22 @@
 //
-//  GPUser.h
+//  GPEntry.h
 //  GrowingPains
 //
-//  Created by Kyle Clegg on 11/19/12.
+//  Created by Taylor McGann on 11/26/12.
 //  Copyright (c) 2012 Kyle Clegg. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <RestKit/RestKit.h>
+#import "GPPicture.h"
 
-@interface GPUser : NSObject
+@interface GPEntry : NSObject
 
 @property (nonatomic, strong) NSDate *createdDate;
-@property (nonatomic, strong) NSString *email;
-@property NSInteger userId;
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSString *password;
+@property (nonatomic, strong) NSString *description;
+@property NSInteger entryId;
+@property NSInteger journalId;
+@property (nonatomic, strong) GPPicture *picture;
 @property (nonatomic, strong) NSDate *updatedDate;
 
 + (RKObjectMapping *)mapping;

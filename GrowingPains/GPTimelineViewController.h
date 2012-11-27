@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <RestKit/RestKit.h>
 
-@interface GPTimelineViewController : UITableViewController
+@interface GPTimelineViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, RKRequestDelegate, RKObjectLoaderDelegate>
 
 @property NSInteger currentJournalId;
 

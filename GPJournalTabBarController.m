@@ -19,9 +19,8 @@
 
 - (void)viewDidLoad
 {
-    DLog(@"VCs: %@", self.viewControllers);
-    GPTimelineViewController *timelineController = (GPTimelineViewController *) [self.viewControllers objectAtIndex:0];
-    timelineController.currentJournalId = self.currentJournalId;
+  GPTimelineViewController *timelineController = (GPTimelineViewController *) [self.viewControllers objectAtIndex:0];
+  timelineController.currentJournalId = self.currentJournalId;
 }
 
 @end

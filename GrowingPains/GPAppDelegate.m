@@ -20,8 +20,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  RKLogConfigureByName("RestKit/Network*", RKLogLevelTrace);
-  RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
+//  RKLogConfigureByName("RestKit/Network*", RKLogLevelTrace);
+//  RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
   
   // If on simulator use local web server
   #if TARGET_IPHONE_SIMULATOR
@@ -48,18 +48,30 @@
   RKObjectMapping *userMapping = [GPUser mapping];
   RKObjectMapping *journalsMapping = [GPJournals mapping];
   RKObjectMapping *journalMapping = [GPJournal mapping];
+  RKObjectMapping *entriesMapping = [GPEntries mapping];
+  RKObjectMapping *entryMapping = [GPEntry mapping];
+  RKObjectMapping *pictureMapping = [GPPicture mapping];
+  RKObjectMapping *thumbnailMapping = [GPThumbnail mapping];
   
   // Set up nested mappings
   [journalsMapping mapKeyPath:@"journal" toRelationship:@"journal" withMapping:journalMapping];
+  [entriesMapping mapKeyPath:@"entry" toRelationship:@"entry" withMapping:entryMapping];
+  [entryMapping mapKeyPath:@"picture" toRelationship:@"picture" withMapping:pictureMapping];
+  [pictureMapping mapKeyPath:@"thumb" toRelationship:@"thumbnail" withMapping:thumbnailMapping];
   
   // Register mappings
   [provider registerMapping:userMapping withRootKeyPath:@"user"];
   [provider registerMapping:journalsMapping withRootKeyPath:@"journals"];
   [provider registerMapping:journalMapping withRootKeyPath:@"journal"];
+  [provider registerMapping:entriesMapping withRootKeyPath:@"entries"];
+  [provider registerMapping:entryMapping withRootKeyPath:@"entry"];
+  [provider registerMapping:pictureMapping withRootKeyPath:@"picture"];
+  [provider registerMapping:thumbnailMapping withRootKeyPath:@"thumbnail"];
   
   // Setup routing for posting, putting, and deleting objects from server
   [objectManager.router routeClass:[GPUser class] toResourcePath:@"/users"];
   [objectManager.router routeClass:[GPJournal class] toResourcePath:@"/journals"];
+  [objectManager.router routeClass:[GPEntry class] toResourcePath:@"/entries"];
   
   return YES;
 }

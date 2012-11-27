@@ -11,12 +11,12 @@
 
 @interface GPJournal : NSObject
 
-@property (nonatomic, retain) NSDate *birthDate;
-@property (nonatomic, retain) NSDate *createdDate;
-@property (nonatomic, retain) NSString *gender;
+@property (nonatomic, strong) NSDate *birthDate;
+@property (nonatomic, strong) NSDate *createdDate;
+@property (nonatomic, strong) NSString *gender;
 @property NSInteger journalId;
-@property (nonatomic, retain) NSString *name;
-@property (nonatomic, retain) NSDate *updatedDate;
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSDate *updatedDate;
 @property NSInteger userId;
 
 + (RKObjectMapping *)mapping;

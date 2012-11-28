@@ -20,6 +20,7 @@
 
 // General
 "CANCEL_BUTTON_TITLE" = "OK";
+"GENERIC_ERROR_HEADING" = "Error";
 
 // Login
 "LOGIN_UNSUCCESSFUL" = "Login Unsuccessful";
@@ -36,6 +37,7 @@
 "INVALID_EMAIL" = "Please enter a valid email";
 "INVALID_PASSWORD" = "Please enter a valid password - passwords must be at least 6 characters in length";
 "INVALID_CONFIRM_PASSWORD" = "Your passwords do not match";
+"DESCRIPTION_TOO_LONG" = "Please limit your description to 140 characters";
 
 // Create Journal
 "JOURNAL_CREATED_HEADING" = "Journal Created";

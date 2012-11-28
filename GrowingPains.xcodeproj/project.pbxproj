@@ -51,7 +51,6 @@
 		34166A2C1664AD8F0045484F /* GPThumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = 34166A2B1664AD8E0045484F /* GPThumbnail.m */; };
 		34486A421654B8D00059CA8C /* GPHomeScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34486A411654B8D00059CA8C /* GPHomeScreenViewController.m */; };
 		3450DF1B16576A41005F0A61 /* GPCreateEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3450DF1A16576A41005F0A61 /* GPCreateEntryViewController.m */; };
-		3450DF3316587128005F0A61 /* GPImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3450DF3216587128005F0A61 /* GPImagePickerController.m */; };
 		3450DF8B1661DA8F005F0A61 /* TakePhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 3450DF8A1661DA8F005F0A61 /* TakePhoto.png */; };
 /* End PBXBuildFile section */
 
@@ -171,8 +170,6 @@
 		34486A411654B8D00059CA8C /* GPHomeScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPHomeScreenViewController.m; path = GrowingPains/GPHomeScreenViewController.m; sourceTree = "<group>"; };
 		3450DF1916576A41005F0A61 /* GPCreateEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPCreateEntryViewController.h; path = GrowingPains/GPCreateEntryViewController.h; sourceTree = "<group>"; };
 		3450DF1A16576A41005F0A61 /* GPCreateEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPCreateEntryViewController.m; path = GrowingPains/GPCreateEntryViewController.m; sourceTree = "<group>"; };
-		3450DF3116587128005F0A61 /* GPImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPImagePickerController.h; path = GrowingPains/GPImagePickerController.h; sourceTree = "<group>"; };
-		3450DF3216587128005F0A61 /* GPImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPImagePickerController.m; path = GrowingPains/GPImagePickerController.m; sourceTree = "<group>"; };
 		3450DF8A1661DA8F005F0A61 /* TakePhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TakePhoto.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -288,8 +285,6 @@
 				08D126A31638F54D00AD9977 /* GPTimelineViewController.m */,
 				3450DF1916576A41005F0A61 /* GPCreateEntryViewController.h */,
 				3450DF1A16576A41005F0A61 /* GPCreateEntryViewController.m */,
-				3450DF3116587128005F0A61 /* GPImagePickerController.h */,
-				3450DF3216587128005F0A61 /* GPImagePickerController.m */,
 			);
 			name = Controllers;
 			path = ..;
@@ -489,7 +484,6 @@
 				08D126AD1638FCC000AD9977 /* GPCreateJournalViewController.m in Sources */,
 				34486A421654B8D00059CA8C /* GPHomeScreenViewController.m in Sources */,
 				3450DF1B16576A41005F0A61 /* GPCreateEntryViewController.m in Sources */,
-				3450DF3316587128005F0A61 /* GPImagePickerController.m in Sources */,
 				08848EBA165B1A2800F0EE69 /* GPUser.m in Sources */,
 				08848EC0165B639C00F0EE69 /* GPLoginViewController.m in Sources */,
 				08848EC3165B669100F0EE69 /* GPHelpers.m in Sources */,

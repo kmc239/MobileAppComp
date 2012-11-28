@@ -58,13 +58,8 @@
   // Form validation
   if (![self isAcceptableTextLength:self.textView.text.length])
   {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                    message:@"Maximum character limit of 140"
-                                                   delegate:nil
-                                          cancelButtonTitle:@"Dismiss"
-                                          otherButtonTitles:nil];
-    [alert show];
-    return;
+    [GPHelpers showAlertWithMessage:NSLocalizedString(@"DESCRIPTION_TOO_LONG", nil)
+                         andHeading:NSLocalizedString(@"GENERIC_ERROR_HEADING", nil)];
   }
   
   // Create entry dictionary with picture, description, journalId

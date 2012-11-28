@@ -19,6 +19,7 @@
 
 @interface GPCreateJournalViewController : UIViewController <UITextFieldDelegate, RKObjectLoaderDelegate, RKRequestDelegate, UIAlertViewDelegate>
 
+@property (strong, nonatomic) IBOutlet UILabel *whoForLabel;
 @property (nonatomic, strong) IBOutlet UITextField *name;
 @property (nonatomic, strong) IBOutlet UISegmentedControl *gender;
 @property (nonatomic, strong) IBOutlet UITextField *birthdate;

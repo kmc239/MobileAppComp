@@ -24,6 +24,7 @@
 @synthesize birthdate = _birthdate;
 @synthesize gender = _gender;
 @synthesize name = _name;
+@synthesize whoForLabel = _whoForLabel;
 @synthesize delegate;
 
 #pragma mark - View lifecycle
@@ -32,6 +33,8 @@
   [super viewDidLoad];
 	// Do any additional setup after loading the view.
   
+  // Set custom fonts
+  [self.whoForLabel setFont:[UIFont fontWithName:@"Sanchez-Regular" size:self.whoForLabel.font.pointSize * 0.9]];
   [GPHelpers setCustomFontsForTitle:NSLocalizedString(@"JOURNAL_CREATE", nil) forViewController:self];
 }
 

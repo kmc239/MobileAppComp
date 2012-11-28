@@ -36,6 +36,12 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+  
+  // someplace where you create the UINavigationController
+  if ([self.navigationController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)] ) {
+    UIImage *image = [UIImage imageNamed:@"navbar.png"];
+    [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
+  }
 
   // Set custom font
   [self._titleLabel setFont:[UIFont fontWithName:@"Sanchez-Regular" size:self._titleLabel.font.pointSize * 0.9]];

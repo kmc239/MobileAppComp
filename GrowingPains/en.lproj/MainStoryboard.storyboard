@@ -254,7 +254,7 @@
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jgI-Wb-Srf">
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                         <connections>
                                             <outlet property="delegate" destination="xGK-Z5-2dP" id="trN-br-VAX"/>
                                         </connections>
@@ -299,17 +299,12 @@
                             <constraint firstItem="9M5-Zj-gQx" firstAttribute="top" secondItem="U0O-CF-m6m" secondAttribute="top" type="default" id="rpc-DH-EBw"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Login" id="Yt2-LM-FTO">
-                        <barButtonItem key="rightBarButtonItem" title="Skip" id="q5S-s7-2B7">
-                            <connections>
-                                <segue destination="RIx-S8-kSq" kind="push" identifier="Login" id="RV9-Fh-eS4"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Login" id="Yt2-LM-FTO"/>
                     <connections>
                         <outlet property="_email" destination="jgI-Wb-Srf" id="OHq-mj-GYa"/>
                         <outlet property="_password" destination="1Y7-MF-xQ5" id="lEj-U9-fIy"/>
                         <outlet property="_scrollView" destination="9M5-Zj-gQx" id="IKc-tV-ZSD"/>
+                        <segue destination="RIx-S8-kSq" kind="push" identifier="Login" id="26U-k8-hL6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JZO-SH-oHM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -732,7 +727,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="Pdr-T7-3jd"/>
-        <segue reference="o0Z-o5-F6D"/>
+        <segue reference="26U-k8-hL6"/>
         <segue reference="9lR-uf-6Ti"/>
     </inferredMetricsTieBreakers>
 </document>

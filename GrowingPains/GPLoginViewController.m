@@ -44,30 +44,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Segue
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-  
-  if ([[segue identifier] isEqualToString:@"Login"]) {
-    NSLog(@"time to login");
-    
-    // If "skipped", load the first user - this can be used as a demo
-    if ([[sender title] isEqualToString:@"Skip"]) {
-      
-      [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-      
-      // Currently this will only be called if the user clicks skip
-      // Hard coding a dummy account's creds to use as a "demo"
-      [[RKClient sharedClient] setUsername:@"jane@gmail.com"];
-      [[RKClient sharedClient] setPassword:@"password"];
-      
-      NSString *getUserURL = [NSString stringWithFormat:@"/users/1.json"];
-      NSLog(@"the get user url is %@", getUserURL);
-      [[RKObjectManager sharedManager] loadObjectsAtResourcePath:getUserURL delegate:self];
-    }
-  }
-}
-
 #pragma mark - TextFieldDelegate
 // Called when textField start editting.
 - (void)textFieldDidBeginEditing:(UITextField *)textField
@@ -177,19 +153,9 @@
 #pragma mark - RestKit objectLoader
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects
 {
-  
   [DejalBezelActivityView removeViewAnimated:YES];
   [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-  
-  if ([[objects objectAtIndex:0] isKindOfClass:[GPUser class]]) {
-    
-    GPUser *loggedInUser = [objects objectAtIndex:0];
-    NSLog(@"The user's name is %@", loggedInUser.name);
-    
-    // Save Singleton Object
-    GPUserSingleton *sharedUser = [GPUserSingleton sharedGPUserSingleton];
-    [sharedUser setUser:loggedInUser];
-  }
+  NSLog(@"objectLoader did load objects");
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
@@ -204,7 +170,6 @@
 
 - (IBAction)loginPressed:(id)sender
 {
-  
   if (![GPHelpers isValidEmail:_email.text]) {
     [GPHelpers showAlertWithMessage:NSLocalizedString(@"INVALID_EMAIL", nil)
                          andHeading:NSLocalizedString(@"LOGIN_UNSUCCESSFUL", nil)];
@@ -212,8 +177,9 @@
   else {
   
     // Create our JSON array using an NSDictionary
-    // Because it's a small POST where the server a custom array we'll just do it here
-    // Server expects the following: {"email":"kyle@kyleclegg.com", "password":"password"}
+    // Because it's a small POST where the server expects a custom array we'll just build
+    // it here using the RestKit parser
+    // Server expects: {"email":"kyle@kyleclegg.com", "password":"password"}
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
 
     // Email and password params, put into params dictionary

@@ -43,4 +43,21 @@
 	return NO;
 }
 
++ (void)setCustomFontsForTitle:(NSString *)title forViewController:(UIViewController *)controller {
+  
+  int height = controller.navigationController.navigationBar.frame.size.height;
+  int width = controller.navigationController.navigationBar.frame.size.width;
+  
+  UILabel *navLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, height)];
+  navLabel.backgroundColor = [UIColor clearColor];
+  navLabel.textColor = [UIColor whiteColor];
+  navLabel.shadowColor = [UIColor colorWithWhite:0.0 alpha:0.5];
+  navLabel.font = [UIFont fontWithName:@"Sanchez-Regular" size:22];
+  navLabel.textAlignment = NSTextAlignmentCenter;
+  navLabel.text = title;
+  controller.navigationItem.titleView = navLabel;
+  [navLabel sizeToFit];
+  
+}
+
 @end

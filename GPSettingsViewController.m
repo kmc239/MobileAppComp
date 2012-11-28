@@ -10,6 +10,7 @@
 #import "GPUserSingleton.h"
 #import "STKeychain.h"
 #import "GPConstants.h"
+#import "GPHelpers.h"
 
 @interface GPSettingsViewController ()
 
@@ -33,6 +34,9 @@
 {
   [super viewDidLoad];
 
+  // Set custom font for title
+  [GPHelpers setCustomFontsForTitle:NSLocalizedString(@"SETTINGS", nil) forViewController:self];
+  
   self.nameLabel.text = [GPUserSingleton sharedGPUserSingleton].name;
   self.emailLabel.text = [GPUserSingleton sharedGPUserSingleton].email;
 }

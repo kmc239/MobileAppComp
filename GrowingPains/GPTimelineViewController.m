@@ -147,7 +147,7 @@
 //    previewImageView.layer.borderWidth = 0.5;
   
   // Update the description
-  UITextView *description = (UITextView *)[cell viewWithTag:4];
+  UILabel *description = (UILabel *)[cell viewWithTag:4];
   description.text = currentEntry.description;
   
 }

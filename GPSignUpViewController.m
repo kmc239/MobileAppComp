@@ -34,6 +34,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+  
+  [GPHelpers setCustomFontsForTitle:NSLocalizedString(@"SIGNUP", nil) forViewController:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -41,6 +43,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - Actions
 
 - (IBAction)signUpPressed:(id)sender
 {

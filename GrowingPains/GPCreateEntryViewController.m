@@ -29,6 +29,9 @@
 {
   [super viewDidLoad];
   
+  // Set custom font for title
+  [GPHelpers setCustomFontsForTitle:NSLocalizedString(@"ENTRY_CREATE", nil) forViewController:self];
+  
   // Add keyboard observers
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(keyboardWasShown:)

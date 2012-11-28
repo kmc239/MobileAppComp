@@ -309,6 +309,7 @@
                         <outlet property="_email" destination="jgI-Wb-Srf" id="OHq-mj-GYa"/>
                         <outlet property="_password" destination="1Y7-MF-xQ5" id="lEj-U9-fIy"/>
                         <outlet property="_scrollView" destination="9M5-Zj-gQx" id="IKc-tV-ZSD"/>
+                        <outlet property="_titleLabel" destination="74K-NU-vkG" id="P3H-W2-SoJ"/>
                         <segue destination="RIx-S8-kSq" kind="push" identifier="Login" id="26U-k8-hL6"/>
                     </connections>
                 </viewController>
@@ -396,33 +397,6 @@
             </objects>
             <point key="canvasLocation" x="829" y="-792"/>
         </scene>
-        <!--View Controller - Calendar-->
-        <scene sceneID="TLW-0D-P1B">
-            <objects>
-                <viewController id="2Pu-an-jX3" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Zop-Ls-4pD">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="calendar.png" translatesAutoresizingMaskIntoConstraints="NO" id="1Vs-Og-6e3"/>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="1Vs-Og-6e3" firstAttribute="trailing" secondItem="Zop-Ls-4pD" secondAttribute="trailing" type="default" id="1da-aZ-G5r"/>
-                            <constraint firstItem="1Vs-Og-6e3" firstAttribute="leading" secondItem="Zop-Ls-4pD" secondAttribute="leading" type="default" id="1zO-v3-fuF"/>
-                            <constraint firstItem="1Vs-Og-6e3" firstAttribute="bottom" secondItem="Zop-Ls-4pD" secondAttribute="bottom" type="default" id="XLz-jT-LKt"/>
-                            <constraint firstItem="1Vs-Og-6e3" firstAttribute="top" secondItem="Zop-Ls-4pD" secondAttribute="top" type="default" id="aQ4-mD-pJq"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Calendar" id="s6e-iw-jmw"/>
-                    <connections>
-                        <segue destination="So2-zS-nJj" kind="push" identifier="View Entry" id="4Ec-VY-tZd"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DsQ-Vm-27p" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1364" y="261"/>
-        </scene>
         <!--Create Entry View Controller - Create Entry-->
         <scene sceneID="GS4-v8-7hA">
             <objects>
@@ -505,7 +479,7 @@
                             <constraint firstItem="vzL-f1-Cdk" firstAttribute="top" secondItem="CLF-1A-MsC" secondAttribute="top" type="default" id="jvP-4G-Zw0"/>
                         </constraints>
                     </scrollView>
-                    <navigationItem key="navigationItem" id="Di6-Jt-JUe"/>
+                    <navigationItem key="navigationItem" title="Create Entry" id="Di6-Jt-JUe"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="scrollView" destination="CLF-1A-MsC" id="DGE-4M-a4y"/>
@@ -582,7 +556,7 @@
             </objects>
             <point key="canvasLocation" x="1364" y="-412"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller - Your Entry-->
         <scene sceneID="YlA-Uv-8X2">
             <objects>
                 <viewController id="So2-zS-nJj" sceneMemberID="viewController">
@@ -606,7 +580,7 @@
                     <toolbarItems>
                         <barButtonItem systemItem="action" id="sBI-IF-udP"/>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" id="xpE-xM-LiT">
+                    <navigationItem key="navigationItem" title="Your Entry" id="xpE-xM-LiT">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="gpH-OL-5hb">
                             <connections>
                                 <segue destination="HCE-vT-Llb" kind="push" identifier="Edit Post" id="RoU-rl-I9D"/>
@@ -638,7 +612,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="Z6z-y7-X6S" kind="relationship" relationship="viewControllers" id="sB6-pi-YJj"/>
-                        <segue destination="2Pu-an-jX3" kind="relationship" relationship="viewControllers" id="R66-hy-Ahh"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RlA-yl-cmR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -741,7 +714,6 @@
     <resources>
         <image name="TakePhoto.png" width="1333" height="1333"/>
         <image name="baby-girl.jpeg" width="400" height="300"/>
-        <image name="calendar.png" width="385" height="303"/>
     </resources>
     <classes>
         <class className="GPCreateEntryViewController" superclassName="UIViewController">
@@ -778,6 +750,7 @@
                 <relationship kind="outlet" name="_email" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="_password" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="_scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="_titleLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="GPSettingsViewController" superclassName="UIViewController">
@@ -811,8 +784,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="o0Z-o5-F6D"/>
-        <segue reference="Pdr-T7-3jd"/>
-        <segue reference="4Ec-VY-tZd"/>
+        <segue reference="26U-k8-hL6"/>
+        <segue reference="9lR-uf-6Ti"/>
+        <segue reference="RoU-rl-I9D"/>
     </inferredMetricsTieBreakers>
 </document>

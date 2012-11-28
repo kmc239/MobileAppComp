@@ -32,6 +32,7 @@
   [super viewDidLoad];
 	// Do any additional setup after loading the view.
   
+  [GPHelpers setCustomFontsForTitle:NSLocalizedString(@"JOURNAL_CREATE", nil) forViewController:self];
 }
 
 - (void)didReceiveMemoryWarning

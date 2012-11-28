@@ -25,8 +25,10 @@
 {
   [super viewDidLoad];
 
+  // Set custom font for title
+  [GPHelpers setCustomFontsForTitle:NSLocalizedString(@"JOURNALS", nil) forViewController:self];
+  
   [self.tableView setRowHeight:134];
-
   [self loadJournalsFromServer];
 }
 

@@ -22,7 +22,7 @@
 
 @implementation GPLoginViewController
 
-@synthesize _scrollView, _email, _password;
+@synthesize _scrollView, _email, _password, _titleLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,6 +37,9 @@
 {
   [super viewDidLoad];
 
+  // Set custom font
+  [self._titleLabel setFont:[UIFont fontWithName:@"Sanchez-Regular" size:self._titleLabel.font.pointSize * 0.9]];
+    
   // If user is set, automatically log them in
   if ([GPUserSingleton sharedGPUserSingleton].userIsSet) {
     
@@ -46,6 +49,18 @@
     
     [self performSegueWithIdentifier:@"Login" sender:self];
   }
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+  [self.navigationController setNavigationBarHidden:YES animated:animated];
+  [super viewWillAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+  [self.navigationController setNavigationBarHidden:NO animated:animated];
+  [super viewWillDisappear:animated];
 }
 
 - (void)didReceiveMemoryWarning

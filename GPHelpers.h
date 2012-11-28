@@ -14,5 +14,6 @@
 + (BOOL) isValidName:(NSString *)name;
 + (BOOL) isValidEmail:(NSString* )emailAddress;
 + (BOOL) isValidPassword:(NSString *)password;
++ (void)setCustomFontsForTitle:(NSString *)title forViewController:(UIViewController *)controller;
 
 @end

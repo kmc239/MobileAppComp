@@ -14,6 +14,7 @@
 @property (strong, nonatomic) IBOutlet UIScrollView *_scrollView;
 @property (strong, nonatomic) IBOutlet UITextField *_email;
 @property (strong, nonatomic) IBOutlet UITextField *_password;
+@property (strong, nonatomic) IBOutlet UILabel *_titleLabel;
 
 - (IBAction)loginPressed:(id)sender;
 

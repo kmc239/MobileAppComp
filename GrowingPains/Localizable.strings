@@ -21,8 +21,10 @@
 // General
 "CANCEL_BUTTON_TITLE" = "OK";
 "GENERIC_ERROR_HEADING" = "Error";
+"SETTINGS" = "Settings";
 
 // Login
+"LOGIN" = "Login";
 "LOGIN_UNSUCCESSFUL" = "Login Unsuccessful";
 "LOGIN_INVALID_CREDS" = "Invalid email or password";
 
@@ -30,6 +32,7 @@
 "ACCOUNT_CREATED_HEADING" = "Account Created";
 "ACCOUNT_CREATED_MESSAGE" = "Your account has been successfully created";
 "ACCOUNT_NOT_CREATED_HEADING" = "Account Not Created";
+"SIGNUP" = "Sign Up";
 
 // Form Validation
 "INVALID_BIRTHDATE" = "Please enter a birthdate";
@@ -40,6 +43,14 @@
 "DESCRIPTION_TOO_LONG" = "Please limit your description to 140 characters";
 
 // Create Journal
+"JOURNAL_CREATE" = "Create Journal";
 "JOURNAL_CREATED_HEADING" = "Journal Created";
 "JOURNAL_CREATED_MESSAGE" = "Your journal has been successfully created";
 "JOURNAL_NOT_CREATED_HEADING" = "Journal Not Created";
+"JOURNALS" = "Journals";
+
+// Timeline
+"TIMELINE" = "Timeline";
+
+// Entries
+"ENTRY_CREATE" = "Create Entry";

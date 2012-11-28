@@ -8,6 +8,7 @@
 
 #import "GPCreateEntryViewController.h"
 #import <MobileCoreServices/UTCoreTypes.h>
+#import "GPEntry.h"
 
 @interface GPCreateEntryViewController ()
 
@@ -19,38 +20,99 @@
 @synthesize takePictureButton = _takePictureButton;
 @synthesize textView = _textView;
 @synthesize dismissKeyboardButton = _dismissKeyboardButton;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+@synthesize currentJournalId = _currentJournalId;
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    
-    // Add keyboard observers
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWasShown:)
-                                                 name:UIKeyboardDidShowNotification
-                                               object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardWillHide:)
-                                                 name:UIKeyboardWillHideNotification
-                                               object:nil];
-    
-    // Initialize dismiss keyboard button
-    self.dismissKeyboardButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismissKeyboard:)];
+  [super viewDidLoad];
+  
+  // Add keyboard observers
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(keyboardWasShown:)
+                                               name:UIKeyboardDidShowNotification
+                                             object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(keyboardWillHide:)
+                                               name:UIKeyboardWillHideNotification
+                                             object:nil];
+  
+  // Initialize dismiss keyboard button
+  self.dismissKeyboardButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(dismissKeyboard:)];
 }
 
 - (void)didReceiveMemoryWarning
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+  [super didReceiveMemoryWarning];
+  // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)createEntryPressed:(UIButton *)sender
+{
+  // Form validation
+  // Check character limit
+  
+  // Upload picture
+//  self postImage:self.takePictureButton.imageView.image withFilename:@"
+  
+  // Create thumbnail object
+  
+  // Create picture object
+  GPPicture *entryPicture = [[GPPicture alloc] init];
+//  entryPicture.pictureUrl =
+  
+  // Create entry object
+  GPEntry *newEntry = [[GPEntry alloc] init];
+  newEntry.description = self.textView.text;
+  newEntry.journalId = self.currentJournalId;
+  newEntry.picture = entryPicture;
+}
+
+- (void)postImage:(UIImage *)imageToPost withFilename:(NSString *)filename
+{
+  // Create request
+  NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+  [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
+  [request setHTTPShouldHandleCookies:NO];
+  [request setTimeoutInterval:30];
+  [request setHTTPMethod:@"POST"];
+  
+  // Set Content-Type in HTTP header
+  NSString *boundary = @"dude does this work";
+  NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
+  [request setValue:contentType forHTTPHeaderField: @"Content-Type"];
+  
+  // Post body
+  NSMutableData *body = [NSMutableData data];
+  
+  // Add params (all params are strings)
+//  for (NSString *param in _params) {
+//    [body appendData:[[NSString stringWithFormat:@"--%@\r\n", BoundaryConstant] dataUsingEncoding:NSUTF8StringEncoding]];
+//    [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", param] dataUsingEncoding:NSUTF8StringEncoding]];
+//    [body appendData:[[NSString stringWithFormat:@"%@\r\n", [_params objectForKey:param]] dataUsingEncoding:NSUTF8StringEncoding]];
+//  }
+  
+  // add image data
+  NSData *imageData = UIImageJPEGRepresentation(imageToPost, 1.0);
+  if (imageData) {
+    [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"image.jpg\"\r\n", filename] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithString:@"Content-Type: image/jpeg\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:imageData];
+    [body appendData:[[NSString stringWithFormat:@"\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+  }
+  
+  [body appendData:[[NSString stringWithFormat:@"--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+  
+  // setting the body of the post to the reqeust
+  [request setHTTPBody:body];
+  
+  // set the content-length
+  NSString *postLength = [NSString stringWithFormat:@"%d", [body length]];
+  [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+  
+  // set URL
+//  NSURL *requestURL = [NSURL URLWithString:<#(NSString *)#>]
+//  [request setURL:requestURL];
 }
 
 #pragma mark - Keyboard & TextView Manipulation

@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *takePictureButton;
 @property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (strong, nonatomic) UIBarButtonItem *dismissKeyboardButton;
+@property NSInteger currentJournalId;
 
 @end

@@ -12,6 +12,7 @@
 #import "GPHelpers.h"
 #import "GPEntries.h"
 #import <QuartzCore/QuartzCore.h>
+#import "GPCreateEntryViewController.h"
 
 @interface GPTimelineViewController ()
 
@@ -39,6 +40,15 @@
 {
   [super didReceiveMemoryWarning];
   // Dispose of any resources that can be recreated.
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+  if ([segue.identifier isEqualToString:@"Create Entry"])
+  {
+    GPCreateEntryViewController *entryController = segue.destinationViewController;
+    entryController.currentJournalId = self.currentJournalId;
+  }
 }
 
 #pragma mark - Table view delegate

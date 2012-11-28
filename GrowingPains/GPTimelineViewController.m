@@ -13,6 +13,7 @@
 #import "GPEntries.h"
 #import <QuartzCore/QuartzCore.h>
 #import "GPCreateEntryViewController.h"
+#import "GPEntryViewController.h"
 
 @interface GPTimelineViewController ()
 
@@ -48,6 +49,13 @@
   {
     GPCreateEntryViewController *entryController = segue.destinationViewController;
     entryController.currentJournalId = self.currentJournalId;
+  }
+  else if ([segue.identifier isEqualToString:@"View Entry"])
+  {
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    GPEntry *currentEntry = [[GPUserSingleton sharedGPUserSingleton].entries objectAtIndex:indexPath.row];
+    GPEntryViewController *entryController = segue.destinationViewController;
+    entryController.currentEntry = currentEntry;
   }
 }
 

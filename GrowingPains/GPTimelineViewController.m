@@ -153,7 +153,7 @@
 }
 
 
-#pragma mark - RestKit Calls
+#pragma mark - RestKit Request Delegate Calls
 
 // Sent when a request has finished loading
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response

@@ -9,6 +9,7 @@
 #import "GPCreateEntryViewController.h"
 #import <MobileCoreServices/UTCoreTypes.h>
 #import "GPEntry.h"
+#import "GPHelpers.h"
 
 @interface GPCreateEntryViewController ()
 
@@ -21,6 +22,8 @@
 @synthesize textView = _textView;
 @synthesize dismissKeyboardButton = _dismissKeyboardButton;
 @synthesize currentJournalId = _currentJournalId;
+
+#define kAcceptableEntryDescriptionLength 140
 
 - (void)viewDidLoad
 {
@@ -46,73 +49,56 @@
   // Dispose of any resources that can be recreated.
 }
 
+- (BOOL)isAcceptableTextLength:(NSUInteger)length {
+  return length <= kAcceptableEntryDescriptionLength;
+}
+
 - (IBAction)createEntryPressed:(UIButton *)sender
 {
   // Form validation
-  // Check character limit
-  
-  // Upload picture
-//  self postImage:self.takePictureButton.imageView.image withFilename:@"
-  
-  // Create thumbnail object
-  
-  // Create picture object
-  GPPicture *entryPicture = [[GPPicture alloc] init];
-//  entryPicture.pictureUrl =
-  
-  // Create entry object
-  GPEntry *newEntry = [[GPEntry alloc] init];
-  newEntry.description = self.textView.text;
-  newEntry.journalId = self.currentJournalId;
-  newEntry.picture = entryPicture;
-}
-
-- (void)postImage:(UIImage *)imageToPost withFilename:(NSString *)filename
-{
-  // Create request
-  NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-  [request setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
-  [request setHTTPShouldHandleCookies:NO];
-  [request setTimeoutInterval:30];
-  [request setHTTPMethod:@"POST"];
-  
-  // Set Content-Type in HTTP header
-  NSString *boundary = @"dude does this work";
-  NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
-  [request setValue:contentType forHTTPHeaderField: @"Content-Type"];
-  
-  // Post body
-  NSMutableData *body = [NSMutableData data];
-  
-  // Add params (all params are strings)
-//  for (NSString *param in _params) {
-//    [body appendData:[[NSString stringWithFormat:@"--%@\r\n", BoundaryConstant] dataUsingEncoding:NSUTF8StringEncoding]];
-//    [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", param] dataUsingEncoding:NSUTF8StringEncoding]];
-//    [body appendData:[[NSString stringWithFormat:@"%@\r\n", [_params objectForKey:param]] dataUsingEncoding:NSUTF8StringEncoding]];
-//  }
-  
-  // add image data
-  NSData *imageData = UIImageJPEGRepresentation(imageToPost, 1.0);
-  if (imageData) {
-    [body appendData:[[NSString stringWithFormat:@"--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"image.jpg\"\r\n", filename] dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:[[NSString stringWithString:@"Content-Type: image/jpeg\r\n\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
-    [body appendData:imageData];
-    [body appendData:[[NSString stringWithFormat:@"\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
+  if (![self isAcceptableTextLength:self.textView.text.length])
+  {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                    message:@"Maximum character limit of 140"
+                                                   delegate:nil
+                                          cancelButtonTitle:@"Dismiss"
+                                          otherButtonTitles:nil];
+    [alert show];
+    return;
   }
   
-  [body appendData:[[NSString stringWithFormat:@"--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+  // Create entry dictionary with picture, description, journalId
+  GPThumbnail *thumbnail = [[GPThumbnail alloc] init];
+  GPPicture *picture = [[GPPicture alloc] init];
+  picture.thumbnail = thumbnail;
+  NSNumber *journalId = [NSNumber numberWithInt:self.currentJournalId];
+
+  NSMutableDictionary *entry = [[NSMutableDictionary alloc] init];
+  [entry setValue:picture forKey:@"picture"];
+  [entry setValue:self.textView.text forKey:@"description"];
+  [entry setValue:journalId forKey:@"journalId"];
   
-  // setting the body of the post to the reqeust
-  [request setHTTPBody:body];
+  // Upload picture
+  RKParams *params = [RKParams params];
   
-  // set the content-length
-  NSString *postLength = [NSString stringWithFormat:@"%d", [body length]];
-  [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+  // Set some simple values -- just like we would with NSDictionary
+  [params setValue:entry forParam:@"entry"];
+//  [params setValue:self.textView.text forParam:@"description"];
+//  [params setValue:journalId forParam:@"journalId"];
   
-  // set URL
-//  NSURL *requestURL = [NSURL URLWithString:<#(NSString *)#>]
-//  [request setURL:requestURL];
+  // Attach an Image from the App Bundle
+  UIImage *image = [self.takePictureButton backgroundImageForState:UIControlStateNormal];
+  NSData *imageData = UIImageJPEGRepresentation(image, 85.0);
+  [params setData:imageData MIMEType:@"image/jpg" forParam:@"picture"];
+//  NSData *imageData = UIImagePNGRepresentation(image);
+//  [params setData:imageData MIMEType:@"image/png" forParam:@"picture"];
+  
+  // Let's examine the RKRequestSerializable info...
+  NSLog(@"RKParams HTTPHeaderValueForContentType = %@", [params HTTPHeaderValueForContentType]);
+  NSLog(@"RKParams HTTPHeaderValueForContentLength = %d", [params HTTPHeaderValueForContentLength]);
+  
+  // Send a Request!
+  [[RKClient sharedClient] post:@"/entries" params:params delegate:self];
 }
 
 #pragma mark - Keyboard & TextView Manipulation
@@ -179,7 +165,7 @@
     BOOL result = YES;
     UIImagePickerController *cameraUI = [[UIImagePickerController alloc] init];
     
-    if (([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera] == NO) || (delegate == nil) || (controller == nil))
+    if ((![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera] == NO) || (delegate == nil) || (controller == nil))
     {
         cameraUI.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         cameraUI.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
@@ -274,5 +260,55 @@
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+#pragma mark - RestKit Request Delegate Calls
+
+// Sent when a request has finished loading
+- (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response
+{
+  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+  if ([request isGET]) {
+    
+    if ([response isOK]) {
+      
+      if ([response isOK]) {
+        
+        //        NSString *responseString = [response bodyAsString];
+        //        NSLog(@"Response is OK:\n\n%@", responseString);
+        
+      }
+    }
+  }
+  else if ([request isPOST]) {
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    NSLog(@"POST finished with status code: %i", [response statusCode]);
+  }
+  else if ([request isDELETE]) {
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    if ([response isNotFound]) {
+      NSLog(@"The resource path '%@' was not found.", [request resourcePath]);
+    }
+	}
+}
+
+// Sent when a request has failed due to an error
+- (void)request:(RKRequest*)request didFailLoadWithError:(NSError*)error
+{
+  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+	int test = [error code];
+	if (test == RKRequestBaseURLOfflineError)
+  {
+    [GPHelpers showAlertWithMessage:NSLocalizedString(@"RK_CONNECTION_ERROR", nil) andHeading:NSLocalizedString(@"RK_CONNECTION_ERROR_HEADING", nil)];
+		return;
+	}
+}
+
+// Sent to the delegate when a request has timed out
+- (void)requestDidTimeout:(RKRequest*)request
+{
+  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+  [GPHelpers showAlertWithMessage:NSLocalizedString(@"RK_REQUEST_TIMEOUT", nil) andHeading:NSLocalizedString(@"RK_OPERATION_FAILED", nil)];
+}
+
 
 @end

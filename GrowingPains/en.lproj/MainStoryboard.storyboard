@@ -95,6 +95,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Growing Pains" id="Ndz-4t-RGu">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="YSo-oa-0Z4">
+                            <connections>
+                                <segue destination="pf1-6R-8ho" kind="push" id="AKJ-C0-dzJ"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="lhG-tf-5q6">
                             <connections>
                                 <segue destination="fZM-z3-1zu" kind="push" identifier="Add Journal" id="4ib-X3-kYZ"/>
@@ -202,11 +207,12 @@
                         <outlet property="_email" destination="gEd-TT-3Ov" id="956-j5-b05"/>
                         <outlet property="_name" destination="Eex-7I-Ogl" id="GpD-NS-qMf"/>
                         <outlet property="_password" destination="dPa-5K-NaG" id="Ggl-BT-Aqw"/>
+                        <segue destination="RIx-S8-kSq" kind="push" identifier="Login After Signup" id="o0Z-o5-F6D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XKA-Yk-b1V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="216" y="-792"/>
+            <point key="canvasLocation" x="224" y="-792"/>
         </scene>
         <!--Login View Controller - Login-->
         <scene sceneID="VOT-eC-4WC">
@@ -253,7 +259,7 @@
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jgI-Wb-Srf">
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                         <connections>
                                             <outlet property="delegate" destination="xGK-Z5-2dP" id="trN-br-VAX"/>
                                         </connections>
@@ -298,17 +304,12 @@
                             <constraint firstItem="9M5-Zj-gQx" firstAttribute="top" secondItem="U0O-CF-m6m" secondAttribute="top" type="default" id="rpc-DH-EBw"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Login" id="Yt2-LM-FTO">
-                        <barButtonItem key="rightBarButtonItem" title="Skip" id="q5S-s7-2B7">
-                            <connections>
-                                <segue destination="RIx-S8-kSq" kind="push" identifier="Login" id="RV9-Fh-eS4"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Login" id="Yt2-LM-FTO"/>
                     <connections>
                         <outlet property="_email" destination="jgI-Wb-Srf" id="OHq-mj-GYa"/>
                         <outlet property="_password" destination="1Y7-MF-xQ5" id="lEj-U9-fIy"/>
                         <outlet property="_scrollView" destination="9M5-Zj-gQx" id="IKc-tV-ZSD"/>
+                        <segue destination="RIx-S8-kSq" kind="push" identifier="Login" id="26U-k8-hL6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JZO-SH-oHM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -644,6 +645,78 @@
             </objects>
             <point key="canvasLocation" x="829" y="-65"/>
         </scene>
+        <!--Settings View Controller - Settings-->
+        <scene sceneID="on8-7b-RHP">
+            <objects>
+                <viewController id="pf1-6R-8ho" customClass="GPSettingsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="G6W-wq-R2M">
+                        <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3OY-dN-FCF">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="51" id="6wK-mT-rfP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Email:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pb0-ID-qZP">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Jane Doe" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T0S-wA-kDq">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="jane@gmail.com" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LwQ-K2-Cp8">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEf-h4-6ZV">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Log Out">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logoutPressed:" destination="pf1-6R-8ho" eventType="touchUpInside" id="ibG-pb-Qdv"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LwQ-K2-Cp8" firstAttribute="baseline" secondItem="Pb0-ID-qZP" secondAttribute="baseline" type="user" id="13C-hq-6cN"/>
+                            <constraint firstAttribute="trailing" secondItem="T0S-wA-kDq" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="MUo-jc-1h2"/>
+                            <constraint firstItem="T0S-wA-kDq" firstAttribute="leading" secondItem="3OY-dN-FCF" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="OPg-7A-Xt2"/>
+                            <constraint firstAttribute="trailing" secondItem="fEf-h4-6ZV" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="QFS-sn-Nuc"/>
+                            <constraint firstItem="Pb0-ID-qZP" firstAttribute="leading" secondItem="G6W-wq-R2M" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="RQp-qa-OL6"/>
+                            <constraint firstAttribute="trailing" secondItem="LwQ-K2-Cp8" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ViZ-mD-E2N"/>
+                            <constraint firstItem="fEf-h4-6ZV" firstAttribute="top" secondItem="G6W-wq-R2M" secondAttribute="top" constant="84" id="VmB-ap-l4e"/>
+                            <constraint firstItem="Pb0-ID-qZP" firstAttribute="top" secondItem="3OY-dN-FCF" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="cp1-pd-T95"/>
+                            <constraint firstItem="3OY-dN-FCF" firstAttribute="top" secondItem="G6W-wq-R2M" secondAttribute="top" constant="20" symbolic="YES" type="default" id="cvV-wb-26W"/>
+                            <constraint firstItem="fEf-h4-6ZV" firstAttribute="leading" secondItem="G6W-wq-R2M" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="hIF-d0-Ndy"/>
+                            <constraint firstItem="3OY-dN-FCF" firstAttribute="leading" secondItem="G6W-wq-R2M" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="jcu-U6-6Lo"/>
+                            <constraint firstItem="LwQ-K2-Cp8" firstAttribute="leading" secondItem="T0S-wA-kDq" secondAttribute="leading" type="default" id="ldW-Vk-T07"/>
+                            <constraint firstItem="T0S-wA-kDq" firstAttribute="top" secondItem="G6W-wq-R2M" secondAttribute="top" constant="20" symbolic="YES" type="default" id="vjh-R6-szM"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="9y7-Tl-ync"/>
+                    <connections>
+                        <outlet property="emailLabel" destination="LwQ-K2-Cp8" id="mxa-ee-wdf"/>
+                        <outlet property="nameLabel" destination="T0S-wA-kDq" id="eoG-VE-V2f"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dBL-Xq-LNY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="829" y="624"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="8sh-nk-QjW">
             <objects>
@@ -670,6 +743,68 @@
         <image name="baby-girl.jpeg" width="400" height="300"/>
         <image name="calendar.png" width="385" height="303"/>
     </resources>
+    <classes>
+        <class className="GPCreateEntryViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GPCreateEntryViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="takePictureButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="textView" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="GPCreateJournalViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GPCreateJournalViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="birthdateButton:"/>
+                <relationship kind="action" name="createJournalButton:"/>
+                <relationship kind="outlet" name="birthdate" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="gender" candidateClass="UISegmentedControl"/>
+                <relationship kind="outlet" name="name" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="GPHomeScreenViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GPHomeScreenViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="GPJournalTabBarController" superclassName="UITabBarController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GPJournalTabBarController.h"/>
+        </class>
+        <class className="GPLoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GPLoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="loginPressed:"/>
+                <relationship kind="outlet" name="_email" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="_password" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="_scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="GPSettingsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GPSettingsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="logoutPressed:"/>
+                <relationship kind="outlet" name="emailLabel" candidateClass="NSLayoutConstraint"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="GPSignUpViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GPSignUpViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="signUpPressed:"/>
+                <relationship kind="outlet" name="_confirmPassword" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="_email" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="_name" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="_password" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="GPTimelineViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GPTimelineViewController.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
@@ -677,6 +812,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="Pdr-T7-3jd"/>
+        <segue reference="o0Z-o5-F6D"/>
         <segue reference="9lR-uf-6Ti"/>
     </inferredMetricsTieBreakers>
 </document>

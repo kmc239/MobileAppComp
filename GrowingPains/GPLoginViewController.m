@@ -14,6 +14,7 @@
 #import "GPHelpers.h"
 #import "GPConstants.h"
 #import "DejalActivityView.h"
+#import "STKeychain.h"
 
 @interface GPLoginViewController ()
 
@@ -25,42 +26,32 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+  self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+  if (self) {
+    // Custom initialization
+  }
+  return self;
 }
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
+  [super viewDidLoad];
+
+  // If user is set, automatically log them in
+  if ([GPUserSingleton sharedGPUserSingleton].userIsSet) {
+    
+    // User is set, set RKClient creds
+    [[RKClient sharedClient] setUsername:[GPUserSingleton sharedGPUserSingleton].email];
+    [[RKClient sharedClient] setPassword:[STKeychain getPasswordForUsername:[GPUserSingleton sharedGPUserSingleton].email andServiceName:kSTKeychainServiceName error:nil]];
+    
+    [self performSegueWithIdentifier:@"Login" sender:self];
+  }
 }
 
 - (void)didReceiveMemoryWarning
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Segue
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-  
-  if ([[segue identifier] isEqualToString:@"Login"]) {
-    NSLog(@"time to login");
-    
-    // If "skipped", load the first user - this can be used as a demo
-    if ([[sender title] isEqualToString:@"Skip"]) {
-      
-      [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-      
-      NSString *getUserURL = [NSString stringWithFormat:@"/users/1.json"];
-      NSLog(@"the get user url is %@", getUserURL);
-      [[RKObjectManager sharedManager] loadObjectsAtResourcePath:getUserURL delegate:self];
-    }
-  }
+  [super didReceiveMemoryWarning];
+  // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - TextFieldDelegate
@@ -90,7 +81,7 @@
   
   [DejalBezelActivityView removeViewAnimated:YES];
   [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-
+  
   if ([request isPOST]) {
     
     NSLog(@"POST finished with status code: %i", [response statusCode]);
@@ -124,6 +115,15 @@
         
         GPUserSingleton *sharedUser = [GPUserSingleton sharedGPUserSingleton];
         [sharedUser setUser:targetUser];
+        
+        // Save password securely
+        [STKeychain storeUsername:_email.text andPassword:_password.text forServiceName:kSTKeychainServiceName updateExisting:YES error:nil];
+        
+        // Set RestKit shared client to store creds for this session
+        // The API requires all users to be logged in for every API call,
+        // with the exception of create user and login
+        [[RKClient sharedClient] setUsername:_email.text];
+        [[RKClient sharedClient] setPassword:_password.text];
         
         [self performSegueWithIdentifier:@"Login" sender:self];
       }
@@ -166,19 +166,9 @@
 #pragma mark - RestKit objectLoader
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects
 {
-  
   [DejalBezelActivityView removeViewAnimated:YES];
   [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-  
-  if ([[objects objectAtIndex:0] isKindOfClass:[GPUser class]]) {
-    
-    GPUser *loggedInUser = [objects objectAtIndex:0];
-    NSLog(@"The user's name is %@", loggedInUser.name);
-    
-    // Save Singleton Object
-    GPUserSingleton *sharedUser = [GPUserSingleton sharedGPUserSingleton];
-    [sharedUser setUser:loggedInUser];
-  }
+  NSLog(@"objectLoader did load objects");
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
@@ -193,18 +183,18 @@
 
 - (IBAction)loginPressed:(id)sender
 {
-  
   if (![GPHelpers isValidEmail:_email.text]) {
     [GPHelpers showAlertWithMessage:NSLocalizedString(@"INVALID_EMAIL", nil)
                          andHeading:NSLocalizedString(@"LOGIN_UNSUCCESSFUL", nil)];
   }
   else {
-  
+    
     // Create our JSON array using an NSDictionary
-    // Because it's a small POST where the server a custom array we'll just do it here
-    // Server expects the following: {"email":"kyle@kyleclegg.com", "password":"password"}
+    // Because it's a small POST where the server expects a custom array we'll just build
+    // it here using the RestKit parser
+    // Server expects: {"email":"kyle@kyleclegg.com", "password":"password"}
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-
+    
     // Email and password params, put into params dictionary
     [params setObject:_email.text forKey:@"email"];
     [params setObject:_password.text forKey:@"password"];

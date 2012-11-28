@@ -13,5 +13,7 @@ NSString * const kGPUserDefaultsUserName          = @"kGPUserDefaultsUserName";
 NSString * const kGPUserDefaultsUserId            = @"kGPUserDefaultsUserId";
 NSString * const kGPUserDefaultsUserPassword      = @"kGPUserDefaultsUserPassword";
 NSString * const kGPUserDefaultsJournals          = @"kGPUserDefaultsJournals";
-NSString * const kGPUserDefaultsEntries             = @"kGPUserDefaultsEntries";
+NSString * const kGPUserDefaultsEntries           = @"kGPUserDefaultsEntries";
 NSString * const kGPUserDefaultsUserIsSet         = @"kGPUserDefaultsUserIsSet";
+
+NSString * const kSTKeychainServiceName           = @"kSTKeychainServiceName";

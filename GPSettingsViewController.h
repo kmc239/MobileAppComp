@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface GPSettingsViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UILabel *nameLabel;
+@property (strong, nonatomic) IBOutlet UILabel *emailLabel;
 
 - (IBAction)logoutPressed:(id)sender;
 

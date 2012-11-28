@@ -14,6 +14,7 @@
 #import "GPHelpers.h"
 #import "GPConstants.h"
 #import "DejalActivityView.h"
+#import "STKeychain.h"
 
 @interface GPLoginViewController ()
 
@@ -38,6 +39,11 @@
 
   // If user is set, automatically log them in
   if ([GPUserSingleton sharedGPUserSingleton].userIsSet) {
+    
+    // User is set, set RKClient creds
+    [[RKClient sharedClient] setUsername:[GPUserSingleton sharedGPUserSingleton].email];
+    [[RKClient sharedClient] setPassword:[STKeychain getPasswordForUsername:[GPUserSingleton sharedGPUserSingleton].email andServiceName:kSTKeychainServiceName error:nil]];
+    
     [self performSegueWithIdentifier:@"Login" sender:self];
   }
 }
@@ -109,6 +115,9 @@
         
         GPUserSingleton *sharedUser = [GPUserSingleton sharedGPUserSingleton];
         [sharedUser setUser:targetUser];
+        
+        // Save password securely
+        [STKeychain storeUsername:_email.text andPassword:_password.text forServiceName:kSTKeychainServiceName updateExisting:YES error:nil];
         
         // Set RestKit shared client to store creds for this session
         // The API requires all users to be logged in for every API call,

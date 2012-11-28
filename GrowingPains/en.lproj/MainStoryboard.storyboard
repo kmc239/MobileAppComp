@@ -666,12 +666,12 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="Jane Doe" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T0S-wA-kDq">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Jane Doe" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T0S-wA-kDq">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="jane@gmail.com" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LwQ-K2-Cp8">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="jane@gmail.com" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LwQ-K2-Cp8">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -692,7 +692,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="LwQ-K2-Cp8" firstAttribute="baseline" secondItem="Pb0-ID-qZP" secondAttribute="baseline" type="default" id="13C-hq-6cN"/>
+                            <constraint firstItem="LwQ-K2-Cp8" firstAttribute="baseline" secondItem="Pb0-ID-qZP" secondAttribute="baseline" type="user" id="13C-hq-6cN"/>
                             <constraint firstAttribute="trailing" secondItem="T0S-wA-kDq" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="MUo-jc-1h2"/>
                             <constraint firstItem="T0S-wA-kDq" firstAttribute="leading" secondItem="3OY-dN-FCF" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="OPg-7A-Xt2"/>
                             <constraint firstAttribute="trailing" secondItem="fEf-h4-6ZV" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="QFS-sn-Nuc"/>
@@ -708,6 +708,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="9y7-Tl-ync"/>
+                    <connections>
+                        <outlet property="emailLabel" destination="LwQ-K2-Cp8" id="mxa-ee-wdf"/>
+                        <outlet property="nameLabel" destination="T0S-wA-kDq" id="eoG-VE-V2f"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dBL-Xq-LNY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -780,6 +784,8 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GPSettingsViewController.h"/>
             <relationships>
                 <relationship kind="action" name="logoutPressed:"/>
+                <relationship kind="outlet" name="emailLabel" candidateClass="NSLayoutConstraint"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="GPSignUpViewController" superclassName="UIViewController">

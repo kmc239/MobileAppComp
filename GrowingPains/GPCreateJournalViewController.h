@@ -9,6 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <RestKit/RestKit.h>
 
+// Delegate to reload journals after new journal is added
+@protocol GPCreateJournalViewControllerDelegate <NSObject>
+
+@optional
+-(void)reloadJournals:(BOOL)reloadStatus;
+
+@end
+
 @interface GPCreateJournalViewController : UIViewController <UITextFieldDelegate, RKObjectLoaderDelegate, RKRequestDelegate, UIAlertViewDelegate>
 
 @property (nonatomic, strong) IBOutlet UITextField *name;
@@ -19,5 +27,7 @@
 
 - (IBAction)birthdateButton:(id)sender;
 - (IBAction)createJournalButton:(id)sender;
+
+@property (nonatomic, assign) id delegate;
 
 @end

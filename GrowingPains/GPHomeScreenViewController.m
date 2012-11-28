@@ -27,11 +27,7 @@
 
   [self.tableView setRowHeight:134];
 
-  // Load journals
-  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-  NSLog(@"\n\nGETTING JOURNALS\n\n");
-  NSString *getJournalsURL = [NSString stringWithFormat:@"/users/%i/journals.json", [GPUserSingleton sharedGPUserSingleton].userId];
-  [[RKObjectManager sharedManager] loadObjectsAtResourcePath:getJournalsURL delegate:self];
+  [self loadJournalsFromServer];
 }
 
 - (void)didReceiveMemoryWarning
@@ -41,6 +37,8 @@
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+  
+  // Send selected journal forward to next view controller
   if ([segue.identifier isEqualToString:@"View Journal"]) {
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     GPJournalTabBarController *journalController = segue.destinationViewController;
@@ -48,6 +46,20 @@
     journalController.currentJournalId = currentJournal.journalId;
     DLog(@"currentJournalId: %i", currentJournal.journalId);
   }
+  
+  // Set the delegate on the next view controller
+  if ([segue.identifier isEqualToString:@"Add Journal"]) {
+    GPCreateJournalViewController *createJournalController = segue.destinationViewController;
+    createJournalController.delegate = self;
+  }
+}
+
+- (void)loadJournalsFromServer {
+  // Load journals
+  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+  NSLog(@"\n\nGETTING JOURNALS\n\n");
+  NSString *getJournalsURL = [NSString stringWithFormat:@"/users/%i/journals.json", [GPUserSingleton sharedGPUserSingleton].userId];
+  [[RKObjectManager sharedManager] loadObjectsAtResourcePath:getJournalsURL delegate:self];
 }
 
 #pragma mark - Table view delegate
@@ -220,5 +232,14 @@
   NSLog(@"objectLoader failed with error: %@", error);
 }
 
+#pragma mark - Create Journal delegate method
+-(void)reloadJournals:(BOOL)reloadStatus {
+  
+  NSLog(@"delegate fired");
+  
+  if (reloadStatus) {
+    [self loadJournalsFromServer];
+  }
+}
 
 @end

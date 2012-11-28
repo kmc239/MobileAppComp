@@ -56,6 +56,11 @@
       
       [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
       
+      // Currently this will only be called if the user clicks skip
+      // Hard coding a dummy account's creds to use as a "demo"
+      [[RKClient sharedClient] setUsername:@"jane@gmail.com"];
+      [[RKClient sharedClient] setPassword:@"password"];
+      
       NSString *getUserURL = [NSString stringWithFormat:@"/users/1.json"];
       NSLog(@"the get user url is %@", getUserURL);
       [[RKObjectManager sharedManager] loadObjectsAtResourcePath:getUserURL delegate:self];
@@ -124,6 +129,12 @@
         
         GPUserSingleton *sharedUser = [GPUserSingleton sharedGPUserSingleton];
         [sharedUser setUser:targetUser];
+        
+        // Set RestKit shared client to store creds for this session
+        // The API requires all users to be logged in for every API call,
+        // with the exception of create user and login
+        [[RKClient sharedClient] setUsername:_email.text];
+        [[RKClient sharedClient] setPassword:_password.text];
         
         [self performSegueWithIdentifier:@"Login" sender:self];
       }

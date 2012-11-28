@@ -95,7 +95,7 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
   if (alertView.tag == CREATED_TAG) {
-    [self.navigationController popViewControllerAnimated:YES];
+    [self performSegueWithIdentifier:@"Login After Signup" sender:self];
   }
 }
 
@@ -145,6 +145,23 @@
 {
   [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
   NSLog(@"objectLoader loaded an object");
+  
+  // Store user object in preparation to send user to home screen
+  if ([[objects objectAtIndex:0] isKindOfClass:[GPUser class]]) {
+    
+    GPUser *loggedInUser = [objects objectAtIndex:0];
+    NSLog(@"The user's name is %@", loggedInUser.name);
+    
+    // Set RestKit shared client to store creds for this session
+    // The API requires all users to be logged in for every API call,
+    // with the exception of create user and login
+    [[RKClient sharedClient] setUsername:_email.text];
+    [[RKClient sharedClient] setPassword:_password.text];
+    
+    // Save Singleton Object
+    GPUserSingleton *sharedUser = [GPUserSingleton sharedGPUserSingleton];
+    [sharedUser setUser:loggedInUser];
+  }
 }
 
 - (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error

@@ -23,5 +23,6 @@
 - (void)setUser:(GPUser *)user;
 - (void)setUserJournals:(NSArray *)journals;
 - (void)setUserEntries:(NSArray *)entries;
+- (void)clearSharedUserInfo;
 
 @end

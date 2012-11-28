@@ -95,6 +95,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Growing Pains" id="Ndz-4t-RGu">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="YSo-oa-0Z4">
+                            <connections>
+                                <segue destination="pf1-6R-8ho" kind="push" id="AKJ-C0-dzJ"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="lhG-tf-5q6">
                             <connections>
                                 <segue destination="fZM-z3-1zu" kind="push" identifier="Add Journal" id="4ib-X3-kYZ"/>
@@ -640,6 +645,74 @@
             </objects>
             <point key="canvasLocation" x="829" y="-65"/>
         </scene>
+        <!--Settings View Controller - Settings-->
+        <scene sceneID="on8-7b-RHP">
+            <objects>
+                <viewController id="pf1-6R-8ho" customClass="GPSettingsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="G6W-wq-R2M">
+                        <rect key="frame" x="0.0" y="64" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3OY-dN-FCF">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="51" id="6wK-mT-rfP"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Email:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pb0-ID-qZP">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="Jane Doe" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T0S-wA-kDq">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="jane@gmail.com" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LwQ-K2-Cp8">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEf-h4-6ZV">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Log Out">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logoutPressed:" destination="pf1-6R-8ho" eventType="touchUpInside" id="ibG-pb-Qdv"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LwQ-K2-Cp8" firstAttribute="baseline" secondItem="Pb0-ID-qZP" secondAttribute="baseline" type="default" id="13C-hq-6cN"/>
+                            <constraint firstAttribute="trailing" secondItem="T0S-wA-kDq" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="MUo-jc-1h2"/>
+                            <constraint firstItem="T0S-wA-kDq" firstAttribute="leading" secondItem="3OY-dN-FCF" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="OPg-7A-Xt2"/>
+                            <constraint firstAttribute="trailing" secondItem="fEf-h4-6ZV" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="QFS-sn-Nuc"/>
+                            <constraint firstItem="Pb0-ID-qZP" firstAttribute="leading" secondItem="G6W-wq-R2M" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="RQp-qa-OL6"/>
+                            <constraint firstAttribute="trailing" secondItem="LwQ-K2-Cp8" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ViZ-mD-E2N"/>
+                            <constraint firstItem="fEf-h4-6ZV" firstAttribute="top" secondItem="G6W-wq-R2M" secondAttribute="top" constant="84" id="VmB-ap-l4e"/>
+                            <constraint firstItem="Pb0-ID-qZP" firstAttribute="top" secondItem="3OY-dN-FCF" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="cp1-pd-T95"/>
+                            <constraint firstItem="3OY-dN-FCF" firstAttribute="top" secondItem="G6W-wq-R2M" secondAttribute="top" constant="20" symbolic="YES" type="default" id="cvV-wb-26W"/>
+                            <constraint firstItem="fEf-h4-6ZV" firstAttribute="leading" secondItem="G6W-wq-R2M" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="hIF-d0-Ndy"/>
+                            <constraint firstItem="3OY-dN-FCF" firstAttribute="leading" secondItem="G6W-wq-R2M" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="jcu-U6-6Lo"/>
+                            <constraint firstItem="LwQ-K2-Cp8" firstAttribute="leading" secondItem="T0S-wA-kDq" secondAttribute="leading" type="default" id="ldW-Vk-T07"/>
+                            <constraint firstItem="T0S-wA-kDq" firstAttribute="top" secondItem="G6W-wq-R2M" secondAttribute="top" constant="20" symbolic="YES" type="default" id="vjh-R6-szM"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Settings" id="9y7-Tl-ync"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dBL-Xq-LNY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="829" y="624"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="8sh-nk-QjW">
             <objects>
@@ -703,6 +776,12 @@
                 <relationship kind="outlet" name="_scrollView" candidateClass="UIScrollView"/>
             </relationships>
         </class>
+        <class className="GPSettingsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GPSettingsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="logoutPressed:"/>
+            </relationships>
+        </class>
         <class className="GPSignUpViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GPSignUpViewController.h"/>
             <relationships>
@@ -727,7 +806,7 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="Pdr-T7-3jd"/>
-        <segue reference="26U-k8-hL6"/>
+        <segue reference="o0Z-o5-F6D"/>
         <segue reference="9lR-uf-6Ti"/>
     </inferredMetricsTieBreakers>
 </document>

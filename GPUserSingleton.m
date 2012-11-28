@@ -95,5 +95,28 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(GPUserSingleton);
   [defaults synchronize];
 }
 
+- (void)clearSharedUserInfo {
+  
+  self.email = nil;
+  self.userId = 0;
+  self.name = nil;
+  self.password = nil;
+  self.journals = nil;
+  self.entries = nil;
+  self.userIsSet = NO;
+ 
+  
+  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+  
+  [defaults removeObjectForKey:kGPUserDefaultsUserEmail];
+  [defaults removeObjectForKey:kGPUserDefaultsUserName];
+  [defaults removeObjectForKey:kGPUserDefaultsUserId];
+  [defaults removeObjectForKey:kGPUserDefaultsUserPassword];
+  [defaults removeObjectForKey:kGPUserDefaultsJournals];
+  [defaults removeObjectForKey:kGPUserDefaultsEntries];
+  [defaults removeObjectForKey:kGPUserDefaultsUserIsSet];
+  
+  [defaults synchronize];
+}
 
 @end

@@ -24,15 +24,7 @@
 @synthesize birthdate = _birthdate;
 @synthesize gender = _gender;
 @synthesize name = _name;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-  self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-  if (self) {
-    // Custom initialization
-  }
-  return self;
-}
+@synthesize delegate;
 
 #pragma mark - View lifecycle
 - (void)viewDidLoad
@@ -158,6 +150,15 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
   if (alertView.tag == CREATED_TAG) {
+    
+    // Call delegate method to reload journals
+    if([self.delegate respondsToSelector:@selector(reloadJournals:)]) {
+      
+      NSLog(@"it should see this");
+      
+      [self.delegate reloadJournals:YES];
+    }
+    
     [self.navigationController popViewControllerAnimated:YES];
   }
 }

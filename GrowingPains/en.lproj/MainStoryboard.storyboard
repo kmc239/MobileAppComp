@@ -556,10 +556,10 @@
             </objects>
             <point key="canvasLocation" x="1364" y="-412"/>
         </scene>
-        <!--View Controller - Your Entry-->
+        <!--Entry View Controller - Your Entry-->
         <scene sceneID="YlA-Uv-8X2">
             <objects>
-                <viewController id="So2-zS-nJj" sceneMemberID="viewController">
+                <viewController id="So2-zS-nJj" customClass="GPEntryViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="os0-xW-v5C">
                         <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -580,13 +580,7 @@
                     <toolbarItems>
                         <barButtonItem systemItem="action" id="sBI-IF-udP"/>
                     </toolbarItems>
-                    <navigationItem key="navigationItem" title="Your Entry" id="xpE-xM-LiT">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="gpH-OL-5hb">
-                            <connections>
-                                <segue destination="HCE-vT-Llb" kind="push" identifier="Edit Post" id="RoU-rl-I9D"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Your Entry" id="xpE-xM-LiT"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics" barStyle="blackOpaque"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V7f-KA-ggn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -734,6 +728,9 @@
                 <relationship kind="outlet" name="name" candidateClass="UITextField"/>
             </relationships>
         </class>
+        <class className="GPEntryViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GPEntryViewController.h"/>
+        </class>
         <class className="GPHomeScreenViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GPHomeScreenViewController.h"/>
             <relationships>
@@ -785,7 +782,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="26U-k8-hL6"/>
-        <segue reference="9lR-uf-6Ti"/>
-        <segue reference="RoU-rl-I9D"/>
+        <segue reference="Rub-2P-7R1"/>
     </inferredMetricsTieBreakers>
 </document>

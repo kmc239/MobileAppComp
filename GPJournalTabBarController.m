@@ -8,6 +8,7 @@
 
 #import "GPJournalTabBarController.h"
 #import "GPTimelineViewController.h"
+#import "GPHelpers.h"
 
 @interface GPJournalTabBarController ()
 
@@ -21,6 +22,9 @@
 {
   GPTimelineViewController *timelineController = (GPTimelineViewController *) [self.viewControllers objectAtIndex:0];
   timelineController.currentJournalId = self.currentJournalId;
+  
+  // Set custom font for title
+  [GPHelpers setCustomFontsForTitle:NSLocalizedString(@"TIMELINE", nil) forViewController:self];
 }
 
 @end

@@ -18,6 +18,7 @@
 		08590E2C1665D470004EEE62 /* GPSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08590E2B1665D470004EEE62 /* GPSettingsViewController.m */; };
 		08590E341665D8F2004EEE62 /* STKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 08590E331665D8F2004EEE62 /* STKeychain.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		08590E7316665C32004EEE62 /* Sanchez-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 08590E7216665C32004EEE62 /* Sanchez-Regular.ttf */; };
+		08590E7616669943004EEE62 /* GPEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08590E7516669941004EEE62 /* GPEntryViewController.m */; };
 		087EC509165F8620009E58B0 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 087EC4FE165F856C009E58B0 /* libRestKit.a */; };
 		087EC50C165F8AEE009E58B0 /* GPJournal.m in Sources */ = {isa = PBXBuildFile; fileRef = 087EC50B165F8AEE009E58B0 /* GPJournal.m */; };
 		087EC51C165F99AD009E58B0 /* GPJournals.m in Sources */ = {isa = PBXBuildFile; fileRef = 087EC51B165F99AD009E58B0 /* GPJournals.m */; };
@@ -115,6 +116,8 @@
 		08590E321665D8F2004EEE62 /* STKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STKeychain.h; sourceTree = "<group>"; };
 		08590E331665D8F2004EEE62 /* STKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STKeychain.m; sourceTree = "<group>"; };
 		08590E7216665C32004EEE62 /* Sanchez-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sanchez-Regular.ttf"; sourceTree = "<group>"; };
+		08590E7416669940004EEE62 /* GPEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPEntryViewController.h; sourceTree = "<group>"; };
+		08590E7516669941004EEE62 /* GPEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPEntryViewController.m; sourceTree = "<group>"; };
 		087EC4F2165F856C009E58B0 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
 		087EC50A165F8AEE009E58B0 /* GPJournal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPJournal.h; sourceTree = "<group>"; };
 		087EC50B165F8AEE009E58B0 /* GPJournal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPJournal.m; sourceTree = "<group>"; };
@@ -295,6 +298,8 @@
 				08D126A31638F54D00AD9977 /* GPTimelineViewController.m */,
 				3450DF1916576A41005F0A61 /* GPCreateEntryViewController.h */,
 				3450DF1A16576A41005F0A61 /* GPCreateEntryViewController.m */,
+				08590E7416669940004EEE62 /* GPEntryViewController.h */,
+				08590E7516669941004EEE62 /* GPEntryViewController.m */,
 			);
 			name = Controllers;
 			path = ..;
@@ -511,6 +516,7 @@
 				34166A2C1664AD8F0045484F /* GPThumbnail.m in Sources */,
 				08590E2C1665D470004EEE62 /* GPSettingsViewController.m in Sources */,
 				08590E341665D8F2004EEE62 /* STKeychain.m in Sources */,
+				08590E7616669943004EEE62 /* GPEntryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

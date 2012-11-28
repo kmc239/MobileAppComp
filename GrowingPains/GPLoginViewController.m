@@ -25,23 +25,27 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+  self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+  if (self) {
+    // Custom initialization
+  }
+  return self;
 }
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
+  [super viewDidLoad];
+
+  // If user is set, automatically log them in
+  if ([GPUserSingleton sharedGPUserSingleton].userIsSet) {
+    [self performSegueWithIdentifier:@"Login" sender:self];
+  }
 }
 
 - (void)didReceiveMemoryWarning
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+  [super didReceiveMemoryWarning];
+  // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - TextFieldDelegate
@@ -71,7 +75,7 @@
   
   [DejalBezelActivityView removeViewAnimated:YES];
   [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-
+  
   if ([request isPOST]) {
     
     NSLog(@"POST finished with status code: %i", [response statusCode]);
@@ -175,13 +179,13 @@
                          andHeading:NSLocalizedString(@"LOGIN_UNSUCCESSFUL", nil)];
   }
   else {
-  
+    
     // Create our JSON array using an NSDictionary
     // Because it's a small POST where the server expects a custom array we'll just build
     // it here using the RestKit parser
     // Server expects: {"email":"kyle@kyleclegg.com", "password":"password"}
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-
+    
     // Email and password params, put into params dictionary
     [params setObject:_email.text forKey:@"email"];
     [params setObject:_password.text forKey:@"password"];

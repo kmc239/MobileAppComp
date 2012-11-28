@@ -11,6 +11,8 @@
 @interface GPSettingsViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *emailLabel;
+@property (strong, nonatomic) IBOutlet UILabel *nameTitleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *emailTitleLabel;
 
 - (IBAction)logoutPressed:(id)sender;
 

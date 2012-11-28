@@ -126,6 +126,23 @@
 - (void)configureCell:(UITableViewCell *)cell forIndexPath:(NSIndexPath *)indexPath
 {
   
+  // Setup our colors
+  CGFloat nRed=207.0/255.0;
+  CGFloat nBlue=209.0/255.0;
+  CGFloat nGreen=88.0/255.0;
+  UIColor *greenColor=[[UIColor alloc]initWithRed:nRed green:nBlue blue:nGreen alpha:1];
+  
+  nRed=252.0/255.0;
+  nBlue=200./255.0;
+  nGreen=96.0/255.0;
+  UIColor *orangeColor=[[UIColor alloc]initWithRed:nRed green:nBlue blue:nGreen alpha:1];
+  
+  nRed=227.0/255.0;
+  nBlue=84.0/255.0;
+  nGreen=68.0/255.0;
+  UIColor *redColor=[[UIColor alloc]initWithRed:nRed green:nBlue blue:nGreen alpha:1];
+  
+  
   // If there is no sharedUser or no journals for the given user, return
   if ([GPUserSingleton sharedGPUserSingleton] == nil || [GPUserSingleton sharedGPUserSingleton].journals == nil) {
     return;
@@ -147,7 +164,18 @@
   for (int tag = 1; tag <= 4; tag++) {
     
     UIImageView *previewImageView = (UIImageView *)[cell viewWithTag:tag];
-    UIImage *previewImage = [UIImage imageNamed:@"cutebaby.jpeg"];   // Dynamically load most recent images from db
+    UIImage *previewImage = [UIImage imageNamed:@"cutebaby.jpeg"];
+    // Change to dynamically load most recent images from db
+    if (tag == 2) {
+      previewImage = [UIImage imageNamed:@"baby-girl.jpeg"];
+    }
+    else if (tag == 3) {
+      previewImage = [UIImage imageNamed:@"babyonphone.jpeg"];
+    }
+    else if (tag == 4) {
+      previewImage = [UIImage imageNamed:@"TakePhoto.png"];
+    }
+    
     previewImageView.image = previewImage;
     
     // Make image circular
@@ -155,8 +183,17 @@
     previewImageView.layer.masksToBounds = YES;
     
     // Add a thin border
-//    previewImageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
-//    previewImageView.layer.borderWidth = 0.5;
+    if (indexPath.row % 3 == 0) {
+      previewImageView.layer.borderColor = greenColor.CGColor;
+    }
+    else if (indexPath.row % 3 == 1) {
+      previewImageView.layer.borderColor = orangeColor.CGColor;
+    }
+    else {
+      previewImageView.layer.borderColor = redColor.CGColor;
+    }
+    
+    previewImageView.layer.borderWidth = 2.0;
   }
 }
 

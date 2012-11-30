@@ -55,3 +55,6 @@
 // Entries
 "ENTRY_CREATE" = "Create Entry";
 "ENTRY" = "Your Entry";
+"ENTRY_CREATED_HEADING" = "Entry Created";
+"ENTRY_CREATED_MESSAGE" = "Your entry has been successfully created";
+"ENTRY_NOT_CREATED_HEADING" = "Entry Not Created";

@@ -45,6 +45,11 @@
   UIImage *image = [UIImage imageWithData:imageData];
   self.entryPicture.image = image;
   
+  if (picture.pictureUrl == nil) {
+    UIImage *stockImage = [UIImage imageNamed:@"TakePhoto.png"];
+    self.entryPicture.image = stockImage;
+  }
+  
   // Make picture circular
   self.entryPicture.layer.cornerRadius = 5.0;
   self.entryPicture.layer.masksToBounds = YES;

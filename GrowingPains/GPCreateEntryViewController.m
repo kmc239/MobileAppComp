@@ -11,6 +11,8 @@
 #import "GPEntry.h"
 #import "GPHelpers.h"
 
+#define CREATED_TAG 99
+
 @interface GPCreateEntryViewController ()
 
 @end
@@ -73,38 +75,45 @@
                          andHeading:NSLocalizedString(@"GENERIC_ERROR_HEADING", nil)];
   }
   
-  // Create entry dictionary with picture, description, journalId
-  GPThumbnail *thumbnail = [[GPThumbnail alloc] init];
-  GPPicture *picture = [[GPPicture alloc] init];
-  picture.thumbnail = thumbnail;
-  NSNumber *journalId = [NSNumber numberWithInt:self.currentJournalId];
+//  // Create entry dictionary with picture, description, journalId
+//  GPThumbnail *thumbnail = [[GPThumbnail alloc] init];
+//  GPPicture *picture = [[GPPicture alloc] init];
+//  picture.thumbnail = thumbnail;
+//  NSNumber *journalId = [NSNumber numberWithInt:self.currentJournalId];
+//
+//  NSMutableDictionary *entry = [[NSMutableDictionary alloc] init];
+//  [entry setValue:picture forKey:@"picture"];
+//  [entry setValue:self.textView.text forKey:@"description"];
+//  [entry setValue:journalId forKey:@"journalId"];
+//  
+//  // Upload picture
+//  RKParams *params = [RKParams params];
+//  
+//  // Set some simple values -- just like we would with NSDictionary
+//  [params setValue:entry forParam:@"entry"];
+////  [params setValue:self.textView.text forParam:@"description"];
+////  [params setValue:journalId forParam:@"journalId"];
+//  
+//  // Attach an Image from the App Bundle
+//  UIImage *image = [self.takePictureButton backgroundImageForState:UIControlStateNormal];
+//  NSData *imageData = UIImageJPEGRepresentation(image, 85.0);
+//  [params setData:imageData MIMEType:@"image/jpg" forParam:@"picture"];
+////  NSData *imageData = UIImagePNGRepresentation(image);
+////  [params setData:imageData MIMEType:@"image/png" forParam:@"picture"];
+//  
+//  // Let's examine the RKRequestSerializable info...
+//  NSLog(@"RKParams HTTPHeaderValueForContentType = %@", [params HTTPHeaderValueForContentType]);
+//  NSLog(@"RKParams HTTPHeaderValueForContentLength = %d", [params HTTPHeaderValueForContentLength]);
+//  
+//  // Send a Request!
+//  [[RKClient sharedClient] post:@"/entries" params:params delegate:self];
+  
+  GPEntry *newEntry = [[GPEntry alloc] init];
+  newEntry.description = self.textView.text;
+  newEntry.journalId = self.currentJournalId;
 
-  NSMutableDictionary *entry = [[NSMutableDictionary alloc] init];
-  [entry setValue:picture forKey:@"picture"];
-  [entry setValue:self.textView.text forKey:@"description"];
-  [entry setValue:journalId forKey:@"journalId"];
-  
-  // Upload picture
-  RKParams *params = [RKParams params];
-  
-  // Set some simple values -- just like we would with NSDictionary
-  [params setValue:entry forParam:@"entry"];
-//  [params setValue:self.textView.text forParam:@"description"];
-//  [params setValue:journalId forParam:@"journalId"];
-  
-  // Attach an Image from the App Bundle
-  UIImage *image = [self.takePictureButton backgroundImageForState:UIControlStateNormal];
-  NSData *imageData = UIImageJPEGRepresentation(image, 85.0);
-  [params setData:imageData MIMEType:@"image/jpg" forParam:@"picture"];
-//  NSData *imageData = UIImagePNGRepresentation(image);
-//  [params setData:imageData MIMEType:@"image/png" forParam:@"picture"];
-  
-  // Let's examine the RKRequestSerializable info...
-  NSLog(@"RKParams HTTPHeaderValueForContentType = %@", [params HTTPHeaderValueForContentType]);
-  NSLog(@"RKParams HTTPHeaderValueForContentLength = %d", [params HTTPHeaderValueForContentLength]);
-  
-  // Send a Request!
-  [[RKClient sharedClient] post:@"/entries" params:params delegate:self];
+  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+  [[RKObjectManager sharedManager] postObject:newEntry delegate:self];
 }
 
 #pragma mark - Keyboard & TextView Manipulation
@@ -267,34 +276,36 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+#pragma mark - AlertView Delegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+  if (alertView.tag == CREATED_TAG) {
+//    [self.navigationController popViewControllerAnimated:YES];
+  }
+}
+
 #pragma mark - RestKit Request Delegate Calls
 
 // Sent when a request has finished loading
 - (void)request:(RKRequest*)request didLoadResponse:(RKResponse*)response
 {
   [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-  if ([request isGET]) {
-    
-    if ([response isOK]) {
-      
-      if ([response isOK]) {
-        
-        //        NSString *responseString = [response bodyAsString];
-        //        NSLog(@"Response is OK:\n\n%@", responseString);
-        
-      }
+  if ([request isPOST]) {
+    if ([response statusCode] == 201) {
+      UIAlertView *successAlert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"ENTRY_CREATED_HEADING", nil)
+                                                            message:NSLocalizedString(@"ENTRY_CREATED_MESSAGE", nil)
+                                                           delegate:self
+                                                  cancelButtonTitle:NSLocalizedString(@"CANCEL_BUTTON_TITLE", nil)
+                                                  otherButtonTitles:nil];
+      [successAlert setTag:CREATED_TAG];
+      [successAlert show];
+    }
+    else {
+      [GPHelpers showAlertWithMessage:[NSString stringWithFormat:@"Unexpected Response %i", [response statusCode]] andHeading:NSLocalizedString(@"ENTRY_NOT_CREATED_HEADING", nil)];
     }
   }
-  else if ([request isPOST]) {
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-    NSLog(@"POST finished with status code: %i", [response statusCode]);
-  }
-  else if ([request isDELETE]) {
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-    if ([response isNotFound]) {
-      NSLog(@"The resource path '%@' was not found.", [request resourcePath]);
-    }
-	}
+
 }
 
 // Sent when a request has failed due to an error
@@ -316,5 +327,18 @@
   [GPHelpers showAlertWithMessage:NSLocalizedString(@"RK_REQUEST_TIMEOUT", nil) andHeading:NSLocalizedString(@"RK_OPERATION_FAILED", nil)];
 }
 
+#pragma mark - RestKit objectLoader
+
+- (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects
+{
+  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+  NSLog(@"objectLoader loaded an object");
+}
+
+- (void)objectLoader:(RKObjectLoader *)objectLoader didFailWithError:(NSError *)error
+{
+  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+  NSLog(@"objectLoader failed with error: %@", error);
+}
 
 @end

@@ -21,7 +21,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
 //  RKLogConfigureByName("RestKit/Network*", RKLogLevelTrace);
-//  RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
+  RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
   
   // If on simulator use local web server
   #if TARGET_IPHONE_SIMULATOR

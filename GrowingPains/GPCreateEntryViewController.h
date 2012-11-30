@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <RestKit/RestKit.h>
 
-@interface GPCreateEntryViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextViewDelegate, RKRequestDelegate>
+@interface GPCreateEntryViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextViewDelegate, RKRequestDelegate, RKObjectLoaderDelegate, UIAlertViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIButton *takePictureButton;

@@ -377,7 +377,7 @@
                                     <constraint firstAttribute="width" constant="219" id="nJE-Jx-rqT"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                 <connections>
                                     <outlet property="delegate" destination="fZM-z3-1zu" id="eOQ-B2-4Vb"/>
                                 </connections>
@@ -468,7 +468,7 @@
                                         </state>
                                         <connections>
                                             <action selector="createEntryPressed:" destination="HCE-vT-Llb" eventType="touchUpInside" id="hOU-Hg-vgD"/>
-                                            <segue destination="So2-zS-nJj" kind="push" identifier="Save Post" id="Rub-2P-7R1"/>
+                                            <segue destination="So2-zS-nJj" kind="push" identifier="Post Entry" id="Rub-2P-7R1"/>
                                         </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Include details about this journal entry here." translatesAutoresizingMaskIntoConstraints="NO" id="12A-lH-Dim">
@@ -797,88 +797,13 @@
         <image name="directionarrow_tableview@2x.png" width="28" height="55"/>
         <image name="navbar@2x.png" width="640" height="88"/>
     </resources>
-    <classes>
-        <class className="GPCreateEntryViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GPCreateEntryViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="takePictureButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="textView" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="GPCreateJournalViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GPCreateJournalViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="birthdateButton:"/>
-                <relationship kind="action" name="createJournalButton:"/>
-                <relationship kind="outlet" name="birthdate" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="gender" candidateClass="UISegmentedControl"/>
-                <relationship kind="outlet" name="name" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="whoForLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="GPEntryViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GPEntryViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="entryPicture" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="GPGreenButton" superclassName="UIButton">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GPGreenButton.h"/>
-        </class>
-        <class className="GPHomeScreenViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GPHomeScreenViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="GPJournalTabBarController" superclassName="UITabBarController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GPJournalTabBarController.h"/>
-        </class>
-        <class className="GPLoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GPLoginViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="loginPressed:"/>
-                <relationship kind="outlet" name="_email" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="_password" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="_scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="_titleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="GPSettingsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GPSettingsViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="logoutPressed:"/>
-                <relationship kind="outlet" name="emailLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="emailTitleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="nameTitleLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="GPSignUpViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GPSignUpViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="signUpPressed:"/>
-                <relationship kind="outlet" name="_confirmPassword" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="_email" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="_name" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="_password" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="GPTimelineViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/GPTimelineViewController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="26U-k8-hL6"/>
-        <segue reference="9lR-uf-6Ti"/>
+        <segue reference="o0Z-o5-F6D"/>
+        <segue reference="Rub-2P-7R1"/>
     </inferredMetricsTieBreakers>
 </document>

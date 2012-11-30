@@ -9,6 +9,7 @@
 #import "GPJournalTabBarController.h"
 #import "GPTimelineViewController.h"
 #import "GPHelpers.h"
+#import "GPCreateEntryViewController.h"
 
 @interface GPJournalTabBarController ()
 
@@ -35,6 +36,17 @@
   
   UIImage *tabBarBg = [UIImage imageNamed:@"tabbar.png"];
   [self.tabBar setBackgroundImage:tabBarBg];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+  if ([segue.identifier isEqualToString:@"Create Entry"])
+  {
+    GPCreateEntryViewController *entryController = segue.destinationViewController;
+    entryController.currentJournalId = self.currentJournalId;
+    
+    NSLog(@"current journal id is %i", self.currentJournalId);
+  }
 }
 
 @end

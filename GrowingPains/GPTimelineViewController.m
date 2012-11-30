@@ -47,12 +47,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-  if ([segue.identifier isEqualToString:@"Create Entry"])
-  {
-    GPCreateEntryViewController *entryController = segue.destinationViewController;
-    entryController.currentJournalId = self.currentJournalId;
-  }
-  else if ([segue.identifier isEqualToString:@"View Entry"])
+  if ([segue.identifier isEqualToString:@"View Entry"])
   {
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     GPEntry *currentEntry = [self.entriesFromServer objectAtIndex:indexPath.row];

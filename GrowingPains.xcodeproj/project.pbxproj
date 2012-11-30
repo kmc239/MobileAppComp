@@ -29,6 +29,7 @@
 		087B66171666C12E00E5D840 /* carriage_line.png in Resources */ = {isa = PBXBuildFile; fileRef = 087B66161666C12E00E5D840 /* carriage_line.png */; };
 		087B661B1666C3DD00E5D840 /* babyonphone.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 087B661A1666C3DD00E5D840 /* babyonphone.jpeg */; };
 		087B66371668AE1A00E5D840 /* tabbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 087B66361668AE1A00E5D840 /* tabbar.png */; };
+		087B663A1668C2BE00E5D840 /* GPGreenButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 087B66391668C2BE00E5D840 /* GPGreenButton.m */; };
 		087EC509165F8620009E58B0 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 087EC4FE165F856C009E58B0 /* libRestKit.a */; };
 		087EC50C165F8AEE009E58B0 /* GPJournal.m in Sources */ = {isa = PBXBuildFile; fileRef = 087EC50B165F8AEE009E58B0 /* GPJournal.m */; };
 		087EC51C165F99AD009E58B0 /* GPJournals.m in Sources */ = {isa = PBXBuildFile; fileRef = 087EC51B165F99AD009E58B0 /* GPJournals.m */; };
@@ -138,6 +139,8 @@
 		087B66161666C12E00E5D840 /* carriage_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = carriage_line.png; sourceTree = "<group>"; };
 		087B661A1666C3DD00E5D840 /* babyonphone.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = babyonphone.jpeg; sourceTree = "<group>"; };
 		087B66361668AE1A00E5D840 /* tabbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar.png; sourceTree = "<group>"; };
+		087B66381668C2BE00E5D840 /* GPGreenButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPGreenButton.h; sourceTree = "<group>"; };
+		087B66391668C2BE00E5D840 /* GPGreenButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPGreenButton.m; sourceTree = "<group>"; };
 		087EC4F2165F856C009E58B0 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
 		087EC50A165F8AEE009E58B0 /* GPJournal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPJournal.h; sourceTree = "<group>"; };
 		087EC50B165F8AEE009E58B0 /* GPJournal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPJournal.m; sourceTree = "<group>"; };
@@ -251,6 +254,8 @@
 			children = (
 				08590E0816650358004EEE62 /* DejalActivityView.h */,
 				08590E0916650358004EEE62 /* DejalActivityView.m */,
+				087B66381668C2BE00E5D840 /* GPGreenButton.h */,
+				087B66391668C2BE00E5D840 /* GPGreenButton.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -557,6 +562,7 @@
 				08590E2C1665D470004EEE62 /* GPSettingsViewController.m in Sources */,
 				08590E341665D8F2004EEE62 /* STKeychain.m in Sources */,
 				08590E7616669943004EEE62 /* GPEntryViewController.m in Sources */,
+				087B663A1668C2BE00E5D840 /* GPGreenButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

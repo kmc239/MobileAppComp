@@ -174,7 +174,7 @@
                                             <outlet property="delegate" destination="jtU-ZB-TTb" id="nvV-Lf-5Q8"/>
                                         </connections>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CmR-wm-QCg">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CmR-wm-QCg" customClass="GPGreenButton">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="41F-bt-IwX"/>
                                         </constraints>
@@ -251,9 +251,9 @@
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9M5-Zj-gQx">
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFV-Ml-obX">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFV-Ml-obX" customClass="GPGreenButton">
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="Y1Q-6f-cNj"/>
+                                            <constraint firstAttribute="height" constant="44" id="gb3-f2-KoZ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Sign Up" backgroundImage="navbar@2x.png">
@@ -267,9 +267,9 @@
                                             <segue destination="jtU-ZB-TTb" kind="push" identifier="Sign Up" id="Izg-kt-qob"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mvi-RO-qnE">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mvi-RO-qnE" customClass="GPGreenButton">
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="zjk-bb-cSI"/>
+                                            <constraint firstAttribute="height" constant="44" id="ces-1F-y4i"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                         <state key="normal" title="Login" backgroundImage="navbar@2x.png">
@@ -313,24 +313,24 @@
                                     </imageView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="1Y7-MF-xQ5" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="1lf-SV-W8B"/>
                                     <constraint firstItem="1Y7-MF-xQ5" firstAttribute="top" secondItem="jgI-Wb-Srf" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="1na-rv-9x3"/>
                                     <constraint firstItem="yL8-9S-1ir" firstAttribute="top" secondItem="9M5-Zj-gQx" secondAttribute="top" constant="91" id="2Br-sa-M3H"/>
-                                    <constraint firstAttribute="trailing" secondItem="mvi-RO-qnE" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="A0r-Bo-CFk"/>
-                                    <constraint firstAttribute="trailing" secondItem="jgI-Wb-Srf" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="C2I-gS-HEt"/>
-                                    <constraint firstAttribute="trailing" secondItem="RFV-Ml-obX" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Cxf-V8-Cc3"/>
                                     <constraint firstItem="jgI-Wb-Srf" firstAttribute="leading" secondItem="9M5-Zj-gQx" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="EWZ-5U-uFi"/>
                                     <constraint firstItem="RFV-Ml-obX" firstAttribute="leading" secondItem="9M5-Zj-gQx" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="HpZ-N6-PPB"/>
                                     <constraint firstItem="yL8-9S-1ir" firstAttribute="centerX" secondItem="jgI-Wb-Srf" secondAttribute="centerX" type="default" id="IfE-Vi-VNd"/>
-                                    <constraint firstItem="RFV-Ml-obX" firstAttribute="centerX" secondItem="9M5-Zj-gQx" secondAttribute="centerX" type="default" id="R9R-cI-51u"/>
-                                    <constraint firstAttribute="bottom" secondItem="RFV-Ml-obX" secondAttribute="bottom" constant="171" id="S1U-AN-kKN"/>
+                                    <constraint firstAttribute="bottom" secondItem="RFV-Ml-obX" secondAttribute="bottom" constant="117" id="KNb-Sx-2Yq"/>
+                                    <constraint firstItem="mvi-RO-qnE" firstAttribute="trailing" secondItem="RFV-Ml-obX" secondAttribute="trailing" type="default" id="KrC-Ae-2zC"/>
+                                    <constraint firstAttribute="trailing" secondItem="74K-NU-vkG" secondAttribute="trailing" constant="16" id="L5m-Y4-HDw"/>
+                                    <constraint firstItem="1Y7-MF-xQ5" firstAttribute="centerX" secondItem="9M5-Zj-gQx" secondAttribute="centerX" type="default" id="Tvp-pJ-BdD"/>
+                                    <constraint firstItem="RFV-Ml-obX" firstAttribute="top" secondItem="mvi-RO-qnE" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="V66-qB-xD5"/>
                                     <constraint firstItem="74K-NU-vkG" firstAttribute="top" secondItem="9M5-Zj-gQx" secondAttribute="top" constant="27" id="Wy2-L2-Wgf"/>
                                     <constraint firstItem="mvi-RO-qnE" firstAttribute="leading" secondItem="9M5-Zj-gQx" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="WzF-fA-Ufu"/>
-                                    <constraint firstItem="RFV-Ml-obX" firstAttribute="top" secondItem="mvi-RO-qnE" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Zdh-23-qBb"/>
                                     <constraint firstItem="1Y7-MF-xQ5" firstAttribute="leading" secondItem="9M5-Zj-gQx" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="cfw-B0-Lr8"/>
                                     <constraint firstItem="yL8-9S-1ir" firstAttribute="centerX" secondItem="74K-NU-vkG" secondAttribute="centerX" type="default" id="eDd-9u-ZSB"/>
                                     <constraint firstItem="mvi-RO-qnE" firstAttribute="top" secondItem="9M5-Zj-gQx" secondAttribute="top" constant="237" id="ena-3k-ZIO"/>
+                                    <constraint firstItem="1Y7-MF-xQ5" firstAttribute="trailing" secondItem="mvi-RO-qnE" secondAttribute="trailing" type="default" id="sFZ-sD-iTv"/>
                                     <constraint firstItem="jgI-Wb-Srf" firstAttribute="top" secondItem="9M5-Zj-gQx" secondAttribute="top" constant="160" id="y5O-uC-IeY"/>
+                                    <constraint firstItem="1Y7-MF-xQ5" firstAttribute="trailing" secondItem="jgI-Wb-Srf" secondAttribute="trailing" type="default" id="zn5-8J-0Sd"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="xGK-Z5-2dP" id="Rpw-d0-EPH"/>
@@ -339,7 +339,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="9M5-Zj-gQx" firstAttribute="bottom" secondItem="U0O-CF-m6m" secondAttribute="bottom" type="default" id="4IK-Lp-HE7"/>
+                            <constraint firstAttribute="bottom" secondItem="9M5-Zj-gQx" secondAttribute="bottom" constant="54" id="Ha8-xe-kDg"/>
                             <constraint firstItem="9M5-Zj-gQx" firstAttribute="leading" secondItem="U0O-CF-m6m" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="a2N-IT-pgp"/>
                             <constraint firstAttribute="trailing" secondItem="9M5-Zj-gQx" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="fsY-0T-gFu"/>
                             <constraint firstItem="9M5-Zj-gQx" firstAttribute="top" secondItem="U0O-CF-m6m" secondAttribute="top" type="default" id="rpc-DH-EBw"/>
@@ -382,7 +382,7 @@
                                     <outlet property="delegate" destination="fZM-z3-1zu" id="eOQ-B2-4Vb"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aPk-1U-KHa">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aPk-1U-KHa" customClass="GPGreenButton">
                                 <constraints>
                                     <constraint firstAttribute="width" constant="219" id="ZIk-iW-HLw"/>
                                     <constraint firstAttribute="height" constant="44" id="qFf-FF-NYo"/>
@@ -454,7 +454,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vzL-f1-Cdk">
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xf4-y6-rdc">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xf4-y6-rdc" customClass="GPGreenButton">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="EzS-iT-WZF"/>
                                         </constraints>
@@ -686,7 +686,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEf-h4-6ZV">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEf-h4-6ZV" customClass="GPGreenButton">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="2Nc-Q1-KIZ"/>
                                 </constraints>
@@ -785,6 +785,9 @@
                 <relationship kind="outlet" name="entryPicture" candidateClass="UIImageView"/>
             </relationships>
         </class>
+        <class className="GPGreenButton" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/GPGreenButton.h"/>
+        </class>
         <class className="GPHomeScreenViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GPHomeScreenViewController.h"/>
             <relationships>
@@ -838,6 +841,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="26U-k8-hL6"/>
-        <segue reference="9lR-uf-6Ti"/>
+        <segue reference="Rub-2P-7R1"/>
     </inferredMetricsTieBreakers>
 </document>

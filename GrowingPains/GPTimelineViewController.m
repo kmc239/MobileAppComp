@@ -188,6 +188,26 @@
   UIView *whiteBackground = (UIView *)[cell viewWithTag:6];
   whiteBackground.layer.cornerRadius = 5.0;
   whiteBackground.layer.masksToBounds = YES;
+  
+  // Set the timeline marker
+  UIImageView *timelineMarker = (UIImageView *)[cell viewWithTag:7];
+  UIImage *timelineDot = [UIImage imageNamed:@"timeline_dot.png"];
+  UIImage *timelineDotTop = [UIImage imageNamed:@"timeline_dot_top.png"];
+  UIImage *timelineDotBottom = [UIImage imageNamed:@"timeline_dot_bottom.png"];
+  UIImage *timelineDotMiddle = [UIImage imageNamed:@"timeline_dot_middle.png"];
+
+  if (self.entriesFromServer.count == 1) {
+    timelineMarker.image = timelineDot;
+  }
+  else if (indexPath.row == 0) {
+    timelineMarker.image = timelineDotTop;
+  }
+  else if (self.entriesFromServer.count == indexPath.row + 1) {
+    timelineMarker.image = timelineDotBottom;
+  }
+  else {
+    timelineMarker.image = timelineDotMiddle;
+  }
 }
 
 

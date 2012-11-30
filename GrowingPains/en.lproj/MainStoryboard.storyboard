@@ -601,7 +601,7 @@
                                         <imageView userInteractionEnabled="NO" tag="7" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FnG-XL-CEp">
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="22" id="N91-rj-j1l"/>
-                                                <constraint firstAttribute="height" constant="129" id="y8c-Zi-QQ4"/>
+                                                <constraint firstAttribute="height" constant="135" id="gEI-l5-wXY"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
@@ -612,15 +612,15 @@
                                     <constraint firstItem="YTk-UZ-zki" firstAttribute="centerY" secondItem="wUY-Q1-eO5" secondAttribute="centerY" type="default" id="0We-X3-Dzi"/>
                                     <constraint firstItem="wUY-Q1-eO5" firstAttribute="leading" secondItem="Iu1-bt-baR" secondAttribute="leading" constant="115" id="4T9-Kn-l2h"/>
                                     <constraint firstAttribute="trailing" secondItem="wUY-Q1-eO5" secondAttribute="trailing" constant="20" type="default" id="4it-TG-rVA"/>
-                                    <constraint firstItem="YTk-UZ-zki" firstAttribute="leading" secondItem="Iu1-bt-baR" secondAttribute="leading" constant="101" id="7ND-0U-JQF"/>
+                                    <constraint firstItem="YTk-UZ-zki" firstAttribute="leading" secondItem="Iu1-bt-baR" secondAttribute="leading" constant="101" id="CAW-0k-CAS"/>
                                     <constraint firstItem="U8e-Jj-6Ts" firstAttribute="top" secondItem="Iu1-bt-baR" secondAttribute="top" constant="31" id="CVm-AU-Ixz"/>
-                                    <constraint firstItem="aHF-cw-dOQ" firstAttribute="trailing" secondItem="U8e-Jj-6Ts" secondAttribute="trailing" type="default" id="FkB-OZ-a6i"/>
-                                    <constraint firstItem="YTk-UZ-zki" firstAttribute="centerY" secondItem="Iu1-bt-baR" secondAttribute="centerY" type="default" id="ONH-iO-pAb"/>
-                                    <constraint firstItem="FnG-XL-CEp" firstAttribute="top" secondItem="Iu1-bt-baR" secondAttribute="top" type="default" id="SfB-0O-k73"/>
+                                    <constraint firstItem="FnG-XL-CEp" firstAttribute="top" secondItem="Iu1-bt-baR" secondAttribute="top" constant="-3" id="JtR-rn-PAB"/>
+                                    <constraint firstItem="wUY-Q1-eO5" firstAttribute="centerY" secondItem="Iu1-bt-baR" secondAttribute="centerY" type="default" id="Ntc-jp-soT"/>
+                                    <constraint firstItem="aHF-cw-dOQ" firstAttribute="trailing" secondItem="U8e-Jj-6Ts" secondAttribute="trailing" type="default" id="V7d-wd-gaY"/>
                                     <constraint firstItem="U8e-Jj-6Ts" firstAttribute="leading" secondItem="Iu1-bt-baR" secondAttribute="leading" constant="11" id="cnK-St-58D"/>
-                                    <constraint firstItem="aHF-cw-dOQ" firstAttribute="centerY" secondItem="FnG-XL-CEp" secondAttribute="centerY" type="default" id="f5e-Gd-QIu"/>
-                                    <constraint firstItem="wUY-Q1-eO5" firstAttribute="top" secondItem="Iu1-bt-baR" secondAttribute="top" constant="10" id="uUA-Cb-E2B"/>
-                                    <constraint firstItem="FnG-XL-CEp" firstAttribute="leading" secondItem="Iu1-bt-baR" secondAttribute="leading" constant="76" id="wmZ-Mb-3cY"/>
+                                    <constraint firstItem="wUY-Q1-eO5" firstAttribute="top" secondItem="Iu1-bt-baR" secondAttribute="top" constant="10" id="dWo-Bz-Ijy"/>
+                                    <constraint firstItem="FnG-XL-CEp" firstAttribute="centerY" secondItem="aHF-cw-dOQ" secondAttribute="centerY" type="default" id="jyH-yj-pts"/>
+                                    <constraint firstItem="FnG-XL-CEp" firstAttribute="leading" secondItem="Iu1-bt-baR" secondAttribute="leading" constant="77" id="uRj-NB-YKd"/>
                                 </constraints>
                             </tableViewCell>
                         </prototypes>

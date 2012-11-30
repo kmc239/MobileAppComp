@@ -121,7 +121,7 @@
                     <navigationItem key="navigationItem" title="Growing Pains" id="Ndz-4t-RGu">
                         <barButtonItem key="leftBarButtonItem" systemItem="stop" id="YSo-oa-0Z4">
                             <connections>
-                                <segue destination="pf1-6R-8ho" kind="push" id="AKJ-C0-dzJ"/>
+                                <segue destination="pf1-6R-8ho" kind="push" identifier="Open Settings" id="AKJ-C0-dzJ"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="lhG-tf-5q6">

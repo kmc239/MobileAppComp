@@ -29,6 +29,14 @@
 {
   [super viewDidLoad];
   
+  // Set the back button title
+  UIBarButtonItem *backButton = [[UIBarButtonItem alloc]
+                                 initWithTitle: @"Back"
+                                 style: UIBarButtonItemStyleBordered
+                                 target: nil action: nil];
+  
+  [self.navigationItem setBackBarButtonItem: backButton];
+  
   // Set custom font for title
   [GPHelpers setCustomFontsForTitle:NSLocalizedString(@"ENTRY_CREATE", nil) forViewController:self];
   

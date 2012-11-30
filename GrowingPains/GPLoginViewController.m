@@ -37,12 +37,28 @@
 {
   [super viewDidLoad];
   
-  // someplace where you create the UINavigationController
+  // Set the background images for the nav bar
   if ([self.navigationController.navigationBar respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)] ) {
     UIImage *image = [UIImage imageNamed:@"navbar.png"];
     [self.navigationController.navigationBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
   }
+  
+  // Set the tint color for the nav bar
+  CGFloat nRed = 111.0/255.0;
+  CGFloat nGreen = 179.0/255.0;
+  CGFloat nBlue = 158.0/255.;
+  UIColor *greenTint = [UIColor colorWithRed:nRed green:nGreen blue:nBlue alpha:1.0];
+  
+  self.navigationController.navigationBar.tintColor = greenTint;
 
+  // Set the back button title
+  UIBarButtonItem *backButton = [[UIBarButtonItem alloc]
+                                 initWithTitle: @"Back"
+                                 style: UIBarButtonItemStyleBordered
+                                 target: nil action: nil];
+  
+  [self.navigationItem setBackBarButtonItem: backButton];
+  
   // Set custom font
   [self._titleLabel setFont:[UIFont fontWithName:@"Sanchez-Regular" size:self._titleLabel.font.pointSize * 0.9]];
     

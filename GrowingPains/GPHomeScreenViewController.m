@@ -24,6 +24,21 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+  
+  // Set the back button title
+  UIBarButtonItem *backButton = [[UIBarButtonItem alloc]
+                                 initWithTitle: @"Back"
+                                 style: UIBarButtonItemStyleBordered
+                                 target: nil action: nil];
+  
+  [self.navigationItem setBackBarButtonItem: backButton];
+  
+  // Set the settings button to an admin cog
+  UIBarButtonItem *cogItem = [[UIBarButtonItem alloc] initWithTitle:@""
+                                                              style:UIBarButtonItemStylePlain
+                                                             target:self action:@selector(openSettings)];
+  [cogItem setImage:[UIImage imageNamed:@"cog_gear.png"]];
+  [self.navigationItem setLeftBarButtonItem:cogItem];
 
   // Set custom font for title
   [GPHelpers setCustomFontsForTitle:NSLocalizedString(@"JOURNALS", nil) forViewController:self];
@@ -56,6 +71,10 @@
     GPCreateJournalViewController *createJournalController = segue.destinationViewController;
     createJournalController.delegate = self;
   }
+}
+
+- (void)openSettings {
+  [self performSegueWithIdentifier:@"Open Settings" sender:self];
 }
 
 - (void)loadJournalsFromServer {

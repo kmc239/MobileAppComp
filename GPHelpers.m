@@ -60,4 +60,18 @@
   
 }
 
++ (NSString *)formattedAgeFromBirthdate:(NSDate *)birthdate {
+  
+  double secondsOld = [[NSDate date] timeIntervalSinceReferenceDate] - [birthdate timeIntervalSinceReferenceDate];
+  double minutesOld = secondsOld / 60;
+  double hoursOld = minutesOld / 60;
+  double daysOld = hoursOld / 24;
+  double monthsOld = daysOld / 30;    // We should change this to check which month and return 28, 29, 30, or 31 depending
+  
+  NSInteger monthsOldInt = (NSInteger)monthsOld;
+  NSInteger daysOldInMonth = (NSInteger)((int)daysOld % (int)30);
+  
+  return [NSString stringWithFormat:@"%im %id", monthsOldInt, daysOldInMonth];
+}
+
 @end

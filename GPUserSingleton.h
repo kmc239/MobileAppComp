@@ -16,13 +16,11 @@
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *password;
 @property (nonatomic, strong) NSArray *journals;
-@property (nonatomic, strong) NSArray *entries;
 @property (nonatomic, assign) BOOL userIsSet;
 
 + (GPUserSingleton *)sharedGPUserSingleton;
 - (void)setUser:(GPUser *)user;
 - (void)setUserJournals:(NSArray *)journals;
-- (void)setUserEntries:(NSArray *)entries;
 - (void)clearSharedUserInfo;
 
 @end

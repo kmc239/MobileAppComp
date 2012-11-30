@@ -15,5 +15,6 @@
 + (BOOL) isValidEmail:(NSString* )emailAddress;
 + (BOOL) isValidPassword:(NSString *)password;
 + (void)setCustomFontsForTitle:(NSString *)title forViewController:(UIViewController *)controller;
++ (NSString *)formattedAgeFromBirthdate:(NSDate *)birthdate;
 
 @end

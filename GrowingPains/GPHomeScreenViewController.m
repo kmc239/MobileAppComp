@@ -28,7 +28,7 @@
   // Set custom font for title
   [GPHelpers setCustomFontsForTitle:NSLocalizedString(@"JOURNALS", nil) forViewController:self];
   
-  [self.tableView setRowHeight:134];
+  [self.tableView setRowHeight:120];
   [self loadJournalsFromServer];
 }
 
@@ -152,9 +152,9 @@
   
   UILabel *journalNameLabel = (UILabel *)[cell viewWithTag:6];
   journalNameLabel.text = currentJournal.name;
-//  UILabel *ageLabel = (UILabel *)[cell viewWithTag:7];
-//  ageLabel.text = [NSDate date] - currentJournal.birthDate;
-    
+  UILabel *ageLabel = (UILabel *)[cell viewWithTag:8];  
+  ageLabel.text = [GPHelpers formattedAgeFromBirthdate:currentJournal.birthDate];
+  
   // Add custom psuedo accessory detail
   UIImageView *arrowImageView = (UIImageView *)[cell viewWithTag:5];
   UIImage *arrowImage = [UIImage imageNamed:@"arrowImage.png"];
@@ -272,7 +272,7 @@
 }
 
 #pragma mark - Create Journal delegate method
--(void)reloadJournals:(BOOL)reloadStatus {
+- (void)reloadJournals:(BOOL)reloadStatus {
   
   NSLog(@"delegate fired");
   

@@ -22,13 +22,14 @@
 @implementation GPTimelineViewController
 
 @synthesize currentJournalId = _currentJournalId;
+@synthesize entriesFromServer = _entriesFromServer;
 
 - (void)viewDidLoad
 {
   [super viewDidLoad];
   DLog(@"Current Journal ID: %i", self.currentJournalId);
   
-  [self.tableView setRowHeight:150];
+  [self.tableView setRowHeight:130];
   
   // Load entries
   [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
@@ -53,7 +54,7 @@
   else if ([segue.identifier isEqualToString:@"View Entry"])
   {
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    GPEntry *currentEntry = [[GPUserSingleton sharedGPUserSingleton].entries objectAtIndex:indexPath.row];
+    GPEntry *currentEntry = [self.entriesFromServer objectAtIndex:indexPath.row];
     GPEntryViewController *entryController = segue.destinationViewController;
     entryController.currentEntry = currentEntry;
   }
@@ -86,11 +87,11 @@
 {
   
   // If there is no sharedUser or no entries for the given user, return 0 and set a loading/add entries message
-  if ([GPUserSingleton sharedGPUserSingleton] == nil || [GPUserSingleton sharedGPUserSingleton].entries == nil) {
+  if ([GPUserSingleton sharedGPUserSingleton] == nil || self.entriesFromServer == nil) {
     return 0;
   }
   else {
-    return [GPUserSingleton sharedGPUserSingleton].entries.count;
+    return self.entriesFromServer.count;
   }
 }
 
@@ -121,11 +122,11 @@
 {
   
   // If there is no sharedUser or no entries for the given user, return
-  if ([GPUserSingleton sharedGPUserSingleton] == nil || [GPUserSingleton sharedGPUserSingleton].entries == nil) {
+  if ([GPUserSingleton sharedGPUserSingleton] == nil || self.entriesFromServer == nil) {
     return;
   }
   
-  GPEntry *currentEntry = [[GPUserSingleton sharedGPUserSingleton].entries objectAtIndex:indexPath.row];
+  GPEntry *currentEntry = [self.entriesFromServer objectAtIndex:indexPath.row];
   
   // Update the date
   UILabel *dateLabel = (UILabel *)[cell viewWithTag:1];
@@ -220,9 +221,8 @@
     GPEntries *userEntries = [objects objectAtIndex:0];
     DLog(@"User has %i entries", userEntries.entry.count);
     
-    // Save Singleton Object
-    GPUserSingleton *sharedUser = [GPUserSingleton sharedGPUserSingleton];
-    [sharedUser setUserEntries:userEntries.entry];
+    // Save entries to local object
+    self.entriesFromServer = userEntries.entry;
   }
   
   // Force the tableview to reload, now with new entry information

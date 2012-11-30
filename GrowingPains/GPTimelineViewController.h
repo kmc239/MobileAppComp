@@ -12,5 +12,6 @@
 @interface GPTimelineViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, RKRequestDelegate, RKObjectLoaderDelegate>
 
 @property NSInteger currentJournalId;
+@property NSArray *entriesFromServer;
 
 @end

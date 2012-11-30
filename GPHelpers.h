@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GPModels.h"
 
 @interface GPHelpers : NSObject
 
@@ -15,6 +16,8 @@
 + (BOOL) isValidEmail:(NSString* )emailAddress;
 + (BOOL) isValidPassword:(NSString *)password;
 + (void)setCustomFontsForTitle:(NSString *)title forViewController:(UIViewController *)controller;
-+ (NSString *)formattedAgeFromBirthdate:(NSDate *)birthdate;
++ (NSString *)formattedAge:(NSDate *)birthdate;
++ (NSString *)formattedAgeOfEntryDate:(NSDate *)entryDate withBirthdate:(NSDate *)birthdate;
++ (GPJournal *)journalForJournalId:(NSInteger)journalId;
 
 @end

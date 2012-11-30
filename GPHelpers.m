@@ -7,6 +7,7 @@
 //
 
 #import "GPHelpers.h"
+#import "GPUserSingleton.h"
 
 @implementation GPHelpers
 
@@ -60,7 +61,8 @@
   
 }
 
-+ (NSString *)formattedAgeFromBirthdate:(NSDate *)birthdate {
+// Returns the formatted age of person in terms of months/days from today
++ (NSString *)formattedAge:(NSDate *)birthdate {
   
   double secondsOld = [[NSDate date] timeIntervalSinceReferenceDate] - [birthdate timeIntervalSinceReferenceDate];
   double minutesOld = secondsOld / 60;
@@ -72,6 +74,32 @@
   NSInteger daysOldInMonths = (NSInteger)((int)daysOld % (int)30);
   
   return [NSString stringWithFormat:@"%im %id", monthsOldInt, daysOldInMonths];
+}
+
+// Returns the formatted age of person on a give day
++ (NSString *)formattedAgeOfEntryDate:(NSDate *)entryDate withBirthdate:(NSDate *)birthdate {
+  
+  double secondsOld = [entryDate timeIntervalSinceReferenceDate] - [birthdate timeIntervalSinceReferenceDate];
+  double minutesOld = secondsOld / 60;
+  double hoursOld = minutesOld / 60;
+  double daysOld = hoursOld / 24;
+  double monthsOld = daysOld / 30;    // We should change this to check which month and return 28, 29, 30, or 31 depending
+  
+  NSInteger monthsOldInt = (NSInteger)monthsOld;
+  NSInteger daysOldInMonths = (NSInteger)((int)daysOld % (int)30);
+  
+  return [NSString stringWithFormat:@"%im %id", monthsOldInt, daysOldInMonths];
+}
+
+// Helper method that returns a journal for the corresponding journalId
++ (GPJournal *)journalForJournalId:(NSInteger)journalId {
+  
+  for (GPJournal *journal in [GPUserSingleton sharedGPUserSingleton].journals) {
+    if (journal.journalId == journalId) {
+      return journal;
+    }
+  }
+  return nil;
 }
 
 @end

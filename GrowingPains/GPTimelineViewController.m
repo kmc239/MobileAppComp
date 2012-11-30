@@ -30,6 +30,7 @@
   DLog(@"Current Journal ID: %i", self.currentJournalId);
   
   [self.tableView setRowHeight:130];
+  [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
   
   // Load entries
   [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
@@ -126,16 +127,26 @@
     return;
   }
   
+  CGFloat nRed=207.0/255.0;
+  CGFloat nBlue=209.0/255.0;
+  CGFloat nGreen=88.0/255.0;
+  UIColor *greenColor=[[UIColor alloc]initWithRed:nRed green:nBlue blue:nGreen alpha:1];
+  
   GPEntry *currentEntry = [self.entriesFromServer objectAtIndex:indexPath.row];
   
   // Update the date
   UILabel *dateLabel = (UILabel *)[cell viewWithTag:1];
   NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-  [formatter setDateFormat:@"MMM d"];
+  [formatter setDateFormat:@"MMM. d"];
   dateLabel.text = [formatter stringFromDate:currentEntry.createdDate];
+  dateLabel.font = [UIFont fontWithName:@"Sanchez-Regular" size:dateLabel.font.pointSize * 0.9];
+  dateLabel.textColor = [UIColor darkGrayColor];
   
-  // Update the time
-//  UILabel *timeLabel = (UILabel *)[cell viewWithTag:2];
+  // Update the age
+  UILabel *ageLabel = (UILabel *)[cell viewWithTag:2];
+  ageLabel.text = [GPHelpers formattedAgeOfEntryDate:currentEntry.createdDate withBirthdate:[GPHelpers journalForJournalId:self.currentJournalId].birthDate];
+  ageLabel.font = [UIFont fontWithName:@"Sanchez-Regular" size:ageLabel.font.pointSize * 0.9];
+  ageLabel.textColor = greenColor;
   
   // Load the picture
   UIImageView *pictureImageView = (UIImageView *)[cell viewWithTag:3];
@@ -152,13 +163,26 @@
   pictureImageView.layer.masksToBounds = YES;
   
   // Add a thin border
-//    previewImageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
-//    previewImageView.layer.borderWidth = 0.5;
+  pictureImageView.layer.borderColor = greenColor.CGColor;
+  pictureImageView.layer.borderWidth = 2.0;
   
   // Update the description
   UILabel *description = (UILabel *)[cell viewWithTag:4];
   description.text = currentEntry.description;
+  description.font = [UIFont fontWithName:@"Sanchez-Regular" size:description.font.pointSize * 0.9];
+  description.textColor = [UIColor darkGrayColor];
   
+  // Update the time
+  UILabel *time = (UILabel *)[cell viewWithTag:5];
+  [formatter setDateFormat:@"HH:mm a"];
+  time.text = [[formatter stringFromDate:currentEntry.createdDate] lowercaseString];
+  time.font = [UIFont fontWithName:@"Sanchez-Regular" size:time.font.pointSize * 0.9];
+  time.textColor = greenColor;
+
+  // Round the corners on the white background
+  UIView *whiteBackground = (UIView *)[cell viewWithTag:6];
+  whiteBackground.layer.cornerRadius = 5.0;
+  whiteBackground.layer.masksToBounds = YES;
 }
 
 

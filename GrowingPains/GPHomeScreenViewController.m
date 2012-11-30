@@ -29,7 +29,8 @@
   [GPHelpers setCustomFontsForTitle:NSLocalizedString(@"JOURNALS", nil) forViewController:self];
   
   [self.tableView setRowHeight:130];
-  [self.tableView setSeparatorColor:[UIColor clearColor]];
+  [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
+  
   [self loadJournalsFromServer];
 }
 
@@ -161,14 +162,9 @@
   agePromptLable.textColor = [UIColor lightGrayColor];
   
   UILabel *ageLabel = (UILabel *)[cell viewWithTag:8];  
-  ageLabel.text = [GPHelpers formattedAgeFromBirthdate:currentJournal.birthDate];
+  ageLabel.text = [GPHelpers formattedAge:currentJournal.birthDate];
   ageLabel.font = [UIFont fontWithName:@"Sanchez-Regular" size:ageLabel.font.pointSize * 0.9];
-    
-  // Add custom psuedo accessory detail
-  UIImageView *arrowImageView = (UIImageView *)[cell viewWithTag:5];
-  UIImage *arrowImage = [UIImage imageNamed:@"arrowImage.png"];
-  [arrowImageView setImage:arrowImage];
-  
+      
   // Loop through journal images and display them
   for (int tag = 1; tag <= 4; tag++) {
     

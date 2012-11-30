@@ -35,7 +35,7 @@
 		087B66501668DE8400E5D840 /* timeline_dot_middle.png in Resources */ = {isa = PBXBuildFile; fileRef = 087B664C1668DE8400E5D840 /* timeline_dot_middle.png */; };
 		087B66511668DE8400E5D840 /* timeline_dot_top.png in Resources */ = {isa = PBXBuildFile; fileRef = 087B664D1668DE8400E5D840 /* timeline_dot_top.png */; };
 		087B66521668DE8400E5D840 /* timeline_dot.png in Resources */ = {isa = PBXBuildFile; fileRef = 087B664E1668DE8400E5D840 /* timeline_dot.png */; };
-		087B66541668E55300E5D840 /* cog_gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 087B66531668E55300E5D840 /* cog_gear.png */; };
+		087B66571668F12700E5D840 /* cog.png in Resources */ = {isa = PBXBuildFile; fileRef = 087B66551668F12700E5D840 /* cog.png */; };
 		087EC509165F8620009E58B0 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 087EC4FE165F856C009E58B0 /* libRestKit.a */; };
 		087EC50C165F8AEE009E58B0 /* GPJournal.m in Sources */ = {isa = PBXBuildFile; fileRef = 087EC50B165F8AEE009E58B0 /* GPJournal.m */; };
 		087EC51C165F99AD009E58B0 /* GPJournals.m in Sources */ = {isa = PBXBuildFile; fileRef = 087EC51B165F99AD009E58B0 /* GPJournals.m */; };
@@ -152,7 +152,7 @@
 		087B664C1668DE8400E5D840 /* timeline_dot_middle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timeline_dot_middle.png; sourceTree = "<group>"; };
 		087B664D1668DE8400E5D840 /* timeline_dot_top.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timeline_dot_top.png; sourceTree = "<group>"; };
 		087B664E1668DE8400E5D840 /* timeline_dot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timeline_dot.png; sourceTree = "<group>"; };
-		087B66531668E55300E5D840 /* cog_gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cog_gear.png; sourceTree = "<group>"; };
+		087B66551668F12700E5D840 /* cog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cog.png; sourceTree = "<group>"; };
 		087EC4F2165F856C009E58B0 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
 		087EC50A165F8AEE009E58B0 /* GPJournal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPJournal.h; sourceTree = "<group>"; };
 		087EC50B165F8AEE009E58B0 /* GPJournal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPJournal.m; sourceTree = "<group>"; };
@@ -241,7 +241,7 @@
 				087B66141666C0DB00E5D840 /* appicon_sm.png */,
 				087B66121666C0B200E5D840 /* appicon.png */,
 				087B661A1666C3DD00E5D840 /* babyonphone.jpeg */,
-				087B66531668E55300E5D840 /* cog_gear.png */,
+				087B66551668F12700E5D840 /* cog.png */,
 				087B66161666C12E00E5D840 /* carriage_line.png */,
 				3450DF8A1661DA8F005F0A61 /* TakePhoto.png */,
 				08A3611F1655F4730091B357 /* cutebaby.jpeg */,
@@ -552,7 +552,7 @@
 				087B66501668DE8400E5D840 /* timeline_dot_middle.png in Resources */,
 				087B66511668DE8400E5D840 /* timeline_dot_top.png in Resources */,
 				087B66521668DE8400E5D840 /* timeline_dot.png in Resources */,
-				087B66541668E55300E5D840 /* cog_gear.png in Resources */,
+				087B66571668F12700E5D840 /* cog.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

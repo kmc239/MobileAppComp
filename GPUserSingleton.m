@@ -72,7 +72,11 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(GPUserSingleton);
   [defaults synchronize];
 }
 
+// TODO: Update this to set the journals JSON string to NSUserDefaults
+// This is not saving because NSUserDefaults does not support dates or NSIntegers
 - (void)setUserJournals:(NSArray *)journals {
+  
+  NSLog(@"setting %i journals into NSUserDefaults", journals.count);
     
   self.journals = journals;
   
@@ -82,6 +86,13 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(GPUserSingleton);
   [defaults setObject:journals forKey:kGPUserDefaultsJournals];
   [defaults synchronize];
 }
+
+// TODO: Load JSON string and use RKJSONParser to convert back to NSArray
+//- (NSArray *)journals
+//{
+//  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//  return [defaults objectForKey:@"kGPUserDefaultsJournals"];
+//}
 
 - (void)clearSharedUserInfo {
   

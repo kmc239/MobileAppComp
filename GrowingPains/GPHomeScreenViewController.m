@@ -37,7 +37,7 @@
   UIBarButtonItem *cogItem = [[UIBarButtonItem alloc] initWithTitle:@""
                                                               style:UIBarButtonItemStylePlain
                                                              target:self action:@selector(openSettings)];
-  [cogItem setImage:[UIImage imageNamed:@"cog_gear.png"]];
+  [cogItem setImage:[UIImage imageNamed:@"cog.png"]];
   [self.navigationItem setLeftBarButtonItem:cogItem];
 
   // Set custom font for title

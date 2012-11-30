@@ -69,9 +69,9 @@
   double monthsOld = daysOld / 30;    // We should change this to check which month and return 28, 29, 30, or 31 depending
   
   NSInteger monthsOldInt = (NSInteger)monthsOld;
-  NSInteger daysOldInMonth = (NSInteger)((int)daysOld % (int)30);
+  NSInteger daysOldInMonths = (NSInteger)((int)daysOld % (int)30);
   
-  return [NSString stringWithFormat:@"%im %id", monthsOldInt, daysOldInMonth];
+  return [NSString stringWithFormat:@"%im %id", monthsOldInt, daysOldInMonths];
 }
 
 @end

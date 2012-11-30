@@ -28,7 +28,8 @@
   // Set custom font for title
   [GPHelpers setCustomFontsForTitle:NSLocalizedString(@"JOURNALS", nil) forViewController:self];
   
-  [self.tableView setRowHeight:120];
+  [self.tableView setRowHeight:130];
+  [self.tableView setSeparatorColor:[UIColor clearColor]];
   [self loadJournalsFromServer];
 }
 
@@ -152,9 +153,17 @@
   
   UILabel *journalNameLabel = (UILabel *)[cell viewWithTag:6];
   journalNameLabel.text = currentJournal.name;
+  journalNameLabel.font = [UIFont fontWithName:@"Sanchez-Regular" size:journalNameLabel.font.pointSize * 0.9];
+  journalNameLabel.textColor = [UIColor lightGrayColor];
+  
+  UILabel *agePromptLable = (UILabel *)[cell viewWithTag:7];
+  agePromptLable.font = [UIFont fontWithName:@"Sanchez-Regular" size:agePromptLable.font.pointSize * 0.9];
+  agePromptLable.textColor = [UIColor lightGrayColor];
+  
   UILabel *ageLabel = (UILabel *)[cell viewWithTag:8];  
   ageLabel.text = [GPHelpers formattedAgeFromBirthdate:currentJournal.birthDate];
-  
+  ageLabel.font = [UIFont fontWithName:@"Sanchez-Regular" size:ageLabel.font.pointSize * 0.9];
+    
   // Add custom psuedo accessory detail
   UIImageView *arrowImageView = (UIImageView *)[cell viewWithTag:5];
   UIImage *arrowImage = [UIImage imageNamed:@"arrowImage.png"];
@@ -185,16 +194,24 @@
     // Add a thin border
     if (indexPath.row % 3 == 0) {
       previewImageView.layer.borderColor = greenColor.CGColor;
+      ageLabel.textColor = greenColor;
     }
     else if (indexPath.row % 3 == 1) {
       previewImageView.layer.borderColor = orangeColor.CGColor;
+      ageLabel.textColor = orangeColor;
     }
     else {
       previewImageView.layer.borderColor = redColor.CGColor;
+      ageLabel.textColor = redColor;
     }
-    
     previewImageView.layer.borderWidth = 2.0;
   }
+  
+  // Round the corners on the white background
+  UIView *whiteBackground = (UIView *)[cell viewWithTag:9];
+  whiteBackground.layer.cornerRadius = 5.0;
+  whiteBackground.layer.masksToBounds = YES;
+  
 }
 
 #pragma mark - RestKit Calls

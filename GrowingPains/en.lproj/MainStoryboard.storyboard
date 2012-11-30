@@ -548,7 +548,7 @@
                                     <subviews>
                                         <view tag="6" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wUY-Q1-eO5">
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" preferredMaxLayoutWidth="101" translatesAutoresizingMaskIntoConstraints="NO" id="KG7-5Y-VDi">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="4" contentMode="left" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.30000000000000004" preferredMaxLayoutWidth="101" translatesAutoresizingMaskIntoConstraints="NO" id="KG7-5Y-VDi">
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="79" id="3IX-ZX-Bd7"/>
                                                     </constraints>

@@ -158,6 +158,11 @@
   UIImage *image = [UIImage imageWithData:imageData];
   pictureImageView.image = image;
   
+  if (thumbnail.thumbnailUrl == nil) {
+    UIImage *stockImage = [UIImage imageNamed:@"TakePhoto.png"];
+    pictureImageView.image = stockImage;
+  }
+  
   // Make picture circular
   pictureImageView.layer.cornerRadius = 40.0;
   pictureImageView.layer.masksToBounds = YES;
@@ -247,6 +252,14 @@
     
     // Save entries to local object
     self.entriesFromServer = userEntries.entry;
+  }
+  
+  // If 0 entries, add a starter entry
+  if (self.entriesFromServer.count == 0) {
+    GPEntry *firstEntry = [[GPEntry alloc] init];
+    firstEntry.createdDate = [NSDate date];
+    firstEntry.description = @"Select the compose button to create a new entry.";
+    self.entriesFromServer = [NSArray arrayWithObject:firstEntry];
   }
   
   // Force the tableview to reload, now with new entry information

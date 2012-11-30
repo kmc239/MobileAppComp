@@ -180,7 +180,7 @@
     BOOL result = YES;
     UIImagePickerController *cameraUI = [[UIImagePickerController alloc] init];
     
-    if ((![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera] == NO) || (delegate == nil) || (controller == nil))
+    if (([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera] == NO) || (delegate == nil) || (controller == nil))
     {
         cameraUI.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         cameraUI.modalTransitionStyle = UIModalTransitionStyleCoverVertical;

@@ -34,7 +34,7 @@
   UIColor *grayBackgroundColor = [UIColor colorWithRed:nRed green:nGreen blue:nBlue alpha:1.0];
   [self.tabBar setBackgroundColor:grayBackgroundColor];
   
-  UIImage *tabBarBg = [UIImage imageNamed:@"tabbar.png"];
+  UIImage *tabBarBg = [UIImage imageNamed:@"TabBar.png"];
   [self.tabBar setBackgroundImage:tabBarBg];
 }
 

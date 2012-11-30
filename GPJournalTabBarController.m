@@ -25,6 +25,16 @@
   
   // Set custom font for title
   [GPHelpers setCustomFontsForTitle:NSLocalizedString(@"TIMELINE", nil) forViewController:self];
+  
+  // Style the tab bar
+  CGFloat nRed = 235.0/255.0;
+  CGFloat nGreen = 235.0/255.0;
+  CGFloat nBlue = 235.0/255.0;
+  UIColor *grayBackgroundColor = [UIColor colorWithRed:nRed green:nGreen blue:nBlue alpha:1.0];
+  [self.tabBar setBackgroundColor:grayBackgroundColor];
+  
+  UIImage *tabBarBg = [UIImage imageNamed:@"tabbar.png"];
+  [self.tabBar setBackgroundImage:tabBarBg];
 }
 
 @end

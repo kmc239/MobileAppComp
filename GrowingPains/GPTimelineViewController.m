@@ -200,13 +200,7 @@
   if ([request isGET]) {
     
     if ([response isOK]) {
-      
-      if ([response isOK]) {
-        
-//        NSString *responseString = [response bodyAsString];
-//        NSLog(@"Response is OK:\n\n%@", responseString);
-        
-      }
+      NSLog(@"response is GET and is OK");
     }
   }
   else if ([request isPOST]) {
@@ -239,7 +233,6 @@
   [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
   [GPHelpers showAlertWithMessage:NSLocalizedString(@"RK_REQUEST_TIMEOUT", nil) andHeading:NSLocalizedString(@"RK_OPERATION_FAILED", nil)];
 }
-
 
 #pragma mark - RestKit objectLoader
 - (void)objectLoader:(RKObjectLoader*)objectLoader didLoadObjects:(NSArray*)objects

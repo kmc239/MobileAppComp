@@ -531,7 +531,7 @@
             </objects>
             <point key="canvasLocation" x="1364" y="-1089"/>
         </scene>
-        <!--Timeline View Controller - Timeline-->
+        <!--Timeline View Controller-->
         <scene sceneID="jFb-pI-OAK">
             <objects>
                 <viewController id="Z6z-y7-X6S" customClass="GPTimelineViewController" sceneMemberID="viewController">
@@ -625,7 +625,7 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Timeline" id="3FB-en-3zc"/>
+                    <tabBarItem key="tabBarItem" title="" id="3FB-en-3zc"/>
                     <connections>
                         <segue destination="So2-zS-nJj" kind="push" identifier="View Entry" id="9lR-uf-6Ti"/>
                     </connections>

@@ -28,8 +28,9 @@
 		087B66151666C0DB00E5D840 /* appicon_sm.png in Resources */ = {isa = PBXBuildFile; fileRef = 087B66141666C0DB00E5D840 /* appicon_sm.png */; };
 		087B66171666C12E00E5D840 /* carriage_line.png in Resources */ = {isa = PBXBuildFile; fileRef = 087B66161666C12E00E5D840 /* carriage_line.png */; };
 		087B661B1666C3DD00E5D840 /* babyonphone.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 087B661A1666C3DD00E5D840 /* babyonphone.jpeg */; };
-		087B66371668AE1A00E5D840 /* tabbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 087B66361668AE1A00E5D840 /* tabbar.png */; };
 		087B663A1668C2BE00E5D840 /* GPGreenButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 087B66391668C2BE00E5D840 /* GPGreenButton.m */; };
+		087B663D1668D76A00E5D840 /* TabBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 087B663B1668D76A00E5D840 /* TabBar.png */; };
+		087B663E1668D76A00E5D840 /* TabBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 087B663C1668D76A00E5D840 /* TabBar@2x.png */; };
 		087EC509165F8620009E58B0 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 087EC4FE165F856C009E58B0 /* libRestKit.a */; };
 		087EC50C165F8AEE009E58B0 /* GPJournal.m in Sources */ = {isa = PBXBuildFile; fileRef = 087EC50B165F8AEE009E58B0 /* GPJournal.m */; };
 		087EC51C165F99AD009E58B0 /* GPJournals.m in Sources */ = {isa = PBXBuildFile; fileRef = 087EC51B165F99AD009E58B0 /* GPJournals.m */; };
@@ -138,9 +139,10 @@
 		087B66141666C0DB00E5D840 /* appicon_sm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = appicon_sm.png; path = ../appicon_sm.png; sourceTree = "<group>"; };
 		087B66161666C12E00E5D840 /* carriage_line.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = carriage_line.png; sourceTree = "<group>"; };
 		087B661A1666C3DD00E5D840 /* babyonphone.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = babyonphone.jpeg; sourceTree = "<group>"; };
-		087B66361668AE1A00E5D840 /* tabbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabbar.png; sourceTree = "<group>"; };
 		087B66381668C2BE00E5D840 /* GPGreenButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPGreenButton.h; sourceTree = "<group>"; };
 		087B66391668C2BE00E5D840 /* GPGreenButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPGreenButton.m; sourceTree = "<group>"; };
+		087B663B1668D76A00E5D840 /* TabBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TabBar.png; sourceTree = "<group>"; };
+		087B663C1668D76A00E5D840 /* TabBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TabBar@2x.png"; sourceTree = "<group>"; };
 		087EC4F2165F856C009E58B0 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
 		087EC50A165F8AEE009E58B0 /* GPJournal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPJournal.h; sourceTree = "<group>"; };
 		087EC50B165F8AEE009E58B0 /* GPJournal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPJournal.m; sourceTree = "<group>"; };
@@ -226,7 +228,6 @@
 		085285341650C5DD002044C6 /* Art */ = {
 			isa = PBXGroup;
 			children = (
-				087B66361668AE1A00E5D840 /* tabbar.png */,
 				087B66141666C0DB00E5D840 /* appicon_sm.png */,
 				087B66121666C0B200E5D840 /* appicon.png */,
 				087B661A1666C3DD00E5D840 /* babyonphone.jpeg */,
@@ -243,6 +244,8 @@
 				085285351650C5F4002044C6 /* circle_images.png */,
 				085285361650C5F4002044C6 /* vertical_timeline.png */,
 				087B66081666B5F200E5D840 /* addbutton@2x.png */,
+				087B663B1668D76A00E5D840 /* TabBar.png */,
+				087B663C1668D76A00E5D840 /* TabBar@2x.png */,
 				087B66091666B5F200E5D840 /* navbar@2x.png */,
 				087B660A1666B5F200E5D840 /* settingsbutton@2x.png */,
 			);
@@ -528,7 +531,8 @@
 				087B66151666C0DB00E5D840 /* appicon_sm.png in Resources */,
 				087B66171666C12E00E5D840 /* carriage_line.png in Resources */,
 				087B661B1666C3DD00E5D840 /* babyonphone.jpeg in Resources */,
-				087B66371668AE1A00E5D840 /* tabbar.png in Resources */,
+				087B663D1668D76A00E5D840 /* TabBar.png in Resources */,
+				087B663E1668D76A00E5D840 /* TabBar@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

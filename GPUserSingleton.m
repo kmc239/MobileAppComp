@@ -100,7 +100,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(GPUserSingleton);
   [defaults removeObjectForKey:kGPUserDefaultsUserId];
   [defaults removeObjectForKey:kGPUserDefaultsUserPassword];
   [defaults removeObjectForKey:kGPUserDefaultsJournals];
-  [defaults removeObjectForKey:kGPUserDefaultsEntries];
   [defaults removeObjectForKey:kGPUserDefaultsUserIsSet];
   
   [defaults synchronize];

@@ -15,7 +15,6 @@ extern NSString * const kGPUserDefaultsUserName;
 extern NSString * const kGPUserDefaultsUserId;
 extern NSString * const kGPUserDefaultsUserPassword;
 extern NSString * const kGPUserDefaultsJournals;
-extern NSString * const kGPUserDefaultsEntries;
 extern NSString * const kGPUserDefaultsUserIsSet;
 
 extern NSString * const kSTKeychainServiceName;

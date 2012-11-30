@@ -162,6 +162,10 @@
         [[RKClient sharedClient] setUsername:_email.text];
         [[RKClient sharedClient] setPassword:_password.text];
         
+        // Clear text fields
+        _email.text = @"";
+        _password.text = @"";
+        
         [self performSegueWithIdentifier:@"Login" sender:self];
       }
     }

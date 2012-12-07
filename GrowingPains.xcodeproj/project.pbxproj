@@ -61,6 +61,7 @@
 		0885CF831613C71F00B357D1 /* GPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0885CF821613C71F00B357D1 /* GPAppDelegate.m */; };
 		0885CF8C1613C71F00B357D1 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0885CF8A1613C71F00B357D1 /* MainStoryboard.storyboard */; };
 		08A361201655F4730091B357 /* cutebaby.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 08A3611F1655F4730091B357 /* cutebaby.jpeg */; };
+		08A5CDE91671B4DF00B874F8 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A5CDE81671B4DF00B874F8 /* placeholder.png */; };
 		08D126A41638F54D00AD9977 /* GPTimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D126A31638F54D00AD9977 /* GPTimelineViewController.m */; };
 		08D126AD1638FCC000AD9977 /* GPCreateJournalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D126AC1638FCC000AD9977 /* GPCreateJournalViewController.m */; };
 		341669FC1664453D0045484F /* GPJournalTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 341669FB1664453D0045484F /* GPJournalTabBarController.m */; };
@@ -192,6 +193,7 @@
 		0885CF821613C71F00B357D1 /* GPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GPAppDelegate.m; sourceTree = "<group>"; };
 		0885CF8B1613C71F00B357D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		08A3611F1655F4730091B357 /* cutebaby.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cutebaby.jpeg; sourceTree = "<group>"; };
+		08A5CDE81671B4DF00B874F8 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		08D126A21638F54D00AD9977 /* GPTimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPTimelineViewController.h; path = GrowingPains/GPTimelineViewController.h; sourceTree = "<group>"; };
 		08D126A31638F54D00AD9977 /* GPTimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPTimelineViewController.m; path = GrowingPains/GPTimelineViewController.m; sourceTree = "<group>"; };
 		08D126AB1638FCC000AD9977 /* GPCreateJournalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPCreateJournalViewController.h; path = GrowingPains/GPCreateJournalViewController.h; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 				085285391650C616002044C6 /* Default-568h@2x.png */,
 				0852853A1650C616002044C6 /* Default.png */,
 				0852853B1650C616002044C6 /* Default@2x.png */,
+				08A5CDE81671B4DF00B874F8 /* placeholder.png */,
 				085285351650C5F4002044C6 /* circle_images.png */,
 				085285361650C5F4002044C6 /* vertical_timeline.png */,
 				087B66081666B5F200E5D840 /* addbutton@2x.png */,
@@ -553,6 +556,7 @@
 				087B66511668DE8400E5D840 /* timeline_dot_top.png in Resources */,
 				087B66521668DE8400E5D840 /* timeline_dot.png in Resources */,
 				087B66571668F12700E5D840 /* cog.png in Resources */,
+				08A5CDE91671B4DF00B874F8 /* placeholder.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

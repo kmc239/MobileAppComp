@@ -19,6 +19,7 @@
 
 @synthesize currentEntry = _currentEntry;
 @synthesize entryPicture = _entryPicture;
+@synthesize descriptionLabel = _descriptionLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,10 +33,12 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-	// Do any additional setup after loading the view.
   
   // Set custom font for title
   [GPHelpers setCustomFontsForTitle:NSLocalizedString(@"ENTRY", nil) forViewController:self];
+  [self.descriptionLabel setFont:[UIFont fontWithName:@"Sanchez-Regular" size:self.descriptionLabel.font.pointSize * 0.9]];
+  [self.descriptionLabel setText:self.currentEntry.description];
+  [self.descriptionLabel sizeToFit];
   
   // Use RestKit to download image asychronously
   GPPicture *picture = self.currentEntry.picture;

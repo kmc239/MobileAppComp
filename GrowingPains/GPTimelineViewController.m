@@ -134,13 +134,13 @@
   NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
   [formatter setDateFormat:@"MMM. d"];
   dateLabel.text = [formatter stringFromDate:currentEntry.createdDate];
-  dateLabel.font = [UIFont fontWithName:@"Sanchez-Regular" size:dateLabel.font.pointSize * 0.9];
+  dateLabel.font = [UIFont fontWithName:@"Sanchez-Regular" size:dateLabel.font.pointSize];
   dateLabel.textColor = [UIColor darkGrayColor];
   
   // Update the age
   UILabel *ageLabel = (UILabel *)[cell viewWithTag:2];
   ageLabel.text = [GPHelpers formattedAgeOfEntryDate:currentEntry.createdDate withBirthdate:[GPHelpers journalForJournalId:self.currentJournalId].birthDate];
-  ageLabel.font = [UIFont fontWithName:@"Sanchez-Regular" size:ageLabel.font.pointSize * 0.9];
+  ageLabel.font = [UIFont fontWithName:@"Sanchez-Regular" size:ageLabel.font.pointSize];
   ageLabel.textColor = greenColor;
   
   // Load the picture
@@ -167,14 +167,14 @@
   // Update the description
   UILabel *description = (UILabel *)[cell viewWithTag:4];
   description.text = currentEntry.description;
-  description.font = [UIFont fontWithName:@"Sanchez-Regular" size:description.font.pointSize * 0.9];
+  description.font = [UIFont fontWithName:@"Sanchez-Regular" size:description.font.pointSize];
   description.textColor = [UIColor darkGrayColor];
   
   // Update the time
   UILabel *time = (UILabel *)[cell viewWithTag:5];
   [formatter setDateFormat:@"HH:mm a"];
   time.text = [[formatter stringFromDate:currentEntry.createdDate] lowercaseString];
-  time.font = [UIFont fontWithName:@"Sanchez-Regular" size:time.font.pointSize * 0.9];
+  time.font = [UIFont fontWithName:@"Sanchez-Regular" size:time.font.pointSize];
   time.textColor = greenColor;
 
   // Round the corners on the white background

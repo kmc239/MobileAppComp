@@ -38,10 +38,10 @@
 
   // Set custom fonts
   [GPHelpers setCustomFontsForTitle:NSLocalizedString(@"SETTINGS", nil) forViewController:self];
-  [self.nameLabel setFont:[UIFont fontWithName:@"Sanchez-Regular" size:self.nameLabel.font.pointSize * 0.9]];
-  [self.emailLabel setFont:[UIFont fontWithName:@"Sanchez-Regular" size:self.emailLabel.font.pointSize * 0.9]];
-  [self.nameTitleLabel setFont:[UIFont fontWithName:@"Sanchez-Regular" size:self.nameTitleLabel.font.pointSize * 0.9]];
-  [self.emailTitleLabel setFont:[UIFont fontWithName:@"Sanchez-Regular" size:self.emailTitleLabel.font.pointSize * 0.9]];  
+  [self.nameLabel setFont:[UIFont fontWithName:@"Sanchez-Regular" size:self.nameLabel.font.pointSize]];
+  [self.emailLabel setFont:[UIFont fontWithName:@"Sanchez-Regular" size:self.emailLabel.font.pointSize]];
+  [self.nameTitleLabel setFont:[UIFont fontWithName:@"Sanchez-Regular" size:self.nameTitleLabel.font.pointSize]];
+  [self.emailTitleLabel setFont:[UIFont fontWithName:@"Sanchez-Regular" size:self.emailTitleLabel.font.pointSize]];
   
   self.nameLabel.text = [GPUserSingleton sharedGPUserSingleton].name;
   self.emailLabel.text = [GPUserSingleton sharedGPUserSingleton].email;

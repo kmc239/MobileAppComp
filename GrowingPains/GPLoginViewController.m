@@ -60,7 +60,7 @@
   [self.navigationItem setBackBarButtonItem: backButton];
   
   // Set custom font
-  [self._titleLabel setFont:[UIFont fontWithName:@"Sanchez-Regular" size:self._titleLabel.font.pointSize * 0.9]];
+  [self._titleLabel setFont:[UIFont fontWithName:@"Sanchez-Regular" size:self._titleLabel.font.pointSize]];
     
   // If user is set, automatically log them in
   if ([GPUserSingleton sharedGPUserSingleton].userIsSet) {

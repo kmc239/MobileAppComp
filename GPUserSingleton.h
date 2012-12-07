@@ -20,7 +20,7 @@
 
 + (GPUserSingleton *)sharedGPUserSingleton;
 - (void)setUser:(GPUser *)user;
-- (void)setUserJournals:(NSArray *)journals;
+- (void)setUserJournals:(NSArray *)journals withString:(NSString *)jsonJournals;
 - (void)clearSharedUserInfo;
 
 @end

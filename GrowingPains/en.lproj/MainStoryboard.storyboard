@@ -43,12 +43,12 @@
                                                         <constraint firstAttribute="width" constant="60" id="3FN-rQ-bVV"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="6" contentMode="left" text="Michael Taylor McGann" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="bSx-Tw-kGh">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="6" contentMode="left" text="Michael Taylor McGann" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="bSx-Tw-kGh">
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="35" id="Jzv-ET-Ovh"/>
                                                         <constraint firstAttribute="width" constant="165" id="RQ7-3z-9Vr"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="26"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="24"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
@@ -57,7 +57,7 @@
                                                         <constraint firstAttribute="height" constant="35" id="IKV-80-IdQ"/>
                                                         <constraint firstAttribute="width" constant="30" id="YUe-aR-Xf4"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
@@ -65,7 +65,7 @@
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="66" id="ZCa-eh-qsZ"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-UltraLight" family="Helvetica Neue" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
@@ -468,7 +468,6 @@
                                         </state>
                                         <connections>
                                             <action selector="createEntryPressed:" destination="HCE-vT-Llb" eventType="touchUpInside" id="hOU-Hg-vgD"/>
-                                            <segue destination="So2-zS-nJj" kind="push" identifier="Post Entry" id="Rub-2P-7R1"/>
                                         </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Include details about this journal entry here." translatesAutoresizingMaskIntoConstraints="NO" id="12A-lH-Dim">
@@ -715,7 +714,7 @@
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Name:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3OY-dN-FCF">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="51" id="6wK-mT-rfP"/>
+                                    <constraint firstAttribute="width" constant="59" id="EUV-RM-INF"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -756,17 +755,18 @@
                         <color key="backgroundColor" red="0.92156862750000001" green="0.92156862750000001" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="LwQ-K2-Cp8" firstAttribute="baseline" secondItem="Pb0-ID-qZP" secondAttribute="baseline" type="user" id="13C-hq-6cN"/>
+                            <constraint firstItem="LwQ-K2-Cp8" firstAttribute="leading" secondItem="T0S-wA-kDq" secondAttribute="leading" type="default" id="3vF-GB-RcN"/>
                             <constraint firstItem="Pb0-ID-qZP" firstAttribute="top" secondItem="G6W-wq-R2M" secondAttribute="top" constant="51" id="Hzl-T3-OFe"/>
                             <constraint firstAttribute="trailing" secondItem="T0S-wA-kDq" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="MUo-jc-1h2"/>
-                            <constraint firstItem="T0S-wA-kDq" firstAttribute="leading" secondItem="3OY-dN-FCF" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="OPg-7A-Xt2"/>
+                            <constraint firstItem="T0S-wA-kDq" firstAttribute="leading" secondItem="3OY-dN-FCF" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="NPF-Ze-iYf"/>
                             <constraint firstAttribute="trailing" secondItem="fEf-h4-6ZV" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="QFS-sn-Nuc"/>
                             <constraint firstItem="Pb0-ID-qZP" firstAttribute="leading" secondItem="G6W-wq-R2M" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="RQp-qa-OL6"/>
                             <constraint firstItem="fEf-h4-6ZV" firstAttribute="top" secondItem="G6W-wq-R2M" secondAttribute="top" constant="91" id="VbE-kM-mw9"/>
+                            <constraint firstItem="LwQ-K2-Cp8" firstAttribute="leading" secondItem="Pb0-ID-qZP" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="VhI-RE-KG3"/>
                             <constraint firstAttribute="trailing" secondItem="LwQ-K2-Cp8" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ViZ-mD-E2N"/>
                             <constraint firstItem="3OY-dN-FCF" firstAttribute="top" secondItem="G6W-wq-R2M" secondAttribute="top" constant="20" symbolic="YES" type="default" id="cvV-wb-26W"/>
                             <constraint firstItem="fEf-h4-6ZV" firstAttribute="leading" secondItem="G6W-wq-R2M" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="hIF-d0-Ndy"/>
                             <constraint firstItem="3OY-dN-FCF" firstAttribute="leading" secondItem="G6W-wq-R2M" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="jcu-U6-6Lo"/>
-                            <constraint firstItem="LwQ-K2-Cp8" firstAttribute="leading" secondItem="T0S-wA-kDq" secondAttribute="leading" type="default" id="ldW-Vk-T07"/>
                             <constraint firstItem="T0S-wA-kDq" firstAttribute="top" secondItem="G6W-wq-R2M" secondAttribute="top" constant="20" symbolic="YES" type="default" id="vjh-R6-szM"/>
                         </constraints>
                     </view>
@@ -813,6 +813,8 @@
         <class className="GPCreateEntryViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GPCreateEntryViewController.h"/>
             <relationships>
+                <relationship kind="action" name="createEntryPressed:" candidateClass="UIButton"/>
+                <relationship kind="action" name="showCameraUI:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="takePictureButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="textView" candidateClass="UITextView"/>
@@ -892,6 +894,5 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="o0Z-o5-F6D"/>
-        <segue reference="9lR-uf-6Ti"/>
     </inferredMetricsTieBreakers>
 </document>

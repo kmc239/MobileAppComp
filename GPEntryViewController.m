@@ -36,7 +36,7 @@
   
   // Set custom font for title
   [GPHelpers setCustomFontsForTitle:NSLocalizedString(@"ENTRY", nil) forViewController:self];
-  [self.descriptionLabel setFont:[UIFont fontWithName:@"Sanchez-Regular" size:self.descriptionLabel.font.pointSize * 0.9]];
+  [self.descriptionLabel setFont:[UIFont fontWithName:@"Sanchez-Regular" size:self.descriptionLabel.font.pointSize]];
   [self.descriptionLabel setText:self.currentEntry.description];
   [self.descriptionLabel sizeToFit];
   

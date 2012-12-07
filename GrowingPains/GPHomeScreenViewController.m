@@ -15,10 +15,13 @@
 
 @interface GPHomeScreenViewController ()
 
+@property (strong, nonatomic) NSString *jsonJournals;
+
 @end
 
 @implementation GPHomeScreenViewController
 
+@synthesize jsonJournals = _jsonJournals;
 @synthesize tableView = _tableView;
 
 - (void)viewDidLoad
@@ -173,16 +176,16 @@
   
   UILabel *journalNameLabel = (UILabel *)[cell viewWithTag:6];
   journalNameLabel.text = currentJournal.name;
-  journalNameLabel.font = [UIFont fontWithName:@"Sanchez-Regular" size:journalNameLabel.font.pointSize * 0.9];
+  journalNameLabel.font = [UIFont fontWithName:@"Sanchez-Regular" size:journalNameLabel.font.pointSize];
   journalNameLabel.textColor = [UIColor lightGrayColor];
   
   UILabel *agePromptLable = (UILabel *)[cell viewWithTag:7];
-  agePromptLable.font = [UIFont fontWithName:@"Sanchez-Regular" size:agePromptLable.font.pointSize * 0.9];
+  agePromptLable.font = [UIFont fontWithName:@"Sanchez-Regular" size:agePromptLable.font.pointSize];
   agePromptLable.textColor = [UIColor lightGrayColor];
   
   UILabel *ageLabel = (UILabel *)[cell viewWithTag:8];  
   ageLabel.text = [GPHelpers formattedAge:currentJournal.birthDate];
-  ageLabel.font = [UIFont fontWithName:@"Sanchez-Regular" size:ageLabel.font.pointSize * 0.9];
+  ageLabel.font = [UIFont fontWithName:@"Sanchez-Regular" size:ageLabel.font.pointSize];
       
   // Loop through journal images and display them
   for (int tag = 1; tag <= 4; tag++) {
@@ -240,10 +243,14 @@
     if ([response isOK]) {
       
       if ([response isOK]) {
+
         
-//        NSString* responseString = [response bodyAsString];
-//        NSLog(@"Response is OK:\n\n%@", responseString);
+        NSString* responseString = [response bodyAsString];
+        DLog(@"Response string: \n\n%@", responseString);
         
+        if ([responseString hasPrefix:@"{\"journals"]) {
+          self.jsonJournals = responseString;
+        }
       }
     }
   }
@@ -290,7 +297,7 @@
     
     // Save Singleton Object
     GPUserSingleton *sharedUser = [GPUserSingleton sharedGPUserSingleton];
-    [sharedUser setUserJournals:userJournals.journal];
+    [sharedUser setUserJournals:userJournals.journal withString:self.jsonJournals];
   }
   
   // Force the tableview to reload, now with new journal information

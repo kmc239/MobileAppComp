@@ -34,7 +34,7 @@
 	// Do any additional setup after loading the view.
   
   // Set custom fonts
-  [self.whoForLabel setFont:[UIFont fontWithName:@"Sanchez-Regular" size:self.whoForLabel.font.pointSize * 0.9]];
+  [self.whoForLabel setFont:[UIFont fontWithName:@"Sanchez-Regular" size:self.whoForLabel.font.pointSize]];
   [GPHelpers setCustomFontsForTitle:NSLocalizedString(@"JOURNAL_CREATE", nil) forViewController:self];
 }
 

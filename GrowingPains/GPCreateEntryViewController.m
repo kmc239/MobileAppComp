@@ -75,6 +75,8 @@
                          andHeading:NSLocalizedString(@"GENERIC_ERROR_HEADING", nil)];
   }
   
+  // ENTRY POST ATTEMPT
+  // Receiving strange "Received authentication challenge" warning
 //  // Create entry dictionary with picture, description, journalId
 //  GPThumbnail *thumbnail = [[GPThumbnail alloc] init];
 //  GPPicture *picture = [[GPPicture alloc] init];
@@ -107,7 +109,8 @@
 //  
 //  // Send a Request!
 //  [[RKClient sharedClient] post:@"/entries" params:params delegate:self];
-  
+
+  // Creates a new entry, however this does not post the image
   GPEntry *newEntry = [[GPEntry alloc] init];
   newEntry.description = self.textView.text;
   newEntry.journalId = self.currentJournalId;

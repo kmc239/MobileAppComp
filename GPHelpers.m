@@ -8,6 +8,7 @@
 
 #import "GPHelpers.h"
 #import "GPUserSingleton.h"
+#import <RestKit/RestKit.h>
 
 @implementation GPHelpers
 
@@ -100,6 +101,29 @@
     }
   }
   return nil;
+}
+
+// Use RestKit to download image asychronously
++ (void)loadImageAsynchronously:(UIImageView *)imageView fromUrlString:(NSString *)urlString {
+  
+  NSURL *imageURL = [NSURL URLWithString:urlString];
+  RKRequest* request = [RKRequest requestWithURL: imageURL];
+
+  request.onDidLoadResponse = ^(RKResponse* response) {
+    UIImage* image = [UIImage imageWithData: response.body];
+    imageView.image = image;
+    DLog(@"image success");
+  };
+  request.onDidFailLoadWithError = ^(NSError* error) {
+    // handle failure to load image
+    DLog(@"image error");
+  };
+
+  RKRequestQueue *imageLoadingQueue = [RKRequestQueue requestQueueWithName: @"imageLoadingQueue"];
+  [imageLoadingQueue start];
+
+  [imageLoadingQueue addRequest: request];
+  
 }
 
 @end

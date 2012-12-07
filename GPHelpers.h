@@ -19,5 +19,6 @@
 + (NSString *)formattedAge:(NSDate *)birthdate;
 + (NSString *)formattedAgeOfEntryDate:(NSDate *)entryDate withBirthdate:(NSDate *)birthdate;
 + (GPJournal *)journalForJournalId:(NSInteger)journalId;
++ (void)loadImageAsynchronously:(UIImageView *)imageView fromUrlString:(NSString *)urlString;
 
 @end

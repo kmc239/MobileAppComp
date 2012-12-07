@@ -106,6 +106,8 @@
 // Use RestKit to download image asychronously
 + (void)loadImageAsynchronously:(UIImageView *)imageView fromUrlString:(NSString *)urlString {
   
+  [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+  
   NSURL *imageURL = [NSURL URLWithString:urlString];
   RKRequest* request = [RKRequest requestWithURL: imageURL];
 
@@ -113,10 +115,12 @@
     UIImage* image = [UIImage imageWithData: response.body];
     imageView.image = image;
     DLog(@"image success");
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
   };
   request.onDidFailLoadWithError = ^(NSError* error) {
     // handle failure to load image
     DLog(@"image error");
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
   };
 
   RKRequestQueue *imageLoadingQueue = [RKRequestQueue requestQueueWithName: @"imageLoadingQueue"];

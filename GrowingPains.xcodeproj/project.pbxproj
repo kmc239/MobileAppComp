@@ -72,6 +72,9 @@
 		34486A421654B8D00059CA8C /* GPHomeScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34486A411654B8D00059CA8C /* GPHomeScreenViewController.m */; };
 		3450DF1B16576A41005F0A61 /* GPCreateEntryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3450DF1A16576A41005F0A61 /* GPCreateEntryViewController.m */; };
 		3450DF8B1661DA8F005F0A61 /* TakePhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 3450DF8A1661DA8F005F0A61 /* TakePhoto.png */; };
+		347B80FC168D19CA00C68FE2 /* GPOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 347B80FB168D19CA00C68FE2 /* GPOverlayViewController.m */; };
+		347B80FE168D1F5500C68FE2 /* GPOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 347B80FD168D1F5500C68FE2 /* GPOverlayView.xib */; };
+		347B8100168D49E200C68FE2 /* CameraOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 347B80FF168D49E200C68FE2 /* CameraOverlay.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -213,6 +216,10 @@
 		3450DF1916576A41005F0A61 /* GPCreateEntryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPCreateEntryViewController.h; path = GrowingPains/GPCreateEntryViewController.h; sourceTree = "<group>"; };
 		3450DF1A16576A41005F0A61 /* GPCreateEntryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPCreateEntryViewController.m; path = GrowingPains/GPCreateEntryViewController.m; sourceTree = "<group>"; };
 		3450DF8A1661DA8F005F0A61 /* TakePhoto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = TakePhoto.png; sourceTree = "<group>"; };
+		347B80FA168D19CA00C68FE2 /* GPOverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPOverlayViewController.h; sourceTree = "<group>"; };
+		347B80FB168D19CA00C68FE2 /* GPOverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPOverlayViewController.m; sourceTree = "<group>"; };
+		347B80FD168D1F5500C68FE2 /* GPOverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GPOverlayView.xib; sourceTree = "<group>"; };
+		347B80FF168D49E200C68FE2 /* CameraOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CameraOverlay.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +247,7 @@
 		085285341650C5DD002044C6 /* Art */ = {
 			isa = PBXGroup;
 			children = (
+				347B80FF168D49E200C68FE2 /* CameraOverlay.png */,
 				087B66141666C0DB00E5D840 /* appicon_sm.png */,
 				087B66121666C0B200E5D840 /* appicon.png */,
 				087B661A1666C3DD00E5D840 /* babyonphone.jpeg */,
@@ -354,6 +362,9 @@
 				08D126A31638F54D00AD9977 /* GPTimelineViewController.m */,
 				3450DF1916576A41005F0A61 /* GPCreateEntryViewController.h */,
 				3450DF1A16576A41005F0A61 /* GPCreateEntryViewController.m */,
+				347B80FA168D19CA00C68FE2 /* GPOverlayViewController.h */,
+				347B80FB168D19CA00C68FE2 /* GPOverlayViewController.m */,
+				347B80FD168D1F5500C68FE2 /* GPOverlayView.xib */,
 				08590E7416669940004EEE62 /* GPEntryViewController.h */,
 				08590E7516669941004EEE62 /* GPEntryViewController.m */,
 			);
@@ -557,6 +568,8 @@
 				087B66521668DE8400E5D840 /* timeline_dot.png in Resources */,
 				087B66571668F12700E5D840 /* cog.png in Resources */,
 				08A5CDE91671B4DF00B874F8 /* placeholder.png in Resources */,
+				347B80FE168D1F5500C68FE2 /* GPOverlayView.xib in Resources */,
+				347B8100168D49E200C68FE2 /* CameraOverlay.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -591,6 +604,7 @@
 				08590E341665D8F2004EEE62 /* STKeychain.m in Sources */,
 				08590E7616669943004EEE62 /* GPEntryViewController.m in Sources */,
 				087B663A1668C2BE00E5D840 /* GPGreenButton.m in Sources */,
+				347B80FC168D19CA00C68FE2 /* GPOverlayViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

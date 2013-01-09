@@ -284,7 +284,8 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
   if (alertView.tag == CREATED_TAG) {
-//    [self.navigationController popViewControllerAnimated:YES];
+    // Return to timeline after posting
+    [self.navigationController popViewControllerAnimated:YES];
   }
 }
 

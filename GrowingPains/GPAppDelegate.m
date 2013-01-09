@@ -52,12 +52,14 @@
   RKObjectMapping *entryMapping = [GPEntry mapping];
   RKObjectMapping *pictureMapping = [GPPicture mapping];
   RKObjectMapping *thumbnailMapping = [GPThumbnail mapping];
+  RKObjectMapping *midsizeMapping = [GPMidsize mapping];
   
   // Set up nested mappings
   [journalsMapping mapKeyPath:@"journal" toRelationship:@"journal" withMapping:journalMapping];
   [entriesMapping mapKeyPath:@"entry" toRelationship:@"entry" withMapping:entryMapping];
   [entryMapping mapKeyPath:@"picture" toRelationship:@"picture" withMapping:pictureMapping];
   [pictureMapping mapKeyPath:@"thumb" toRelationship:@"thumbnail" withMapping:thumbnailMapping];
+  [pictureMapping mapKeyPath:@"midsize" toRelationship:@"midsize" withMapping:midsizeMapping];
   
   // Register mappings
   [provider registerMapping:userMapping withRootKeyPath:@"user"];
@@ -67,6 +69,7 @@
   [provider registerMapping:entryMapping withRootKeyPath:@"entry"];
   [provider registerMapping:pictureMapping withRootKeyPath:@"picture"];
   [provider registerMapping:thumbnailMapping withRootKeyPath:@"thumbnail"];
+  [provider registerMapping:midsizeMapping withRootKeyPath:@"midsize"];
   
   // Setup routing for posting, putting, and deleting objects from server
   [objectManager.router routeClass:[GPUser class] toResourcePath:@"/users"];

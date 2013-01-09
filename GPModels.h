@@ -14,3 +14,4 @@
 #import "GPEntries.h"
 #import "GPPicture.h"
 #import "GPThumbnail.h"
+#import "GPMidsize.h"

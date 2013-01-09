@@ -147,9 +147,7 @@
   UIImageView *pictureImageView = (UIImageView *)[cell viewWithTag:3];
   GPPicture *picture = currentEntry.picture;
   GPThumbnail *thumbnail = picture.thumbnail;
-  NSString *baseUrl = [[RKClient sharedClient] baseURL].absoluteString;  
-  NSString *urlString = [NSString stringWithFormat:@"%@%@", baseUrl, thumbnail.thumbnailUrl];
-  [GPHelpers loadImageAsynchronously:pictureImageView fromUrlString:urlString];
+  [GPHelpers loadImageAsynchronously:pictureImageView fromUrlString:thumbnail.thumbnailUrl];
   
   if (thumbnail.thumbnailUrl == nil) {
     UIImage *stockImage = [UIImage imageNamed:@"TakePhoto.png"];

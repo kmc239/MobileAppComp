@@ -677,7 +677,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V7f-KA-ggn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1933" y="-308"/>
+            <point key="canvasLocation" x="1833" y="-412"/>
         </scene>
         <!--Journal Tab Bar Controller-->
         <scene sceneID="iRu-cE-5Mo">
@@ -813,8 +813,6 @@
         <class className="GPCreateEntryViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GPCreateEntryViewController.h"/>
             <relationships>
-                <relationship kind="action" name="createEntryPressed:" candidateClass="UIButton"/>
-                <relationship kind="action" name="showCameraUI:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="takePictureButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="textView" candidateClass="UITextView"/>

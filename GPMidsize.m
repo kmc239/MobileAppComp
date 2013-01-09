@@ -1,20 +1,18 @@
 //
-//  GPPicture.m
+//  GPMidsize.m
 //  GrowingPains
 //
-//  Created by Taylor McGann on 11/27/12.
+//  Created by Kyle Clegg on 12/29/12.
 //  Copyright (c) 2012 Kyle Clegg. All rights reserved.
 //
 
-#import "GPPicture.h"
+#import "GPMidsize.h"
 
-@implementation GPPicture
+@implementation GPMidsize
 
 static RKObjectMapping *mapping;
 
-@synthesize pictureUrl = _pictureUrl;
-@synthesize thumbnail = _thumbnail;
-@synthesize midsize = _midsize;
+@synthesize midsizeUrl = _midsizeUrl;
 
 + (void)initialize
 {
@@ -25,7 +23,7 @@ static RKObjectMapping *mapping;
   {
     mapping = [RKObjectMapping mappingForClass:[self class]];
     
-    [mapping mapKeyPath:@"url" toAttribute:@"pictureUrl"];
+    [mapping mapKeyPath:@"url" toAttribute:@"midsizeUrl"];
   }
 }
 
@@ -33,5 +31,6 @@ static RKObjectMapping *mapping;
 {
   return mapping;
 }
+
 
 @end

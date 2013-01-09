@@ -42,10 +42,8 @@
   
   // Use RestKit to download image asychronously
   GPPicture *picture = self.currentEntry.picture;
-  NSString *baseUrl = [[RKClient sharedClient] baseURL].absoluteString;
-  NSString *urlString = [NSString stringWithFormat:@"%@%@", baseUrl, picture.pictureUrl];
-
-  [GPHelpers loadImageAsynchronously:self.entryPicture fromUrlString:urlString];
+  GPMidsize *midsize = picture.midsize;
+  [GPHelpers loadImageAsynchronously:self.entryPicture fromUrlString:midsize.midsizeUrl];
   
   // Make picture circular
   self.entryPicture.layer.cornerRadius = 5.0;

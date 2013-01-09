@@ -813,8 +813,6 @@
         <class className="GPCreateEntryViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GPCreateEntryViewController.h"/>
             <relationships>
-                <relationship kind="action" name="createEntryPressed:" candidateClass="UIButton"/>
-                <relationship kind="action" name="showCameraUI:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="takePictureButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="textView" candidateClass="UITextView"/>

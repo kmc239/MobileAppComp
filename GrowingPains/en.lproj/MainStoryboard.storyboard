@@ -677,7 +677,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V7f-KA-ggn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1933" y="-308"/>
+            <point key="canvasLocation" x="1833" y="-412"/>
         </scene>
         <!--Journal Tab Bar Controller-->
         <scene sceneID="iRu-cE-5Mo">

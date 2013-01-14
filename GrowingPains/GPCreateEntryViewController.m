@@ -188,10 +188,8 @@
   
   // Setup the image picker
   UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
-  
-  // In this instance the delegate is an overlay so reference the image picker & primary view controller
-  ((GPOverlayViewController *) delegate).pickerReference = imagePicker;
-//  ((GPOverlayViewController *) delegate).createEntryControllerReference = self;
+  imagePicker.delegate = delegate;
+  ((GPOverlayViewController *) delegate).imagePicker = imagePicker;
   
   // Check camera availability; load photo library if not available
   if (([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera] == NO) || (delegate == nil) || (controller == nil))
@@ -199,8 +197,7 @@
     // Set source to photo library
     imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     imagePicker.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-    imagePicker.delegate = delegate;
-      
+    
     result = NO;
   }
   else
@@ -221,10 +218,6 @@
     // Hides the controls for moving & scaling pictures, or for
     // trimming movies. To instead show the controls, use YES.
     imagePicker.allowsEditing = YES;
-    
-    // Attach image picker to overlay
-//    imagePicker.cameraOverlayView = ((GPOverlayViewController *) delegate).view;
-    imagePicker.delegate = delegate;
   }
   
   [controller presentViewController:imagePicker animated:YES completion:^{

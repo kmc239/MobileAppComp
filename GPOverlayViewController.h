@@ -10,6 +10,6 @@
 
 @interface GPOverlayViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
-@property (strong, nonatomic) UIImagePickerController *pickerReference;
+@property (strong, nonatomic) UIImagePickerController *imagePicker;
 
 @end

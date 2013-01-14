@@ -74,7 +74,10 @@
 		3450DF8B1661DA8F005F0A61 /* TakePhoto.png in Resources */ = {isa = PBXBuildFile; fileRef = 3450DF8A1661DA8F005F0A61 /* TakePhoto.png */; };
 		347B80FC168D19CA00C68FE2 /* GPOverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 347B80FB168D19CA00C68FE2 /* GPOverlayViewController.m */; };
 		347B80FE168D1F5500C68FE2 /* GPOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 347B80FD168D1F5500C68FE2 /* GPOverlayView.xib */; };
-		347B8100168D49E200C68FE2 /* CameraOverlay.png in Resources */ = {isa = PBXBuildFile; fileRef = 347B80FF168D49E200C68FE2 /* CameraOverlay.png */; };
+		34F97AD716A1C2B800568523 /* capture_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 34F97AD616A1C2B800568523 /* capture_button.png */; };
+		34F97AD916A2441300568523 /* capture_button2.png in Resources */ = {isa = PBXBuildFile; fileRef = 34F97AD816A2441300568523 /* capture_button2.png */; };
+		34F97ADB16A247D400568523 /* camera_overlay_frame.png in Resources */ = {isa = PBXBuildFile; fileRef = 34F97ADA16A247D400568523 /* camera_overlay_frame.png */; };
+		34F97ADD16A2944500568523 /* cancel_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 34F97ADC16A2944500568523 /* cancel_button.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -219,7 +222,10 @@
 		347B80FA168D19CA00C68FE2 /* GPOverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPOverlayViewController.h; sourceTree = "<group>"; };
 		347B80FB168D19CA00C68FE2 /* GPOverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPOverlayViewController.m; sourceTree = "<group>"; };
 		347B80FD168D1F5500C68FE2 /* GPOverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GPOverlayView.xib; sourceTree = "<group>"; };
-		347B80FF168D49E200C68FE2 /* CameraOverlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CameraOverlay.png; sourceTree = "<group>"; };
+		34F97AD616A1C2B800568523 /* capture_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = capture_button.png; sourceTree = "<group>"; };
+		34F97AD816A2441300568523 /* capture_button2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = capture_button2.png; sourceTree = "<group>"; };
+		34F97ADA16A247D400568523 /* camera_overlay_frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera_overlay_frame.png; sourceTree = "<group>"; };
+		34F97ADC16A2944500568523 /* cancel_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel_button.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,10 +253,13 @@
 		085285341650C5DD002044C6 /* Art */ = {
 			isa = PBXGroup;
 			children = (
-				347B80FF168D49E200C68FE2 /* CameraOverlay.png */,
 				087B66141666C0DB00E5D840 /* appicon_sm.png */,
 				087B66121666C0B200E5D840 /* appicon.png */,
 				087B661A1666C3DD00E5D840 /* babyonphone.jpeg */,
+				34F97ADA16A247D400568523 /* camera_overlay_frame.png */,
+				34F97ADC16A2944500568523 /* cancel_button.png */,
+				34F97AD616A1C2B800568523 /* capture_button.png */,
+				34F97AD816A2441300568523 /* capture_button2.png */,
 				087B66551668F12700E5D840 /* cog.png */,
 				087B66161666C12E00E5D840 /* carriage_line.png */,
 				3450DF8A1661DA8F005F0A61 /* TakePhoto.png */,
@@ -569,7 +578,10 @@
 				087B66571668F12700E5D840 /* cog.png in Resources */,
 				08A5CDE91671B4DF00B874F8 /* placeholder.png in Resources */,
 				347B80FE168D1F5500C68FE2 /* GPOverlayView.xib in Resources */,
-				347B8100168D49E200C68FE2 /* CameraOverlay.png in Resources */,
+				34F97AD716A1C2B800568523 /* capture_button.png in Resources */,
+				34F97AD916A2441300568523 /* capture_button2.png in Resources */,
+				34F97ADB16A247D400568523 /* camera_overlay_frame.png in Resources */,
+				34F97ADD16A2944500568523 /* cancel_button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

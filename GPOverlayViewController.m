@@ -12,7 +12,7 @@
 
 @implementation GPOverlayViewController
 
-@synthesize pickerReference = _pickerReference;
+@synthesize imagePicker = _pickerReference;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -23,56 +23,56 @@
   return self;
 }
 
-- (IBAction)cancelPressed:(id)sender
+- (IBAction)cancelPhoto:(id)sender
 {
-  [self imagePickerControllerDidCancel:self.pickerReference];
+  [self imagePickerControllerDidCancel:self.imagePicker];
 }
 
-- (IBAction)capturePhotoPressed:(id)sender
+- (IBAction)capturePhoto:(id)sender
 {
-  [self.pickerReference takePicture];
+  [self.imagePicker takePicture];
 }
 
-- (IBAction)toggleCamera:(id)sender
+- (IBAction)changeCamera:(UIButton *)sender
 {
   UIButton *flashButton = ((UIButton *)[self.view viewWithTag:1]);
   
-  if (self.pickerReference.cameraDevice == UIImagePickerControllerCameraDeviceFront)
+  if (self.imagePicker.cameraDevice == UIImagePickerControllerCameraDeviceFront)
   {
-    self.pickerReference.cameraDevice = UIImagePickerControllerCameraDeviceRear;
+    self.imagePicker.cameraDevice = UIImagePickerControllerCameraDeviceRear;
     flashButton.enabled = YES;
     [flashButton setTitleColor:[UIColor darkTextColor] forState:UIControlStateNormal];
   }
   else
   {
-    self.pickerReference.cameraDevice = UIImagePickerControllerCameraDeviceFront;
+    self.imagePicker.cameraDevice = UIImagePickerControllerCameraDeviceFront;
     flashButton.enabled = NO;
     [flashButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
   }
 }
 
-- (IBAction)toggleFlashPressed:(UIButton *)sender
+- (IBAction)changeFlash:(UIButton *)sender
 {
-  if (self.pickerReference.cameraFlashMode == UIImagePickerControllerCameraFlashModeAuto)
+  if (self.imagePicker.cameraFlashMode == UIImagePickerControllerCameraFlashModeAuto)
   {
-    self.pickerReference.cameraFlashMode = UIImagePickerControllerCameraFlashModeOn;
+    self.imagePicker.cameraFlashMode = UIImagePickerControllerCameraFlashModeOn;
     [sender setTitle:@"ON" forState:UIControlStateNormal];
   }
-  else if (self.pickerReference.cameraFlashMode == UIImagePickerControllerCameraFlashModeOn)
+  else if (self.imagePicker.cameraFlashMode == UIImagePickerControllerCameraFlashModeOn)
   {
-    self.pickerReference.cameraFlashMode = UIImagePickerControllerCameraFlashModeOff;
+    self.imagePicker.cameraFlashMode = UIImagePickerControllerCameraFlashModeOff;
     [sender setTitle:@"OFF" forState:UIControlStateNormal];
   }
   else
   {
-    self.pickerReference.cameraFlashMode = UIImagePickerControllerCameraFlashModeAuto;
+    self.imagePicker.cameraFlashMode = UIImagePickerControllerCameraFlashModeAuto;
     [sender setTitle:@"AUTO" forState:UIControlStateNormal];
   }
 }
 
-- (IBAction)viewPhotoLibraryPressed:(id)sender
+- (IBAction)showLibrary:(id)sender
 {
-  
+  self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
 }
 
 - (void)setEntryPreviewImage:(UIImage *)finalImage
@@ -141,7 +141,7 @@
 		}
 	}
 	
-	[self.pickerReference dismissViewControllerAnimated:YES completion:nil];
+	[self.imagePicker dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker

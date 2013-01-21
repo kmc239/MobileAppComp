@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		010B28241650D05800F65A34 /* baby-girl.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 010B28231650D05800F65A34 /* baby-girl.jpeg */; };
 		010B28271650E33300F65A34 /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 010B28261650E33300F65A34 /* calendar.png */; };
+		080F039B16AD17040022D698 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 080F039A16AD17040022D698 /* Twitter.framework */; };
 		08441E30168EE7E500DB2E94 /* GPMidsize.m in Sources */ = {isa = PBXBuildFile; fileRef = 08441E2F168EE7E500DB2E94 /* GPMidsize.m */; };
 		085285371650C5F4002044C6 /* circle_images.png in Resources */ = {isa = PBXBuildFile; fileRef = 085285351650C5F4002044C6 /* circle_images.png */; };
 		085285381650C5F4002044C6 /* vertical_timeline.png in Resources */ = {isa = PBXBuildFile; fileRef = 085285361650C5F4002044C6 /* vertical_timeline.png */; };
@@ -123,6 +124,7 @@
 /* Begin PBXFileReference section */
 		010B28231650D05800F65A34 /* baby-girl.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "baby-girl.jpeg"; sourceTree = "<group>"; };
 		010B28261650E33300F65A34 /* calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = calendar.png; sourceTree = "<group>"; };
+		080F039A16AD17040022D698 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		08441E2E168EE7E500DB2E94 /* GPMidsize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPMidsize.h; sourceTree = "<group>"; };
 		08441E2F168EE7E500DB2E94 /* GPMidsize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPMidsize.m; sourceTree = "<group>"; };
 		085285351650C5F4002044C6 /* circle_images.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = circle_images.png; path = Art/circle_images.png; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				080F039B16AD17040022D698 /* Twitter.framework in Frameworks */,
 				087EC509165F8620009E58B0 /* libRestKit.a in Frameworks */,
 				08848EAD165AEEB000F0EE69 /* CFNetwork.framework in Frameworks */,
 				08848EAE165AEEB000F0EE69 /* CoreData.framework in Frameworks */,
@@ -387,6 +390,7 @@
 		0885CF711613C71F00B357D1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				080F039A16AD17040022D698 /* Twitter.framework */,
 				08848EA6165AEEAF00F0EE69 /* CFNetwork.framework */,
 				08848EA7165AEEAF00F0EE69 /* CoreData.framework */,
 				08848EA8165AEEAF00F0EE69 /* libxml2.dylib */,

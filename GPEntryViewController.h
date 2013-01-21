@@ -15,4 +15,8 @@
 @property (nonatomic, strong) IBOutlet UIImageView *entryPicture;
 @property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
 
+- (IBAction)twitterShare:(id)sender;
+- (IBAction)facebookShare:(id)sender;
+- (IBAction)instagramShare:(id)sender;
+
 @end

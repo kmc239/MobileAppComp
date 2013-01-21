@@ -56,4 +56,18 @@
   // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)twitterShare:(id)sender
+{
+
+}
+
+- (IBAction)facebookShare:(id)sender
+{
+  
+}
+
+- (IBAction)instagramShare:(id)sender
+{
+  
+}
 @end

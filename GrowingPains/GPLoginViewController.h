@@ -17,5 +17,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *_titleLabel;
 
 - (IBAction)loginPressed:(id)sender;
+- (IBAction)signupPressed:(id)sender;
 
 @end

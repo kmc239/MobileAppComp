@@ -31,19 +31,32 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-	// Do any additional setup after loading the view.
   
   // Set custom fonts
   [self.whoForLabel setFont:[UIFont fontWithName:@"Sanchez-Regular" size:self.whoForLabel.font.pointSize]];
   [GPHelpers setCustomFontsForTitle:NSLocalizedString(@"JOURNAL_CREATE", nil) forViewController:self];
+  
+  // Close keyboard when user taps outside of a UITextField
+  UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                 initWithTarget:self
+                                 action:@selector(dismissKeyboard)];
+  [self.view addGestureRecognizer:tap];
 }
 
-- (void)didReceiveMemoryWarning
+#pragma mark - Dismiss Keyboard
+- (void)dismissKeyboard
 {
-  [super didReceiveMemoryWarning];
-  // Dispose of any resources that can be recreated.
+  DLog(@"dismiss keyboard");
+  
+  if ([self.name isFirstResponder]) {
+    [self.name resignFirstResponder];
+  }
+  else if ([self.birthdate isFirstResponder]) {
+    [self.birthdate resignFirstResponder];
+  }
 }
 
+#pragma mark - Actions
 - (IBAction)birthdateButton:(id)sender {
   
   [self showPicker];
@@ -53,7 +66,7 @@
   
   // Form validation
   if (![GPHelpers isValidName:_name.text]) {
-    [GPHelpers showAlertWithMessage:NSLocalizedString(@"INVALID_NAME", nil)
+    [GPHelpers showAlertWithMessage:NSLocalizedString(@"JOURNAL_INVALID_NAME", nil)
                          andHeading:NSLocalizedString(@"JOURNAL_NOT_CREATED_HEADING", nil)];
   }
   else if (_birthdate.text.length == 0) {
@@ -87,9 +100,10 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
   if (textField == self.name) {
-    [textField resignFirstResponder];
+    [self.name resignFirstResponder];
+    [self.birthdate becomeFirstResponder];
   }
-  return NO;
+  return YES;
 }
 
 -(BOOL)textFieldShouldBeginEditing:(UITextField *)textField

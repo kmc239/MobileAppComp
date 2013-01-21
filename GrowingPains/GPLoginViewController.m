@@ -71,6 +71,12 @@
     
     [self performSegueWithIdentifier:@"Login" sender:self];
   }
+  
+  // Close keyboard when user taps outside of a UITextField
+  UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                 initWithTarget:self
+                                 action:@selector(dismissKeyboard)];
+  [self.view addGestureRecognizer:tap];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -85,11 +91,17 @@
   [super viewWillDisappear:animated];
 }
 
-- (void)didReceiveMemoryWarning
-{
-  [super didReceiveMemoryWarning];
-  // Dispose of any resources that can be recreated.
+#pragma mark - Dismiss Keyboard
+- (void)dismissKeyboard
+{  
+  if ([self._email isFirstResponder]) {
+    [self._email resignFirstResponder];
+  }
+  else if ([self._password isFirstResponder]) {
+    [self._password resignFirstResponder];
+  }
 }
+
 
 #pragma mark - TextFieldDelegate
 // Called when textField start editting.
@@ -106,7 +118,14 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-  [textField resignFirstResponder];
+  if (textField == self._email) {
+    [self._password becomeFirstResponder];
+  }
+  else if (textField == self._password) {
+    [textField resignFirstResponder];
+    [self loginPressed:nil];
+  }
+  
   return YES;
 }
 
@@ -254,4 +273,10 @@
     }
   }
 }
+
+- (IBAction)signupPressed:(id)sender
+{
+  [self.view endEditing:YES];
+}
+
 @end

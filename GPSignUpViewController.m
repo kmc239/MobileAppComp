@@ -21,27 +21,38 @@
 
 @synthesize _name, _email, _password, _confirmPassword;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+  [super viewDidLoad];
 	// Do any additional setup after loading the view.
   
   [GPHelpers setCustomFontsForTitle:NSLocalizedString(@"SIGNUP", nil) forViewController:self];
+  
+  // Close keyboard when user taps outside of a UITextField
+  UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                 initWithTarget:self
+                                 action:@selector(dismissKeyboard)];
+  [self.view addGestureRecognizer:tap];
 }
 
-- (void)didReceiveMemoryWarning
+#pragma mark - Dismiss Keyboard
+
+- (void)dismissKeyboard
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+  DLog(@"dismiss keyboard");
+  
+  if ([self._name isFirstResponder]) {
+    [self._name resignFirstResponder];
+  }
+  else if ([self._email isFirstResponder]) {
+    [self._email resignFirstResponder];
+  }
+  else if ([self._password isFirstResponder]) {
+    [self._password resignFirstResponder];
+  }
+  else if ([self._confirmPassword isFirstResponder]) {
+    [self._confirmPassword resignFirstResponder];
+  }
 }
 
 #pragma mark - Actions
@@ -89,8 +100,19 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-  [textField setUserInteractionEnabled:YES];
-  [textField resignFirstResponder];
+  if (textField == self._name) {
+    [self._email becomeFirstResponder];
+  }
+  if (textField == self._email) {
+    [self._password becomeFirstResponder];
+  }
+  if (textField == self._password) {
+    [self._confirmPassword becomeFirstResponder];
+  }
+  else if (textField == self._confirmPassword) {
+    [textField resignFirstResponder];
+    [self signUpPressed:nil];
+  }
   return YES;
 }
 

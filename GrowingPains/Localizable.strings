@@ -36,7 +36,7 @@
 
 // Form Validation
 "INVALID_BIRTHDATE" = "Please enter a birthdate";
-"INVALID_NAME" = "Please enter you name";
+"INVALID_NAME" = "Please enter your name";
 "INVALID_EMAIL" = "Please enter a valid email";
 "INVALID_PASSWORD" = "Please enter a valid password - passwords must be at least 6 characters in length";
 "INVALID_CONFIRM_PASSWORD" = "Your passwords do not match";
@@ -46,6 +46,7 @@
 "JOURNAL_CREATE" = "Create Journal";
 "JOURNAL_CREATED_HEADING" = "Journal Created";
 "JOURNAL_CREATED_MESSAGE" = "Your journal has been successfully created";
+"JOURNAL_INVALID_NAME" = "Please enter a name";
 "JOURNAL_NOT_CREATED_HEADING" = "Journal Not Created";
 "JOURNALS" = "Journals";
 

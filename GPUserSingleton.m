@@ -96,8 +96,6 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(GPUserSingleton);
   [defaults synchronize];
 }
 
-// TODO: Update this to set the journals JSON string to NSUserDefaults
-// This is not saving because NSUserDefaults does not support dates or NSIntegers
 - (void)setUserJournals:(NSArray *)journals withString:(NSString *)jsonJournals {
   
   NSLog(@"setting %i journals into NSUserDefaults", journals.count);
@@ -111,12 +109,66 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(GPUserSingleton);
   [defaults synchronize];
 }
 
-// TODO: Load JSON string and use RKJSONParser to convert back to NSArray
-//- (NSArray *)journals
-//{
-//  NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//  return [defaults objectForKey:@"kGPUserDefaultsJournals"];
-//}
+// Sets the latest 4 thumbnail urls to an object, puts it in an array with one GPLatestImageUrls per journal, and stores it in an iOS file for the application
+- (void)setLatestImageUrls:(NSArray *)entries {
+  
+  // Check if the latestimageurls are previously saved (using the file system)
+  NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+  NSString *documentsDirectory = [paths objectAtIndex:0];
+  //2) Create the full file path by appending the desired file name
+  GPEntry *firstEntry = [entries objectAtIndex:0];
+  NSString *pathComponent = [NSString stringWithFormat:@"latestUrlsForJournal%i.dat", firstEntry.journalId];
+  NSString *latestUrlsFileName = [documentsDirectory stringByAppendingPathComponent:pathComponent];
+  
+  DLog(@"filename: %@", latestUrlsFileName);
+  
+  
+  NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    
+  for (int i = 0; i <= 3 && i < entries.count; i++) {
+    
+    GPEntry *currentEntry = [entries objectAtIndex:i];
+    [dict setValue:[NSString stringWithFormat:@"%i", currentEntry.journalId] forKey:@"journalId"];
+    
+    // Not the most efficient way, but set the latest 4
+    if (i == 0) {
+      [dict setValue:currentEntry.picture.thumbnail.thumbnailUrl forKey:@"thumbnailUrl1"];
+    }
+    else if (i == 1) {
+      [dict setValue:currentEntry.picture.thumbnail.thumbnailUrl forKey:@"thumbnailUrl2"];
+    }
+    else if (i == 2) {
+      [dict setValue:currentEntry.picture.thumbnail.thumbnailUrl forKey:@"thumbnailUrl3"];
+    }
+    else if (i == 3) {
+      [dict setValue:currentEntry.picture.thumbnail.thumbnailUrl forKey:@"thumbnailUrl4"];
+    }
+  }
+  
+  [dict writeToFile:latestUrlsFileName atomically:YES];
+}
+
+- (NSMutableDictionary *)latestImageUrlsForJournal:(NSInteger)journalId {
+  
+  // Check if the latestimageurls are previously saved (using the file system
+  NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+  NSString *documentsDirectory = [paths objectAtIndex:0];
+  //2) Create the full file path by appending the desired file name
+  NSString *pathComponent = [NSString stringWithFormat:@"latestUrlsForJournal%i.dat", journalId];
+  NSString *latestUrlsFileName = [documentsDirectory stringByAppendingPathComponent:pathComponent];
+  
+  //Load the array
+  NSMutableDictionary *dict = [[NSMutableDictionary alloc] initWithContentsOfFile:latestUrlsFileName];
+  if (dict == nil)
+  {
+    DLog(@"nil...couldn't retrieve");
+  }
+  else {
+    DLog(@"got em");
+    return dict;
+  }
+  return nil;
+}
 
 - (void)clearSharedUserInfo {
   

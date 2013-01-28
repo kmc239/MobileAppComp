@@ -251,6 +251,9 @@
     GPEntries *userEntries = [objects objectAtIndex:0];
     DLog(@"User has %i entries", userEntries.entry.count);
     
+    // Save latest 4 thumbnail urls using entries from server
+    [[GPUserSingleton sharedGPUserSingleton] setLatestImageUrls:userEntries.entry];
+    
     // Save entries to local object
     self.entriesFromServer = userEntries.entry;
   }

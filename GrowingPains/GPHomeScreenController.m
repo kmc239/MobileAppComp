@@ -179,43 +179,71 @@
   UILabel *ageLabel = (UILabel *)[cell viewWithTag:8];  
   ageLabel.text = [GPHelpers formattedAge:currentJournal.birthDate];
   ageLabel.font = [UIFont fontWithName:@"Sanchez-Regular" size:ageLabel.font.pointSize];
-      
+  
   // Loop through journal images and display them
   for (int tag = 1; tag <= 4; tag++) {
+  
+    // Check for saved image urls
+    NSDictionary *thumbnailsDict = [[[GPUserSingleton sharedGPUserSingleton] latestImageUrlsForJournal:currentJournal.journalId] copy];
+
+    // Obtain reference to imageview
+    UIImageView *pictureImageView = (UIImageView *)[cell viewWithTag:tag];
     
-    UIImageView *previewImageView = (UIImageView *)[cell viewWithTag:tag];
-    UIImage *previewImage = [UIImage imageNamed:@"cutebaby.jpeg"];
-    // Change to dynamically load most recent images from db
-    if (tag == 2) {
-      previewImage = [UIImage imageNamed:@"baby-girl.jpeg"];
-    }
-    else if (tag == 3) {
-      previewImage = [UIImage imageNamed:@"babyonphone.jpeg"];
-    }
-    else if (tag == 4) {
-      previewImage = [UIImage imageNamed:@"TakePhoto.png"];
-    }
+    // Setup preview image to use as placeholder
+    UIImage *pictureImage = [UIImage imageNamed:@"StockTakePhoto.png"];
     
-    previewImageView.image = previewImage;
+    // If thumbnailsDict isn't nil, load thumbnails from URLs
+    if (thumbnailsDict != nil) {
+      // Load images from URL
+      if (tag == 1 && [thumbnailsDict objectForKey:@"thumbnailUrl1"] != nil) {
+          [GPHelpers loadImageAsynchronously:pictureImageView fromUrlString:[thumbnailsDict objectForKey:@"thumbnailUrl1"]];
+      }
+      else if (tag == 2 && [thumbnailsDict objectForKey:@"thumbnailUrl2"] != nil) {
+        [GPHelpers loadImageAsynchronously:pictureImageView fromUrlString:[thumbnailsDict objectForKey:@"thumbnailUrl2"]];
+      }
+      else if (tag == 3 && [thumbnailsDict objectForKey:@"thumbnailUrl3"] != nil) {
+        [GPHelpers loadImageAsynchronously:pictureImageView fromUrlString:[thumbnailsDict objectForKey:@"thumbnailUrl3"]];
+      }
+      else if (tag == 4 && [thumbnailsDict objectForKey:@"thumbnailUrl4"] != nil) {
+        [GPHelpers loadImageAsynchronously:pictureImageView fromUrlString:[thumbnailsDict objectForKey:@"thumbnailUrl4"]];
+      }
+      else {
+        pictureImageView.image = pictureImage;
+      }
+    }
+    else {
+      // Load from stored images
+      // Change to dynamically load most recent images from db
+      if (tag == 1) {
+        pictureImage = [UIImage imageNamed:@"cutebaby.jpeg"];
+      }
+      else if (tag == 2) {
+        pictureImage = [UIImage imageNamed:@"baby-girl.jpeg"];
+      }
+      else if (tag == 3) {
+        pictureImage = [UIImage imageNamed:@"babyonphone.jpeg"];
+      }
+      pictureImageView.image = pictureImage;
+    }
     
     // Make image circular
-    previewImageView.layer.cornerRadius = 30.0;
-    previewImageView.layer.masksToBounds = YES;
+    pictureImageView.layer.cornerRadius = 30.0;
+    pictureImageView.layer.masksToBounds = YES;
     
     // Add a thin border
     if (indexPath.row % 3 == 0) {
-      previewImageView.layer.borderColor = greenColor.CGColor;
+      pictureImageView.layer.borderColor = greenColor.CGColor;
       ageLabel.textColor = greenColor;
     }
     else if (indexPath.row % 3 == 1) {
-      previewImageView.layer.borderColor = orangeColor.CGColor;
+      pictureImageView.layer.borderColor = orangeColor.CGColor;
       ageLabel.textColor = orangeColor;
     }
     else {
-      previewImageView.layer.borderColor = redColor.CGColor;
+      pictureImageView.layer.borderColor = redColor.CGColor;
       ageLabel.textColor = redColor;
     }
-    previewImageView.layer.borderWidth = 2.0;
+    pictureImageView.layer.borderWidth = 2.0;
   }
   
   // Round the corners on the white background

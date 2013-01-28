@@ -21,6 +21,8 @@
 + (GPUserSingleton *)sharedGPUserSingleton;
 - (void)setUser:(GPUser *)user;
 - (void)setUserJournals:(NSArray *)journals withString:(NSString *)jsonJournals;
+- (void)setLatestImageUrls:(NSArray *)entries;
+- (NSMutableDictionary *)latestImageUrlsForJournal:(NSInteger)journalId;
 - (void)clearSharedUserInfo;
 
 @end

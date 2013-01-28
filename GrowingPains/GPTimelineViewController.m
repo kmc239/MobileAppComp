@@ -21,9 +21,6 @@
 
 @implementation GPTimelineViewController
 
-@synthesize currentJournalId = _currentJournalId;
-@synthesize entriesFromServer = _entriesFromServer;
-
 - (void)viewDidLoad
 {
   [super viewDidLoad];

@@ -11,10 +11,10 @@
 
 @interface GPLoginViewController : UIViewController <RKRequestDelegate, RKObjectLoaderDelegate, UITextFieldDelegate>
 
-@property (strong, nonatomic) IBOutlet UIScrollView *_scrollView;
-@property (strong, nonatomic) IBOutlet UITextField *_email;
-@property (strong, nonatomic) IBOutlet UITextField *_password;
-@property (strong, nonatomic) IBOutlet UILabel *_titleLabel;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
+@property (strong, nonatomic) IBOutlet UITextField *email;
+@property (strong, nonatomic) IBOutlet UITextField *password;
+@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 
 - (IBAction)loginPressed:(id)sender;
 - (IBAction)signupPressed:(id)sender;

@@ -20,12 +20,6 @@
 
 @implementation GPCreateEntryViewController
 
-@synthesize scrollView = _scrollView;
-@synthesize takePictureButton = _takePictureButton;
-@synthesize textView = _textView;
-@synthesize dismissKeyboardButton = _dismissKeyboardButton;
-@synthesize currentJournalId = _currentJournalId;
-
 #define kAcceptableEntryDescriptionLength 140
 
 - (void)viewDidLoad

@@ -19,8 +19,6 @@
 
 @implementation GPSignUpViewController
 
-@synthesize _name, _email, _password, _confirmPassword;
-
 - (void)viewDidLoad
 {
   [super viewDidLoad];
@@ -40,17 +38,17 @@
 {
   DLog(@"dismiss keyboard");
   
-  if ([self._name isFirstResponder]) {
-    [self._name resignFirstResponder];
+  if ([self.name isFirstResponder]) {
+    [self.name resignFirstResponder];
   }
-  else if ([self._email isFirstResponder]) {
-    [self._email resignFirstResponder];
+  else if ([self.email isFirstResponder]) {
+    [self.email resignFirstResponder];
   }
-  else if ([self._password isFirstResponder]) {
-    [self._password resignFirstResponder];
+  else if ([self.password isFirstResponder]) {
+    [self.password resignFirstResponder];
   }
-  else if ([self._confirmPassword isFirstResponder]) {
-    [self._confirmPassword resignFirstResponder];
+  else if ([self.confirmPassword isFirstResponder]) {
+    [self.confirmPassword resignFirstResponder];
   }
 }
 
@@ -60,19 +58,19 @@
 {
 
   // Form validation
-  if (![GPHelpers isValidName:_name.text]) {
+  if (![GPHelpers isValidName:self.name.text]) {
     [GPHelpers showAlertWithMessage:NSLocalizedString(@"INVALID_NAME", nil)
                          andHeading:NSLocalizedString(@"ACCOUNT_NOT_CREATED_HEADING", nil)];
   }
-  else if (![GPHelpers isValidEmail:_email.text]) {
+  else if (![GPHelpers isValidEmail:self.email.text]) {
     [GPHelpers showAlertWithMessage:NSLocalizedString(@"INVALID_EMAIL", nil)
                          andHeading:NSLocalizedString(@"ACCOUNT_NOT_CREATED_HEADING", nil)];
   }
-  else if (![GPHelpers isValidPassword:_password.text]) {
+  else if (![GPHelpers isValidPassword:self.password.text]) {
     [GPHelpers showAlertWithMessage:NSLocalizedString(@"INVALID_PASSWORD", nil)
                          andHeading:NSLocalizedString(@"ACCOUNT_NOT_CREATED_HEADING", nil)];
   }
-  else if (![_password.text isEqualToString: _confirmPassword.text]) {
+  else if (![_password.text isEqualToString:self.confirmPassword.text]) {
     [GPHelpers showAlertWithMessage:NSLocalizedString(@"INVALID_CONFIRM_PASSWORD", nil)
                          andHeading:NSLocalizedString(@"ACCOUNT_NOT_CREATED_HEADING", nil)];
   }
@@ -80,9 +78,9 @@
     
     // If all the required constraints are met, create the new user
     GPUser *newUser = [[GPUser alloc] init];
-    newUser.name = _name.text;
-    newUser.email = _email.text;
-    newUser.password = _password.text;
+    newUser.name = self.name.text;
+    newUser.email = self.email.text;
+    newUser.password = self.password.text;
     
     NSLog(@"signing up new user");
 
@@ -99,16 +97,16 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-  if (textField == self._name) {
-    [self._email becomeFirstResponder];
+  if (textField == self.name) {
+    [self.email becomeFirstResponder];
   }
-  if (textField == self._email) {
-    [self._password becomeFirstResponder];
+  if (textField == self.email) {
+    [self.password becomeFirstResponder];
   }
-  if (textField == self._password) {
-    [self._confirmPassword becomeFirstResponder];
+  if (textField == self.password) {
+    [self.confirmPassword becomeFirstResponder];
   }
-  else if (textField == self._confirmPassword) {
+  else if (textField == self.confirmPassword) {
     [textField resignFirstResponder];
     [self signUpPressed:nil];
   }

@@ -22,9 +22,6 @@
 
 @implementation GPHomeScreenViewController
 
-@synthesize jsonJournals = _jsonJournals;
-@synthesize tableView = _tableView;
-
 - (void)viewDidLoad
 {
   [super viewDidLoad];

@@ -18,11 +18,6 @@
 
 @implementation GPSettingsViewController
 
-@synthesize nameLabel = _nameLabel;
-@synthesize emailLabel = _emailLabel;
-@synthesize nameTitleLabel = _nameTitleLabel;
-@synthesize emailTitleLabel = _emailTitleLabel;
-
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
   self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

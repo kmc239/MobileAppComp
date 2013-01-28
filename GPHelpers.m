@@ -108,7 +108,6 @@
   request.onDidLoadResponse = ^(RKResponse* response) {
     UIImage* image = [UIImage imageWithData: response.body];
     imageView.image = image;
-    DLog(@"image success");
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
   };
   request.onDidFailLoadWithError = ^(NSError* error) {

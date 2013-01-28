@@ -167,6 +167,10 @@
                         <outlet property="_email" destination="gEd-TT-3Ov" id="956-j5-b05"/>
                         <outlet property="_name" destination="Eex-7I-Ogl" id="GpD-NS-qMf"/>
                         <outlet property="_password" destination="dPa-5K-NaG" id="Ggl-BT-Aqw"/>
+                        <outlet property="confirmPassword" destination="Sgc-wf-A1o" id="djL-E0-N7c"/>
+                        <outlet property="email" destination="gEd-TT-3Ov" id="hPV-mB-HVx"/>
+                        <outlet property="name" destination="Eex-7I-Ogl" id="xEU-e9-wSk"/>
+                        <outlet property="password" destination="dPa-5K-NaG" id="XsB-yM-4l8"/>
                         <segue destination="RIx-S8-kSq" kind="push" identifier="Login After Signup" id="o0Z-o5-F6D"/>
                     </connections>
                 </viewController>
@@ -261,6 +265,10 @@
                         <outlet property="_password" destination="1Y7-MF-xQ5" id="lEj-U9-fIy"/>
                         <outlet property="_scrollView" destination="9M5-Zj-gQx" id="IKc-tV-ZSD"/>
                         <outlet property="_titleLabel" destination="74K-NU-vkG" id="P3H-W2-SoJ"/>
+                        <outlet property="email" destination="jgI-Wb-Srf" id="LxY-MQ-t9N"/>
+                        <outlet property="password" destination="1Y7-MF-xQ5" id="ir6-Bb-fRi"/>
+                        <outlet property="scrollView" destination="9M5-Zj-gQx" id="PBu-pd-STk"/>
+                        <outlet property="titleLabel" destination="74K-NU-vkG" id="ORu-Lj-eIb"/>
                         <segue destination="RIx-S8-kSq" kind="push" identifier="Login" id="26U-k8-hL6"/>
                     </connections>
                 </viewController>
@@ -710,8 +718,6 @@
         <class className="GPCreateEntryViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GPCreateEntryViewController.h"/>
             <relationships>
-                <relationship kind="action" name="createEntryPressed:" candidateClass="UIButton"/>
-                <relationship kind="action" name="showCameraUI:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="takePictureButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="textView" candidateClass="UITextView"/>
@@ -755,10 +761,10 @@
             <relationships>
                 <relationship kind="action" name="loginPressed:"/>
                 <relationship kind="action" name="signupPressed:"/>
-                <relationship kind="outlet" name="_email" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="_password" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="_scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="_titleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="email" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
         <class className="GPSettingsViewController" superclassName="UIViewController">
@@ -776,9 +782,10 @@
             <relationships>
                 <relationship kind="action" name="signUpPressed:"/>
                 <relationship kind="outlet" name="_confirmPassword" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="_email" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="_name" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="_password" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="confirmPassword" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="email" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="name" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
             </relationships>
         </class>
         <class className="GPTimelineViewController" superclassName="UITableViewController">
@@ -791,6 +798,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="26U-k8-hL6"/>
+        <segue reference="o0Z-o5-F6D"/>
     </inferredMetricsTieBreakers>
 </document>

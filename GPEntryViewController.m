@@ -17,11 +17,7 @@
 
 @end
 
-@implementation GPEntryViewController
-
-@synthesize currentEntry = _currentEntry;
-@synthesize entryPicture = _entryPicture;
-@synthesize descriptionLabel = _descriptionLabel;
+@implementation GPEntryViewController 
 
 - (void)viewDidLoad
 {

@@ -18,8 +18,6 @@
 
 @implementation GPJournalTabBarController
 
-@synthesize currentJournalId = _currentJournalId;
-
 - (void)viewDidLoad
 {
   GPTimelineViewController *timelineController = (GPTimelineViewController *) [self.viewControllers objectAtIndex:0];

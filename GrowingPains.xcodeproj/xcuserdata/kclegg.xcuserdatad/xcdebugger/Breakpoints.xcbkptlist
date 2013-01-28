@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "GPJournalTabBarController.m"
-         timestampString = "381040653.92269"
+         timestampString = "381041539.541253"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "21"
-         endingLineNumber = "21"
+         startingLineNumber = "19"
+         endingLineNumber = "19"
          landmarkName = "currentJournalId"
          landmarkType = "19">
       </FileBreakpoint>

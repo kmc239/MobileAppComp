@@ -23,8 +23,6 @@
 
 @implementation GPLoginViewController
 
-@synthesize _scrollView, _email, _password, _titleLabel;
-
 - (void)viewDidLoad
 {
   [super viewDidLoad];
@@ -47,7 +45,7 @@
   [self setupBackButton:self.navigationItem];
   
   // Set custom font
-  [self._titleLabel setFont:[UIFont fontWithName:@"Sanchez-Regular" size:self._titleLabel.font.pointSize]];
+  [self.titleLabel setFont:[UIFont fontWithName:@"Sanchez-Regular" size:self.titleLabel.font.pointSize]];
     
   // If user is set, automatically log them in
   if ([GPUserSingleton sharedGPUserSingleton].userIsSet) {
@@ -80,12 +78,12 @@
 
 #pragma mark - Dismiss Keyboard
 - (void)dismissKeyboard
-{  
-  if ([self._email isFirstResponder]) {
-    [self._email resignFirstResponder];
+{
+  if ([self.email isFirstResponder]) {
+    [self.email resignFirstResponder];
   }
-  else if ([self._password isFirstResponder]) {
-    [self._password resignFirstResponder];
+  else if ([self.password isFirstResponder]) {
+    [self.password resignFirstResponder];
   }
 }
 
@@ -105,10 +103,10 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-  if (textField == self._email) {
-    [self._password becomeFirstResponder];
+  if (textField == self.email) {
+    [self.password becomeFirstResponder];
   }
-  else if (textField == self._password) {
+  else if (textField == self.password) {
     [textField resignFirstResponder];
     [self loginPressed:nil];
   }

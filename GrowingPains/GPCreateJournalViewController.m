@@ -19,12 +19,6 @@
 
 @implementation GPCreateJournalViewController
 
-@synthesize actionSheet = _actionSheet;
-@synthesize datePicker = _datePicker;
-@synthesize birthdate = _birthdate;
-@synthesize gender = _gender;
-@synthesize name = _name;
-@synthesize whoForLabel = _whoForLabel;
 @synthesize delegate;
 
 #pragma mark - View lifecycle

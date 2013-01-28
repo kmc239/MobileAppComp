@@ -10,6 +10,7 @@
 #import "GPTimelineViewController.h"
 #import "GPHelpers.h"
 #import "GPCreateEntryViewController.h"
+#import "UIViewController+NavBarSetup.h"
 
 @interface GPJournalTabBarController ()
 
@@ -26,6 +27,9 @@
   
   // Set custom font for title
   [GPHelpers setCustomFontsForTitle:NSLocalizedString(@"TIMELINE", nil) forViewController:self];
+  
+  // Setup back button for subsequent VCs
+  [self setupBackButton:self.navigationItem];
   
   // Style the tab bar
   CGFloat nRed = 235.0/255.0;

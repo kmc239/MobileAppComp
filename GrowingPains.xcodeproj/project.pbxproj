@@ -64,6 +64,7 @@
 		0885CF8C1613C71F00B357D1 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0885CF8A1613C71F00B357D1 /* MainStoryboard.storyboard */; };
 		08A361201655F4730091B357 /* cutebaby.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 08A3611F1655F4730091B357 /* cutebaby.jpeg */; };
 		08A5CDE91671B4DF00B874F8 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A5CDE81671B4DF00B874F8 /* placeholder.png */; };
+		08A73A9416B6362F00BB2109 /* UIViewController+NavBarSetup.m in Sources */ = {isa = PBXBuildFile; fileRef = 08A73A9316B6362F00BB2109 /* UIViewController+NavBarSetup.m */; };
 		08D126A41638F54D00AD9977 /* GPTimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D126A31638F54D00AD9977 /* GPTimelineViewController.m */; };
 		08D126AD1638FCC000AD9977 /* GPCreateJournalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08D126AC1638FCC000AD9977 /* GPCreateJournalViewController.m */; };
 		341669FC1664453D0045484F /* GPJournalTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 341669FB1664453D0045484F /* GPJournalTabBarController.m */; };
@@ -199,6 +200,8 @@
 		0885CF8B1613C71F00B357D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		08A3611F1655F4730091B357 /* cutebaby.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cutebaby.jpeg; sourceTree = "<group>"; };
 		08A5CDE81671B4DF00B874F8 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
+		08A73A9216B6362E00BB2109 /* UIViewController+NavBarSetup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+NavBarSetup.h"; sourceTree = "<group>"; };
+		08A73A9316B6362F00BB2109 /* UIViewController+NavBarSetup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+NavBarSetup.m"; sourceTree = "<group>"; };
 		08D126A21638F54D00AD9977 /* GPTimelineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPTimelineViewController.h; path = GrowingPains/GPTimelineViewController.h; sourceTree = "<group>"; };
 		08D126A31638F54D00AD9977 /* GPTimelineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPTimelineViewController.m; path = GrowingPains/GPTimelineViewController.m; sourceTree = "<group>"; };
 		08D126AB1638FCC000AD9977 /* GPCreateJournalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPCreateJournalViewController.h; path = GrowingPains/GPCreateJournalViewController.h; sourceTree = "<group>"; };
@@ -364,6 +367,8 @@
 				3450DF1A16576A41005F0A61 /* GPCreateEntryViewController.m */,
 				08590E7416669940004EEE62 /* GPEntryViewController.h */,
 				08590E7516669941004EEE62 /* GPEntryViewController.m */,
+				08A73A9216B6362E00BB2109 /* UIViewController+NavBarSetup.h */,
+				08A73A9316B6362F00BB2109 /* UIViewController+NavBarSetup.m */,
 			);
 			name = Controllers;
 			path = ..;
@@ -601,6 +606,7 @@
 				08590E7616669943004EEE62 /* GPEntryViewController.m in Sources */,
 				087B663A1668C2BE00E5D840 /* GPGreenButton.m in Sources */,
 				08441E30168EE7E500DB2E94 /* GPMidsize.m in Sources */,
+				08A73A9416B6362F00BB2109 /* UIViewController+NavBarSetup.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -22,6 +22,7 @@
 "CANCEL_BUTTON_TITLE" = "OK";
 "GENERIC_ERROR_HEADING" = "Error";
 "SETTINGS" = "Settings";
+"APP_NAME" = "Growing Pains";
 
 // Login
 "LOGIN" = "Login";

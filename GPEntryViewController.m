@@ -11,6 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import <RestKit/RestKit.h>
 #import "Twitter/TWTweetComposeViewController.h"
+#import "UIViewController+NavBarSetup.h"
 
 @interface GPEntryViewController ()
 
@@ -25,6 +26,9 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
+  
+  // Setup back button
+  [self setupBackButton:self.navigationItem];
   
   // Set custom font for title
   [GPHelpers setCustomFontsForTitle:NSLocalizedString(@"ENTRY", nil) forViewController:self];

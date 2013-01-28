@@ -12,6 +12,7 @@
 #import "GPModels.h"
 #import "GPUserSingleton.h"
 #import "GPJournalTabBarController.h"
+#import "UIViewController+NavBarSetup.h"
 
 @interface GPHomeScreenViewController ()
 
@@ -28,13 +29,8 @@
 {
   [super viewDidLoad];
   
-  // Set the back button title
-  UIBarButtonItem *backButton = [[UIBarButtonItem alloc]
-                                 initWithTitle: @"Back"
-                                 style: UIBarButtonItemStyleBordered
-                                 target: nil action: nil];
-  
-  [self.navigationItem setBackBarButtonItem: backButton];
+  // Setup back button
+  [self setupBackButton:self.navigationItem];
   
   // Set the settings button to an admin cog
   UIBarButtonItem *cogItem = [[UIBarButtonItem alloc] initWithTitle:@""
@@ -44,7 +40,7 @@
   [self.navigationItem setLeftBarButtonItem:cogItem];
 
   // Set custom font for title
-  [GPHelpers setCustomFontsForTitle:NSLocalizedString(@"JOURNALS", nil) forViewController:self];
+  [GPHelpers setCustomFontsForTitle:NSLocalizedString(@"APP_NAME", nil) forViewController:self];
   
   [self.tableView setRowHeight:130];
   [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];

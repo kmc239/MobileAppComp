@@ -15,6 +15,7 @@
 #import "GPConstants.h"
 #import "DejalActivityView.h"
 #import "STKeychain.h"
+#import "UIViewController+NavBarSetup.h"
 
 @interface GPLoginViewController ()
 
@@ -23,15 +24,6 @@
 @implementation GPLoginViewController
 
 @synthesize _scrollView, _email, _password, _titleLabel;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-  self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-  if (self) {
-    // Custom initialization
-  }
-  return self;
-}
 
 - (void)viewDidLoad
 {
@@ -51,13 +43,8 @@
   
   self.navigationController.navigationBar.tintColor = greenTint;
 
-  // Set the back button title
-  UIBarButtonItem *backButton = [[UIBarButtonItem alloc]
-                                 initWithTitle: @"Back"
-                                 style: UIBarButtonItemStyleBordered
-                                 target: nil action: nil];
-  
-  [self.navigationItem setBackBarButtonItem: backButton];
+  // Setup back button for subsequent VCs
+  [self setupBackButton:self.navigationItem];
   
   // Set custom font
   [self._titleLabel setFont:[UIFont fontWithName:@"Sanchez-Regular" size:self._titleLabel.font.pointSize]];

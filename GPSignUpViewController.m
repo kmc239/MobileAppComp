@@ -24,9 +24,8 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-	// Do any additional setup after loading the view.
   
-  [GPHelpers setCustomFontsForTitle:NSLocalizedString(@"SIGNUP", nil) forViewController:self];
+  [GPHelpers setCustomFontsForTitle:NSLocalizedString(@"APP_NAME", nil) forViewController:self];
   
   // Close keyboard when user taps outside of a UITextField
   UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]

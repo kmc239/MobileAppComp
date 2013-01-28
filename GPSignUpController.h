@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <RestKit/RestKit.h>
 
-@interface GPSignUpViewController : UIViewController <UITextFieldDelegate, RKObjectLoaderDelegate, RKRequestDelegate, UIAlertViewDelegate>
+@interface GPSignUpController : UIViewController <UITextFieldDelegate, RKObjectLoaderDelegate, RKRequestDelegate, UIAlertViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *name;
 @property (strong, nonatomic) IBOutlet UITextField *email;

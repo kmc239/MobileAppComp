@@ -6,18 +6,18 @@
 //  Copyright (c) 2012 Kyle Clegg. All rights reserved.
 //
 
-#import "GPSignUpViewController.h"
+#import "GPSignUpController.h"
 #import "GPUserSingleton.h"
 #import "GPModels.h"
 #import "GPHelpers.h"
 
 #define CREATED_TAG 99
 
-@interface GPSignUpViewController ()
+@interface GPSignUpController ()
 
 @end
 
-@implementation GPSignUpViewController
+@implementation GPSignUpController
 
 - (void)viewDidLoad
 {

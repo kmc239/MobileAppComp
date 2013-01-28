@@ -6,18 +6,18 @@
 //  Copyright (c) 2012 Kyle Clegg. All rights reserved.
 //
 
-#import "GPCreateJournalViewController.h"
+#import "GPCreateJournalController.h"
 #import "GPUserSingleton.h"
 #import "GPModels.h"
 #import "GPHelpers.h"
 
 #define CREATED_TAG 99
 
-@interface GPCreateJournalViewController ()
+@interface GPCreateJournalController ()
 
 @end
 
-@implementation GPCreateJournalViewController
+@implementation GPCreateJournalController
 
 @synthesize delegate;
 
@@ -28,7 +28,7 @@
   
   // Set custom fonts
   [self.whoForLabel setFont:[UIFont fontWithName:@"Sanchez-Regular" size:self.whoForLabel.font.pointSize]];
-  [GPHelpers setCustomFontsForTitle:NSLocalizedString(@"JOURNAL_CREATE", nil) forViewController:self];
+  [GPHelpers setCustomFontsForTitle:NSLocalizedString(@"APP_NAME", nil) forViewController:self];
   
   // Close keyboard when user taps outside of a UITextField
   UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]

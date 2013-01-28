@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Kyle Clegg. All rights reserved.
 //
 
-#import "GPHomeScreenViewController.h"
+#import "GPHomeScreenController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "GPHelpers.h"
 #import "GPModels.h"
@@ -14,13 +14,13 @@
 #import "GPJournalTabBarController.h"
 #import "UIViewController+NavBarSetup.h"
 
-@interface GPHomeScreenViewController ()
+@interface GPHomeScreenController ()
 
 @property (strong, nonatomic) NSString *jsonJournals;
 
 @end
 
-@implementation GPHomeScreenViewController
+@implementation GPHomeScreenController
 
 - (void)viewDidLoad
 {
@@ -64,7 +64,7 @@
   
   // Set the delegate on the next view controller
   if ([segue.identifier isEqualToString:@"Add Journal"]) {
-    GPCreateJournalViewController *createJournalController = segue.destinationViewController;
+    GPCreateJournalController *createJournalController = segue.destinationViewController;
     createJournalController.delegate = self;
   }
 }

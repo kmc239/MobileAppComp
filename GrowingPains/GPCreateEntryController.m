@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Kyle Clegg. All rights reserved.
 //
 
-#import "GPCreateEntryViewController.h"
+#import "GPCreateEntryController.h"
 #import <MobileCoreServices/UTCoreTypes.h>
 #import "GPEntry.h"
 #import "GPHelpers.h"
@@ -14,11 +14,11 @@
 
 #define CREATED_TAG 99
 
-@interface GPCreateEntryViewController ()
+@interface GPCreateEntryController ()
 
 @end
 
-@implementation GPCreateEntryViewController
+@implementation GPCreateEntryController
 
 #define kAcceptableEntryDescriptionLength 140
 

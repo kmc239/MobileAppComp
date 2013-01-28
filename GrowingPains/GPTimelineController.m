@@ -6,20 +6,20 @@
 //  Copyright (c) 2012 Kyle Clegg. All rights reserved.
 //
 
-#import "GPTimelineViewController.h"
+#import "GPTimelineController.h"
 #import <RestKit/RestKit.h>
 #import "GPUserSingleton.h"
 #import "GPHelpers.h"
 #import "GPEntries.h"
 #import <QuartzCore/QuartzCore.h>
-#import "GPCreateEntryViewController.h"
-#import "GPEntryViewController.h"
+#import "GPCreateEntryController.h"
+#import "GPViewEntryController.h"
 
-@interface GPTimelineViewController ()
+@interface GPTimelineController ()
 
 @end
 
-@implementation GPTimelineViewController
+@implementation GPTimelineController
 
 - (void)viewDidLoad
 {
@@ -48,7 +48,7 @@
   {
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
     GPEntry *currentEntry = [self.entriesFromServer objectAtIndex:indexPath.row];
-    GPEntryViewController *entryController = segue.destinationViewController;
+    GPViewEntryController *entryController = segue.destinationViewController;
     entryController.currentEntry = currentEntry;
   }
 }

@@ -6,18 +6,18 @@
 //  Copyright (c) 2012 Kyle Clegg. All rights reserved.
 //
 
-#import "GPEntryViewController.h"
+#import "GPViewEntryController.h"
 #import "GPHelpers.h"
 #import <QuartzCore/QuartzCore.h>
 #import <RestKit/RestKit.h>
 #import "Twitter/TWTweetComposeViewController.h"
 #import "UIViewController+NavBarSetup.h"
 
-@interface GPEntryViewController ()
+@interface GPViewEntryController ()
 
 @end
 
-@implementation GPEntryViewController 
+@implementation GPViewEntryController 
 
 - (void)viewDidLoad
 {

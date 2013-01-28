@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "GPEntry.h"
 
-@interface GPEntryViewController : UIViewController
+@interface GPViewEntryController : UIViewController
 
 @property (nonatomic, strong) GPEntry *currentEntry;
 @property (nonatomic, strong) IBOutlet UIImageView *entryPicture;

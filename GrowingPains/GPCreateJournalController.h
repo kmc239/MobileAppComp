@@ -17,7 +17,7 @@
 
 @end
 
-@interface GPCreateJournalViewController : UIViewController <UITextFieldDelegate, RKObjectLoaderDelegate, RKRequestDelegate, UIAlertViewDelegate>
+@interface GPCreateJournalController : UIViewController <UITextFieldDelegate, RKObjectLoaderDelegate, RKRequestDelegate, UIAlertViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UILabel *whoForLabel;
 @property (nonatomic, strong) IBOutlet UITextField *name;

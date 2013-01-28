@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GPSettingsViewController : UIViewController
+@interface GPSettingsController : UIViewController
+
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *emailLabel;
 @property (strong, nonatomic) IBOutlet UILabel *nameTitleLabel;

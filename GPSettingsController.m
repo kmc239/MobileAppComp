@@ -6,17 +6,17 @@
 //  Copyright (c) 2012 Kyle Clegg. All rights reserved.
 //
 
-#import "GPSettingsViewController.h"
+#import "GPSettingsController.h"
 #import "GPUserSingleton.h"
 #import "STKeychain.h"
 #import "GPConstants.h"
 #import "GPHelpers.h"
 
-@interface GPSettingsViewController ()
+@interface GPSettingsController ()
 
 @end
 
-@implementation GPSettingsViewController
+@implementation GPSettingsController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

@@ -7,9 +7,9 @@
 //
 
 #import "GPJournalTabBarController.h"
-#import "GPTimelineViewController.h"
+#import "GPTimelineController.h"
 #import "GPHelpers.h"
-#import "GPCreateEntryViewController.h"
+#import "GPCreateEntryController.h"
 #import "UIViewController+NavBarSetup.h"
 
 @interface GPJournalTabBarController ()
@@ -20,7 +20,7 @@
 
 - (void)viewDidLoad
 {
-  GPTimelineViewController *timelineController = (GPTimelineViewController *) [self.viewControllers objectAtIndex:0];
+  GPTimelineController *timelineController = (GPTimelineController *) [self.viewControllers objectAtIndex:0];
   timelineController.currentJournalId = self.currentJournalId;
   
   // Set custom font for title
@@ -44,7 +44,7 @@
 {
   if ([segue.identifier isEqualToString:@"Create Entry"])
   {
-    GPCreateEntryViewController *entryController = segue.destinationViewController;
+    GPCreateEntryController *entryController = segue.destinationViewController;
     entryController.currentJournalId = self.currentJournalId;
     
     NSLog(@"current journal id is %i", self.currentJournalId);

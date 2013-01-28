@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <RestKit/RestKit.h>
-#import "GPCreateJournalViewController.h"
+#import "GPCreateJournalController.h"
 
-@interface GPHomeScreenViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, RKRequestDelegate, RKObjectLoaderDelegate, GPCreateJournalViewControllerDelegate>
+@interface GPHomeScreenController : UITableViewController <UITableViewDelegate, UITableViewDataSource, RKRequestDelegate, RKObjectLoaderDelegate, GPCreateJournalViewControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 

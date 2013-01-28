@@ -8,7 +8,7 @@
 
 #import <RestKit/RKRequestSerialization.h>
 #import <RestKit/RKJSONParserJSONKit.h>
-#import "GPLoginViewController.h"
+#import "GPLoginController.h"
 #import "GPModels.h"
 #import "GPUserSingleton.h"
 #import "GPHelpers.h"
@@ -17,11 +17,11 @@
 #import "STKeychain.h"
 #import "UIViewController+NavBarSetup.h"
 
-@interface GPLoginViewController ()
+@interface GPLoginController ()
 
 @end
 
-@implementation GPLoginViewController
+@implementation GPLoginController
 
 - (void)viewDidLoad
 {

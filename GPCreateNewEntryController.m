@@ -69,18 +69,18 @@
   if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
   {
     [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
+    [imagePicker setCameraDevice:UIImagePickerControllerCameraDeviceRear];
+    [imagePicker setAllowsEditing:YES];
   }
   else
   {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Camera Error", nil)
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Camera Unavailable", nil)
                                                     message:@""
                                                    delegate:self
                                           cancelButtonTitle:@"OK"
                                           otherButtonTitles:nil, nil];
     [alert show];
   }
-  [imagePicker setCameraDevice:UIImagePickerControllerCameraDeviceRear];
-  [imagePicker setAllowsEditing:YES];
   [imagePicker setDelegate:self];
   [self presentViewController:imagePicker animated:animated completion:nil];
 }

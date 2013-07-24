@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		080F039B16AD17040022D698 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 080F039A16AD17040022D698 /* Twitter.framework */; };
 		08441E30168EE7E500DB2E94 /* GPMidsize.m in Sources */ = {isa = PBXBuildFile; fileRef = 08441E2F168EE7E500DB2E94 /* GPMidsize.m */; };
 		08590E0A16650367004EEE62 /* DejalActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = 08590E0916650358004EEE62 /* DejalActivityView.m */; };
 		08590E2C1665D470004EEE62 /* GPSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08590E2B1665D470004EEE62 /* GPSettingsController.m */; };
@@ -73,6 +72,7 @@
 		34166A2C1664AD8F0045484F /* GPThumbnail.m in Sources */ = {isa = PBXBuildFile; fileRef = 34166A2B1664AD8E0045484F /* GPThumbnail.m */; };
 		34486A421654B8D00059CA8C /* GPHomeScreenController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34486A411654B8D00059CA8C /* GPHomeScreenController.m */; };
 		3450DF1B16576A41005F0A61 /* GPCreateEntryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3450DF1A16576A41005F0A61 /* GPCreateEntryController.m */; };
+		34657C5917A05A7600F7A9FB /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34657C5817A05A7600F7A9FB /* Social.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -218,6 +218,7 @@
 		34486A411654B8D00059CA8C /* GPHomeScreenController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPHomeScreenController.m; path = GrowingPains/GPHomeScreenController.m; sourceTree = "<group>"; };
 		3450DF1916576A41005F0A61 /* GPCreateEntryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPCreateEntryController.h; path = GrowingPains/GPCreateEntryController.h; sourceTree = "<group>"; };
 		3450DF1A16576A41005F0A61 /* GPCreateEntryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GPCreateEntryController.m; path = GrowingPains/GPCreateEntryController.m; sourceTree = "<group>"; };
+		34657C5817A05A7600F7A9FB /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,7 +226,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				080F039B16AD17040022D698 /* Twitter.framework in Frameworks */,
+				34657C5917A05A7600F7A9FB /* Social.framework in Frameworks */,
 				087EC509165F8620009E58B0 /* libRestKit.a in Frameworks */,
 				08848EAD165AEEB000F0EE69 /* CFNetwork.framework in Frameworks */,
 				08848EAE165AEEB000F0EE69 /* CoreData.framework in Frameworks */,
@@ -373,6 +374,7 @@
 		0885CF631613C71F00B357D1 = {
 			isa = PBXGroup;
 			children = (
+				34657C5817A05A7600F7A9FB /* Social.framework */,
 				087EC4F2165F856C009E58B0 /* RestKit.xcodeproj */,
 				0885CF781613C71F00B357D1 /* GrowingPains */,
 				0885CF711613C71F00B357D1 /* Frameworks */,

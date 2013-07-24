@@ -11,6 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import <RestKit/RestKit.h>
 #import "Twitter/TWTweetComposeViewController.h"
+#import <Social/Social.h>
 #import "UIViewController+NavBarSetup.h"
 
 @interface GPViewEntryController ()
@@ -44,44 +45,77 @@
 
 - (IBAction)twitterShare:(id)sender
 {
-  Class tweeterClass = NSClassFromString(@"TWTweetComposeViewController");
-  
-  if(tweeterClass != nil) {   // check for Twitter integration
-    
-    // check Twitter accessibility and at least one account is setup
-    if([TWTweetComposeViewController canSendTweet]) {
-      
+  if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"6.0")) {
+    if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter]) {
       UIGraphicsBeginImageContextWithOptions(self.entryPicture.bounds.size, NO, 0.0);
       [self.entryPicture.image drawInRect:CGRectMake(0, 0, self.entryPicture.frame.size.width, self.entryPicture.frame.size.height)];
       UIImage *SaveImage = UIGraphicsGetImageFromCurrentImageContext();
       UIGraphicsEndImageContext();
       
-      TWTweetComposeViewController *tweetViewController = [[TWTweetComposeViewController alloc] init];
-      [tweetViewController setInitialText:[NSString stringWithFormat:@"%@ - day 16 via @growingpainsapp", self.currentEntry.description]];
+      SLComposeViewController *tweetVC = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
+      [tweetVC setInitialText:[NSString stringWithFormat:@"%@ - day ## via @growingpainsapp", self.currentEntry.description]];
       
       // add image
-      [tweetViewController addImage:SaveImage];
-      tweetViewController.completionHandler = ^(TWTweetComposeViewControllerResult result) {
-        
-        if(result == TWTweetComposeViewControllerResultDone) {
+      [tweetVC addImage:SaveImage];
+      tweetVC.completionHandler = ^(SLComposeViewControllerResult result) {
+        if(result == SLComposeViewControllerResultDone) {
           DLog(@"Tweet Sent");
-        } else if(result == TWTweetComposeViewControllerResultCancelled) {
+        } else if(result == SLComposeViewControllerResultCancelled) {
           DLog(@"Tweet Cancelled");
         }
         [self dismissViewControllerAnimated:YES completion:nil];
       };
       
-      [self presentViewController:tweetViewController animated:YES completion:nil];
-      
-    }
-    else {
-      UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry" message:@"You can't send a tweet right now, make sure you have at least one Twitter account setup" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+      [self presentViewController:tweetVC animated:YES completion:nil];
+    } else {
+      UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Twitter Fail" message:@"You can't send a tweet right now. Make sure you have at least one Twitter account setup." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
       [alertView show];
     }
   } else {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry" message:@"You must upgrade to iOS 5 in order to send tweets from Growing Pains" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Twitter Fail" message:@"You must upgrade to iOS 6 to send tweets." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [alertView show];
   }
+  
+  /////////////////////////
+  
+//  Class tweeterClass = NSClassFromString(@"TWTweetComposeViewController");
+//  
+//  if(tweeterClass != nil) {   // check for Twitter integration
+//    
+//    // check Twitter accessibility and at least one account is setup
+//    if([TWTweetComposeViewController canSendTweet]) {
+//      
+//      UIGraphicsBeginImageContextWithOptions(self.entryPicture.bounds.size, NO, 0.0);
+//      [self.entryPicture.image drawInRect:CGRectMake(0, 0, self.entryPicture.frame.size.width, self.entryPicture.frame.size.height)];
+//      UIImage *SaveImage = UIGraphicsGetImageFromCurrentImageContext();
+//      UIGraphicsEndImageContext();
+//      
+//      TWTweetComposeViewController *tweetViewController = [[TWTweetComposeViewController alloc] init];
+//      [tweetViewController setInitialText:[NSString stringWithFormat:@"%@ - day 16 via @growingpainsapp", self.currentEntry.description]];
+//      
+//      // add image
+//      [tweetViewController addImage:SaveImage];
+//      tweetViewController.completionHandler = ^(TWTweetComposeViewControllerResult result) {
+//        
+//        if(result == TWTweetComposeViewControllerResultDone) {
+//          DLog(@"Tweet Sent");
+//        } else if(result == TWTweetComposeViewControllerResultCancelled) {
+//          DLog(@"Tweet Cancelled");
+//        }
+//        [self dismissViewControllerAnimated:YES completion:nil];
+//      };
+//      
+//      [self presentViewController:tweetViewController animated:YES completion:nil];
+//      
+//    }
+//    else {
+//      UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry" message:@"You can't send a tweet right now, make sure you have at least one Twitter account setup" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//      [alertView show];
+//    }
+//  } else {
+//    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Sorry" message:@"You must upgrade to iOS 5 in order to send tweets from Growing Pains" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//    [alertView show];
+//  }
 }
 
 - (IBAction)facebookShare:(id)sender
